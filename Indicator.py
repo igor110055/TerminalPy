@@ -1,4 +1,4 @@
-import math
+#import math
 from AveragePrice import Average
 from OHLC_data import ohlc
 import talib

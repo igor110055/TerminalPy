@@ -31,4 +31,4 @@ for element in talib.AVGPRICE(open,high,low,close).tolist():
     Average[1].append(element)
     
 
-print(Average)
+# print(Average)

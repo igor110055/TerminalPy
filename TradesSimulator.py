@@ -1,5 +1,4 @@
 #Import Strategy
-from AppendDatePrice import AppendDatePrice
 import MACrossings
 import Indicator
 from AppendDatePrice import AppendDatePrice
