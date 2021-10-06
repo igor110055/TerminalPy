@@ -1,4 +1,4 @@
-import OHLC_data
+import OHLC_data_CCXT
 import talib as talib
 import numpy
  
@@ -9,7 +9,7 @@ lo = []
 cl = [] 
 
 #pushing data into lists
-for element in OHLC_data.ohlc:
+for element in OHLC_data_CCXT.ohlc:
     op.append(element[1])
     hi.append(element[1])
     lo.append(element[1])

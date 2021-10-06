@@ -1,4 +1,4 @@
-from OHLC_data import ohlc
+from OHLC_data_CCXT import ohlc
 import math
 
 def AppendDatePrice(IndicatorData):

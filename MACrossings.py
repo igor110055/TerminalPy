@@ -1,7 +1,7 @@
-from math import log
-import Indicator
+#from math import log
+import IndicatorWDate
 from getRidofNan import delNan
-from AppendDatePrice import AppendDatePrice
+#from AppendDatePrice import AppendDatePrice
 
 def SMAtoSMACompare(MARange1, MARange2):
     #Compare two MA Ranges and filtering the min and max value
@@ -14,10 +14,13 @@ def SMAtoSMACompare(MARange1, MARange2):
 
     #Get historical MA Values 
     #and deleting all nan values from the data list
-    RangeValueMin = delNan(Indicator.SMA(RangeMin))
-    RangeValueMax = delNan(Indicator.SMA(RangeMax))
-    # RangeValueMin = AppendDatePrice( delNan (Indicator.SMA(RangeMin) ) )
-    # RangeValueMax = AppendDatePrice( delNan (Indicator.SMA(RangeMax) ) )
+    RangeValueMinWnan = IndicatorWDate.SMA(RangeMin)
+    RangeValueMin = delNan(RangeValueMinWnan[0])
+    
+    RangeValueMaxWnan = IndicatorWDate.SMA(RangeMax)
+    RangeValueMax = delNan(RangeValueMaxWnan[0])
+    # RangeValueMin = AppendDatePrice( delNan (IndicatorWDate.SMA(RangeMin) ) )
+    # RangeValueMax = AppendDatePrice( delNan (IndicatorWDate.SMA(RangeMax) ) )
 
     #The Dict we return
     globalReturn = {
@@ -51,8 +54,8 @@ def SMAtoSMACompare(MARange1, MARange2):
             #Listens to wether a MA Crossing occours
             if (changeWatcher[0] != changeWatcher[1]):
                 #Data needs to be supplied from Indicator function
-                #globalReturn['time'].append(RangeValueMax.time[element])
-                #globalReturn['AssetValue'].append((RangeValueMin.value[element + difference] + RangeValueMax[element])/2)
+                globalReturn['time'].append(RangeValueMaxWnan[1][ind + difference])
+                globalReturn['AssetValue'].append(RangeValueMaxWnan[2][ind + difference])
                 
                 globalReturn['MAMin']['value'].append(RangeValueMin[ind + difference])
                 globalReturn['MAMax']['value'].append(RangeValueMax[ind])
