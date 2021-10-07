@@ -1,5 +1,8 @@
+import sys
+sys.path.insert(0, '/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
+
 #from math import log
-import IndicatorWDate
+import Indicator
 from getRidofNan import delNan
 #from AppendDatePrice import AppendDatePrice
 
@@ -14,13 +17,13 @@ def SMAtoSMACompare(MARange1, MARange2):
 
     #Get historical MA Values 
     #and deleting all nan values from the data list
-    RangeValueMinWnan = IndicatorWDate.SMA(RangeMin)
+    RangeValueMinWnan = Indicator.SMA(RangeMin)
     RangeValueMin = delNan(RangeValueMinWnan[0])
     
-    RangeValueMaxWnan = IndicatorWDate.SMA(RangeMax)
+    RangeValueMaxWnan = Indicator.SMA(RangeMax)
     RangeValueMax = delNan(RangeValueMaxWnan[0])
-    # RangeValueMin = AppendDatePrice( delNan (IndicatorWDate.SMA(RangeMin) ) )
-    # RangeValueMax = AppendDatePrice( delNan (IndicatorWDate.SMA(RangeMax) ) )
+    # RangeValueMin = AppendDatePrice( delNan (Indicator.SMA(RangeMin) ) )
+    # RangeValueMax = AppendDatePrice( delNan (Indicator.SMA(RangeMax) ) )
 
     #The Dict we return
     globalReturn = {
@@ -66,7 +69,4 @@ def SMAtoSMACompare(MARange1, MARange2):
                 else:
                     globalReturn['MAonTop'].append(RangeMax)
                 
-    print(globalReturn)
     return globalReturn; 
-
-SMAtoSMACompare(5,10)

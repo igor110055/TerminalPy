@@ -1,42 +1,38 @@
+TradeCash = [200]
+
+def buy(volatility):
+    collateral = TradeCash[-1]
+    VolatilityPercentage = (collateral/100)*(volatility)
+    collateral = collateral + VolatilityPercentage
+    TradeCash.append(collateral)
+
+
+def sell(volatility):
+    collateral = TradeCash[-1]
+    VolatilityPercentage = (collateral/100)*(volatility * (-1))
+    collateral = collateral + VolatilityPercentage
+    TradeCash.append(collateral)
+  
+
 #Zu nem Object Umschreinben
 # class Trade:
 
 #     def __init__(self,Cash):
-#         self.tradeCash = [Cash]
+#         self.TradeCash = [Cash]
 
 #     def buy(self, volatility):
-#         collateral = self.tradeCash[-1]
+#         collateral = self.TradeCash[-1]
 #         VolatilityPercentage = (collateral/100)*(volatility)
 #         collateral = collateral + VolatilityPercentage
-#         self.tradeCash.append(collateral)
-#         print(self.tradeCash)
+#         self.TradeCash.append(collateral)
+#         print(self.TradeCash)#TradeData['AssetValue'].append
 
 #     def sell(self,volatility):
-#         collateral = self.tradeCash[-1]
+#         collateral = self.TradeCash[-1]
 #         VolatilityPercentage = (collateral/100)*(volatility * (-1))
 #         collateral = collateral + VolatilityPercentage
-#         self.tradeCash.append(collateral)
-#         print(self.tradeCash)
+#         self.TradeCash.append(collateral)
+#         print(self.TradeCash)#TradeData['AssetValue'].append
 
 
-
-
-#def trade(Cash):
-
-#tradeCash = [Cash]
-tradeCash = [200]
-
-def buy(volatility):
-    collateral = tradeCash[-1]
-    VolatilityPercentage = (collateral/100)*(volatility)
-    collateral = collateral + VolatilityPercentage
-    tradeCash.append(collateral)
-    print('buy: ',tradeCash)
-
-def sell(volatility):
-    collateral = tradeCash[-1]
-    VolatilityPercentage = (collateral/100)*(volatility * (-1))
-    collateral = collateral + VolatilityPercentage
-    tradeCash.append(collateral)
-    print('sell: ',tradeCash)
 

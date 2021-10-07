@@ -1,24 +1,22 @@
+import sys
+sys.path.insert(0, '/home/hackerboi/Dokumente/python/TerminalPy/Server')
+
 #Import Dependencies
 import numpy
 from Api import Server
 
 #Import Price Data
-from AveragePrice import Average
-from OHLC_data import ohlc
+sys.path.insert(0, '/home/hackerboi/Dokumente/python/TerminalPy/PriceData')
 
 #Import Indicators (TA-Lib)
+sys.path.insert(2, '/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
 import Indicator
 
 #Import Strategies
+#get Strategies Output
 
-#Initalize Indicators and convert it to a list
-RSI30 = Indicator.RSI(30)
+#Import Simulator
+#get Simulator Output
 
-
-#Put all indicators into a dict 
-Indicators = {
-    'RSI30': RSI30 
-}
-
-# Server(ohlc, Indicators)
+# Server(ohlc, Indicators, Simulator)
 
