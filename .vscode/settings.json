@@ -3,6 +3,7 @@
         "./Indicators",
         "./PriceData",
         "./Server",
-        "./Strategies"
+        "./Strategies",
+        "./Simulator"
     ]
 }
