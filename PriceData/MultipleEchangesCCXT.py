@@ -233,10 +233,6 @@ ccxt.zaif(),
 ccxt.zb()
 ]
 
-for i in exchange_execss:
-    f = i
-    print(f)
-
 
 for i in exchanges:
     f = getattr(ccxt, i)

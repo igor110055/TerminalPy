@@ -12,9 +12,9 @@ def Simulator(Strategy):
     for element in PriceDifference:
         #Load Strategy in here and give every output signal a buy or a sell
         if Strategy['MAonTop'] == 5:
-            SimulatorEngine.sell(element)
-        else:
             SimulatorEngine.buy(element)
+        else:
+            SimulatorEngine.sell(element)
 
     #Adding the TradeCash key/value Pair 
     Strategy['TradeCash'] = SimulatorEngine.TradeCash
