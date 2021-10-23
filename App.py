@@ -16,7 +16,7 @@ PriceData = AveragePrice(CandleSticks)
 sys.path.insert(2,'/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
 import Indicator
 from Visualize_SMA import visualize_SMA
-SMA_visualize = visualize_SMA(PriceData, 69)
+SMA5_to_Visualize = visualize_SMA(PriceData, 5)
 
 #Import Strategies
 sys.path.insert(3,'/home/hackerboi/Dokumente/python/TerminalPy/Strategies')
@@ -31,5 +31,5 @@ Simulation = Simulator(SMA5vs10)
 #Import Api-Server
 sys.path.insert(5,'/home/hackerboi/Dokumente/python/TerminalPy/Server')
 from Api import Server
-Server(CandleSticks, SMA_visualize, Simulation)
+Server(CandleSticks, SMA5_to_Visualize, Simulation)
 
