@@ -1,6 +1,5 @@
 import sys
 
-from numpy import NaN
 sys.path.insert(2,'/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
 import Indicator
 from getRidofNan import delNan
@@ -8,9 +7,13 @@ from getRidofNan import delNan
 def visualize_SMA(PriceData,Timeframe):
     indicatorWithNanValues = delNan(Indicator.SMA(PriceData, Timeframe)[0])
     
-    for element in PriceData:
-        if PriceData.index(element) >= Timeframe:
-            break
+    for element in PriceData[0]:
+        if PriceData[0].index(element) < (Timeframe - 1):
+            PriceData[0].remove(element)
             
-    to_Visualize = [indicatorWithNanValues,PriceData[0]]
+    to_Visualize = {
+        'time': PriceData[0],
+        'value':indicatorWithNanValues
+    }
+
     return to_Visualize

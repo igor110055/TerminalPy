@@ -23,6 +23,7 @@ sys.path.insert(3,'/home/hackerboi/Dokumente/python/TerminalPy/Strategies')
 from MACrossings import SMAtoSMACompare
 SMA5vs10 = SMAtoSMACompare(5,10, Indicator.SMA, PriceData)
 
+
 #Import Simulator
 sys.path.insert(4,'/home/hackerboi/Dokumente/python/TerminalPy/Simulator')
 from Runtime import Simulator
@@ -31,5 +32,5 @@ Simulation = Simulator(SMA5vs10)
 #Import Api-Server
 sys.path.insert(5,'/home/hackerboi/Dokumente/python/TerminalPy/Server')
 from Api import Server
-Server(CandleSticks, SMA5_to_Visualize, Simulation)
+# Server(CandleSticks, SMA5_to_Visualize, Simulation)
 
