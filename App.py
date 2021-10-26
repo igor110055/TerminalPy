@@ -32,5 +32,5 @@ Simulation = Simulator(SMA5vs10)
 #Import Api-Server
 sys.path.insert(5,'/home/hackerboi/Dokumente/python/TerminalPy/Server')
 from Api import Server
-# Server(CandleSticks, SMA5_to_Visualize, Simulation)
+Server(CandleSticks, SMA5_to_Visualize, Simulation)
 
