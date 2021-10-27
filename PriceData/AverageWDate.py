@@ -72,4 +72,4 @@ def AveragePrice(CandleData):
     return Average
     
 
-AveragePrice(OHLC_data_CCXT.ohlc)
+# AveragePrice(OHLC_data_CCXT.ohlc)

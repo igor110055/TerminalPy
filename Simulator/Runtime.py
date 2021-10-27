@@ -5,7 +5,7 @@ sys.path.insert(0, '/home/hackerboi/Dokumente/python/TerminalPy/Strategies')
 from PriceDiffenrence import PriceDiffPercent
 import SimulatorEngine
     
-def Sim(Strategy):
+def Simulator(Strategy):
     History = {
         'AssetPrice': Strategy['AssetValue'],
         'Cash': SimulatorEngine.Cash,
@@ -26,9 +26,9 @@ def Sim(Strategy):
                 'Direction': 'Long',
                 'Collateral': {
                     'Type': 'Asset',
-                    'Amount': SimulatorEngine.Asset[-1],
-                    'WorthInCash': value,
-                    'P/L': pnl[-1]
+                    'Amount': round(SimulatorEngine.Asset[-1], 8),
+                    'WorthInCash': round(value),
+                    'P/L': round(pnl[-1], 2)
                 }
             }
 
@@ -43,8 +43,8 @@ def Sim(Strategy):
                 'Direction': 'Short',
                 'Collateral': {
                     'Type': 'Cash',
-                    'Amount': SimulatorEngine.Cash[-1],
-                    'P/L': pnl[-1]
+                    'Amount': round(SimulatorEngine.Cash[-1]),
+                    'P/L': round(pnl[-1], 2)
                 }
             }
 

@@ -58,10 +58,10 @@ def SMAtoSMACompare(MARange1, MARange2, Indicat0r, PriceData):
             if (changeWatcher[0] != changeWatcher[1]):
                 #Data needs to be supplied from Indicator function
                 globalReturn['time'].append(RangeValueMaxWnan[1][ind + difference])
-                globalReturn['AssetValue'].append(RangeValueMaxWnan[2][ind + difference])
+                globalReturn['AssetValue'].append(round(RangeValueMaxWnan[2][ind + difference]))
                 
-                globalReturn['MAMin']['value'].append(RangeValueMin[ind + difference])
-                globalReturn['MAMax']['value'].append(RangeValueMax[ind])
+                globalReturn['MAMin']['value'].append(round(RangeValueMin[ind + difference]))
+                globalReturn['MAMax']['value'].append(round(RangeValueMax[ind]))
                 
                 #Log wich MA element is on top of the other
                 if (RangeValueMin[ind + difference] > RangeValueMax[ind]):

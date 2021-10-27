@@ -6,7 +6,7 @@ def sell(price):
     if collateral == 0:
         print('Cant sell')
     else:
-        CashAmount = collateral*price
+        CashAmount = round(collateral*price, 2)
         Cash.append(CashAmount)
 
 def buy(price):
@@ -14,7 +14,7 @@ def buy(price):
     if collateral == 0:
         print('Cant buy')
     else:
-        AssetAmount = collateral/price
+        AssetAmount = round(collateral/price, 8)
         Asset.append(AssetAmount)
 
 

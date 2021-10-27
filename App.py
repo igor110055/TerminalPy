@@ -28,7 +28,6 @@ SMA5vs10 = SMAtoSMACompare(5,10, Indicator.SMA, PriceData)
 sys.path.insert(4,'/home/hackerboi/Dokumente/python/TerminalPy/Simulator')
 from Runtime import Simulator
 Simulation = Simulator(SMA5vs10)
-print(Simulation)
 
 #Import Api-Server
 sys.path.insert(5,'/home/hackerboi/Dokumente/python/TerminalPy/Server')
