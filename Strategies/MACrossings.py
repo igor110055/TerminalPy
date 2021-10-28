@@ -57,8 +57,8 @@ def SMAtoSMACompare(MARange1, MARange2, Indicat0r, PriceData):
             #Listens to wether a MA Crossing occours
             if (changeWatcher[0] != changeWatcher[1]):
                 #Data needs to be supplied from Indicator function
-                globalReturn['time'].append(RangeValueMaxWnan[1][ind + difference])
-                globalReturn['AssetValue'].append(round(RangeValueMaxWnan[2][ind + difference]))
+                globalReturn['time'].append(RangeValueMin[ind + difference])
+                globalReturn['AssetValue'].append(round(RangeValueMin[ind + difference]))
                 
                 globalReturn['MAMin']['value'].append(round(RangeValueMin[ind + difference]))
                 globalReturn['MAMax']['value'].append(round(RangeValueMax[ind]))
