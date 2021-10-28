@@ -15,8 +15,10 @@ PriceData = AveragePrice(CandleSticks)
 #Import Indicators (TA-Lib) (For Frontend Visulisation Only)
 sys.path.insert(2,'/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
 import Indicator
+import Visualize_Indicators
 from Visualize_SMA import visualize_SMA
 SMA5_to_Visualize = visualize_SMA(PriceData, 5)
+RSI_to_Visualize = Visualize_Indicators.visualize_RSI(PriceData, 14)
 
 #Import Strategies
 sys.path.insert(3,'/home/hackerboi/Dokumente/python/TerminalPy/Strategies')
