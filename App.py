@@ -16,13 +16,16 @@ PriceData = AveragePrice(CandleSticks)
 sys.path.insert(2,'/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
 import Indicator
 import Visualize_Indicators
+sma5 = Indicator.SMA(PriceData, 5)
+sma10 = Indicator.SMA(PriceData, 5)
+
 SMA5_to_Visualize = Visualize_Indicators.visualize_SMA(PriceData, 5) 
 RSI_to_Visualize = Visualize_Indicators.visualize_RSI(PriceData, 14)
 
 #Import Strategies
 sys.path.insert(3,'/home/hackerboi/Dokumente/python/TerminalPy/Strategies')
 from MACrossings import SMAtoSMACompare
-SMA5vs10 = SMAtoSMACompare(5,10, Indicator.SMA, PriceData)
+SMA5vs10 = SMAtoSMACompare()
 
 
 #Import Simulator

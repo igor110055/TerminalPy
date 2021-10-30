@@ -2,28 +2,35 @@ import sys
 sys.path.insert(0, '/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
 
 #from math import log
-#import Indicator
+import Indicator
 from getRidofNan import delNan
-#from AppendDatePrice import AppendDatePrice
 
-def SMAtoSMACompare(MARange1, MARange2, Indicat0r, PriceData):
+def SMAtoSMACompare(MARange1, MARange2, PriceData):
     #Compare two MA Ranges and filtering the min and max value
     RangeMin = min(MARange1, MARange2)
     RangeMax = max(MARange1, MARange2)
 
-    # #Dummy Data Set
-    # RangeValueMin = [1,2,3,4,5,10,10,10,10,10,10,10,10,10,10,10,10]
-    # RangeValueMax =           [10,15,20,9,9,9,11,11,11,9,8,7]
+    # Get the Difference between two MA Ranges to match the output offset
+    difference = RangeMax-RangeMin
 
-    #Get historical MA Values 
+    # #Dummy Data Set
+    # RangeValueMin = [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]
+    # RangeValueMax =           [9,15,20,9,9,9,11,11,11,9,9,9]
+
+    #Get historical MA Values and Delete all NAN Values
+    RangeValueMinWnan = Indicator.SMA(PriceData,RangeMin)
+    RangeValueMaxWnan = Indicator.SMA(PriceData,RangeMax)
+
     #and deleting all nan values from the data list
-    RangeValueMinWnan = Indicat0r(PriceData,RangeMin)
-    RangeValueMin = delNan(RangeValueMinWnan[0])
+    RangeValueMin = [delNan(RangeValueMinWnan[0]),[]]
+    RangeValueMax = [delNan(RangeValueMaxWnan[0]),[]]
     
-    RangeValueMaxWnan = Indicat0r(PriceData,RangeMax)
-    RangeValueMax = delNan(RangeValueMaxWnan[0])
-    # RangeValueMin = AppendDatePrice( delNan (Indicat0r(RangeMin) ) )
-    # RangeValueMax = AppendDatePrice( delNan (Indicat0r(RangeMax) ) )
+    for element in range(RangeMin,len(PriceData[0])):
+        RangeValueMin[1].append(PriceData[0][element])
+        
+    for element in range(RangeMax,len(PriceData[0])):
+        RangeValueMax[1].append(PriceData[0][element])
+        
 
     #The Dict we return
     globalReturn = {
@@ -41,14 +48,15 @@ def SMAtoSMACompare(MARange1, MARange2, Indicat0r, PriceData):
     }
 
     changeWatcher = []
-    #Get the difference between min and max
-    difference = (max(MARange1, MARange2)-min(MARange1, MARange2))
 
-    for element in RangeValueMax:
-        ind = RangeValueMax.index(element)
+    for element in RangeValueMax[0]:
+        # Get the Index Number of each Element
+        index = RangeValueMax[0].index(element)
         
-        comp = RangeValueMin[ind + difference]>RangeValueMax[ind]
+        #Compare all values to each other
+        comp = RangeValueMin[0][index + difference] > RangeValueMax[0][index]
         changeWatcher.append(comp)
+
         #Make sure Changewatcher only has two entries a time
         if (len(changeWatcher) > 2):
             
@@ -57,14 +65,14 @@ def SMAtoSMACompare(MARange1, MARange2, Indicat0r, PriceData):
             #Listens to wether a MA Crossing occours
             if (changeWatcher[0] != changeWatcher[1]):
                 #Data needs to be supplied from Indicator function
-                globalReturn['time'].append(RangeValueMin[ind + difference])
-                globalReturn['AssetValue'].append(round(RangeValueMin[ind + difference]))
+                # globalReturn['time'].append(RangeValueMax[1][index])
+                # globalReturn['AssetValue'].append(round(PriceData[1][index + RangeMax]))
                 
-                globalReturn['MAMin']['value'].append(round(RangeValueMin[ind + difference]))
-                globalReturn['MAMax']['value'].append(round(RangeValueMax[ind]))
+                globalReturn['MAMin']['value'].append(round(RangeValueMin[0][index + difference]))
+                globalReturn['MAMax']['value'].append(round(RangeValueMax[0][index]))
                 
                 #Log wich MA element is on top of the other
-                if (RangeValueMin[ind + difference] > RangeValueMax[ind]):
+                if (RangeValueMin[0][index + difference] > RangeValueMax[0][index]):
                     globalReturn['MAonTop'].append(RangeMin)
                 else:
                     globalReturn['MAonTop'].append(RangeMax)

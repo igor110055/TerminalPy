@@ -1,8 +1,11 @@
 import sys
 sys.path.insert(0, '/home/hackerboi/Dokumente/python/TerminalPy/PriceData')
-
 import talib
 import numpy
+from getRidofNan import delNan
+
+
+
 
 def Price(Data):
     PriceMaker = numpy.array(Data[1])
@@ -11,7 +14,8 @@ def Price(Data):
 def SMA(PriceDaten,Range):
     _SMA = talib.SMA(Price(PriceDaten),Range).tolist()
     #return Indicator Value, Date, and the AssetPrice
-    return [_SMA,PriceDaten[0],PriceDaten[1]] 
+    returnList = [_SMA,PriceDaten[0],PriceDaten[1]]
+    return  returnList
 
 #Momentum Indicators
 
