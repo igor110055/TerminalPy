@@ -1,7 +1,7 @@
 import ccxt
 
 exchange = ccxt.binance()
-ohlc = exchange.fetch_ohlcv('BTCUSDT','1w')
+ohlc = exchange.fetch_ohlcv('BTCUSDT','1d')
 #print(ohlc)
 
 # def Candles(AssetPair,CandleSize,Exchange):
