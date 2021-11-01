@@ -27,8 +27,6 @@ def IndicatorsToFormate(dataSet):
     #Delete NaN Values from Indicators
     IndicatorDataSetWithoutNaN = delNan(dataSet[0])
     
-    
-
     Period = dataSet[3]
     #For Every element in the Second List of the DataSet we delete
     for element in dataSet[1]:

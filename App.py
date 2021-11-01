@@ -5,8 +5,10 @@ import sys
 
 #Import Candledata
 sys.path.insert(1,'/home/hackerboi/Dokumente/python/TerminalPy/PriceData')
-import OHLC_data_CCXT
-CandleSticks = OHLC_data_CCXT.ohlc
+# import OHLC_data_CCXT
+# CandleSticks = OHLC_data_CCXT.ohlc
+import PriceDataAsJson
+CandleSticks = PriceDataAsJson.formated
 
 #Import Formated Price Data
 from AverageWDate import AveragePrice
