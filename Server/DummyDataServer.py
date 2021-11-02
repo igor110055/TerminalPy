@@ -757,8 +757,7 @@ dummyRSI ={
         61,
         61
     ]}
-dummyOHLC ={
-  "OHLC": [
+dummyOHLC =[
     [
       1618531200000,
       63158.74,
@@ -2159,8 +2158,227 @@ dummyOHLC ={
       59405.0,
       62117.32
     ]
-  ]}
-dummySimulation = {}
+  ]
+dummySimulation = {
+
+    "AssetAmount": [
+      0.1,
+      0.19663247,
+      0.27193701,
+      0.50523448,
+      0.57021454,
+      0.72170735,
+      1.10743426,
+      1.13069614,
+      1.22258851,
+      2.07106752
+    ],
+    "AssetPrice": [
+      14948,
+      7602,
+      9046,
+      6541,
+      6616,
+      3561,
+      9995,
+      8856,
+      9385,
+      7415,
+      9862,
+      6427,
+      9284,
+      9093,
+      11575,
+      10705,
+      57984,
+      34229
+    ],
+    "Cash": [
+      10,
+      1494.8,
+      1778.74,
+      1799.14,
+      5049.82,
+      5351.46,
+      7117.48,
+      10281.42,
+      13087.81,
+      70890.57
+    ],
+    "Trades": [
+      {
+        "Collateral": {
+          "Amount": 1495,
+          "PnL": 0,
+          "Type": "Cash"
+        },
+        "Direction": "Short",
+        "Time": "2018-01-29T11:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 0.19663247,
+          "PnL": 0,
+          "Type": "Asset",
+          "WorthInCash": 1495
+        },
+        "Direction": "Long",
+        "Time": "2018-05-07T10:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 1779,
+          "PnL": 19,
+          "Type": "Cash"
+        },
+        "Direction": "Short",
+        "Time": "2018-06-04T10:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 0.27193701,
+          "PnL": 38,
+          "Type": "Asset",
+          "WorthInCash": 1779
+        },
+        "Direction": "Long",
+        "Time": "2018-07-30T10:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 1799,
+          "PnL": -70,
+          "Type": "Cash"
+        },
+        "Direction": "Short",
+        "Time": "2018-09-03T10:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 0.50523448,
+          "PnL": 86,
+          "Type": "Asset",
+          "WorthInCash": 1799
+        },
+        "Direction": "Long",
+        "Time": "2019-03-04T11:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 5050,
+          "PnL": 181,
+          "Type": "Cash"
+        },
+        "Direction": "Short",
+        "Time": "2019-08-19T10:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 0.57021454,
+          "PnL": 13,
+          "Type": "Asset",
+          "WorthInCash": 5050
+        },
+        "Direction": "Long",
+        "Time": "2019-11-18T11:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 5351,
+          "PnL": 6,
+          "Type": "Cash"
+        },
+        "Direction": "Short",
+        "Time": "2019-11-25T11:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 0.72170735,
+          "PnL": 27,
+          "Type": "Asset",
+          "WorthInCash": 5351
+        },
+        "Direction": "Long",
+        "Time": "2020-01-20T11:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 7117,
+          "PnL": 33,
+          "Type": "Cash"
+        },
+        "Direction": "Short",
+        "Time": "2020-03-16T11:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 1.10743426,
+          "PnL": 53,
+          "Type": "Asset",
+          "WorthInCash": 7117
+        },
+        "Direction": "Long",
+        "Time": "2020-04-27T10:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 10281,
+          "PnL": 44,
+          "Type": "Cash"
+        },
+        "Direction": "Short",
+        "Time": "2020-07-13T10:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 1.13069614,
+          "PnL": 2,
+          "Type": "Asset",
+          "WorthInCash": 10281
+        },
+        "Direction": "Long",
+        "Time": "2020-07-27T10:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 13088,
+          "PnL": 27,
+          "Type": "Cash"
+        },
+        "Direction": "Short",
+        "Time": "2020-09-21T10:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 1.22258851,
+          "PnL": 8,
+          "Type": "Asset",
+          "WorthInCash": 13088
+        },
+        "Direction": "Long",
+        "Time": "2020-10-19T11:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 70891,
+          "PnL": 442,
+          "Type": "Cash"
+        },
+        "Direction": "Short",
+        "Time": "2021-05-10T10:00:00"
+      },
+      {
+        "Collateral": {
+          "Amount": 2.07106752,
+          "PnL": 69,
+          "Type": "Asset",
+          "WorthInCash": 20000
+        },
+        "Direction": "Long",
+        "Time": "2021-08-02T10:00:00"
+      }
+    ]
+  }
 
 import sys
 #Import Api-Server
