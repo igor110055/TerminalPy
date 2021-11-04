@@ -1,6 +1,3 @@
-import sys
-sys.path.insert(0, '/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
-
 from MAFormater import IndicatorsToFormate
 
 def SMAtoSMACompare(Indicat0r1raw, Indicator2raw):

@@ -1,13 +1,15 @@
-import sys
+# import find_parent
 import copy
-sys.path.insert(1,'/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
-from getRidofNan import delNan
+from Indicators.getRidofNan import delNan
 from DataIntegrityCheck import DataIntegrityCheck
 
-def IndicatorToFormate(dataSet):
+
+def IndicatorsToFormate(dataSet):
+    formatedIndicators = []
     # If the check is passed continue
     DataIntegrityCheck(dataSet)
-    #Delete NaN Values from Indicators
+    # Delete NaN Values from Indicators
+    # For Every indicator Dataset we take the firs array and delete the nan Values
     IndicatorDataSetWithoutNaN = delNan(dataSet[0])
     
     Period = dataSet[3]
@@ -30,3 +32,5 @@ def IndicatorToFormate(dataSet):
         'range': dataSet[3]
     }   
     return formatedIndicators
+
+
