@@ -1,19 +1,24 @@
 import sys
 sys.path.insert(1,'/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
-import Indicator
 
-sys.path.insert(2,'/home/hackerboi/Dokumente/python/TerminalPy/PriceData')
-import PriceDataAsJson
-CandleSticks = PriceDataAsJson.formated
+def SortMAX_MIN(List_of_Indicators):
+    #Compare two MA Ranges and filtering the min and max value
+    Range_min = min(List_of_Indicators[0]['range'], List_of_Indicators[1]['range'])
+    Range_max = max(List_of_Indicators[0]['range'], List_of_Indicators[1]['range'])
+    MaxValue = []
+    MinValue = []
 
-#Import Formated Price Data
-from AverageWDate import AveragePrice
-PriceData = AveragePrice(CandleSticks)
+    for element in List_of_Indicators:
+        if element['range'] == Range_max:
+            MaxValue.append(element)
+        elif element['range'] == Range_min:
+            MinValue.append(element)
 
-sMA5 = Indicator.SMA(PriceData, 5)
-sMA10 = Indicator.SMA(PriceData, 10)
-
-from MAFormater import IndicatorToFormate
-
-test5 = IndicatorToFormate(sMA5)
-test10 = IndicatorToFormate(sMA10)
+    return {
+        'RangeMax': Range_max,
+        'RangeMin': Range_min,
+        'MaxValue': MaxValue[0]['value'],
+        'MinValue': MinValue[0]['value'],
+        'Time': MaxValue[0]['time'],
+        'AssetValue':MaxValue[0]['assetValue']
+    }

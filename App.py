@@ -19,7 +19,7 @@ sys.path.insert(2,'/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
 import Indicator
 import Visualize_Indicators
 SMA5 = Indicator.SMA(PriceData, 5)
-SMA10 = Indicator.SMA(PriceData, 5)
+SMA10 = Indicator.SMA(PriceData, 10)
 
 SMA5_to_Visualize = Visualize_Indicators.visualize_SMA(PriceData, 5) 
 RSI_to_Visualize = Visualize_Indicators.visualize_RSI(PriceData, 14)
@@ -38,4 +38,3 @@ Simulation = Simulator(SMA5vs10)
 sys.path.insert(5,'/home/hackerboi/Dokumente/python/TerminalPy/Server')
 from Api import Server
 Server(CandleSticks, [SMA5_to_Visualize, RSI_to_Visualize], Simulation)
-

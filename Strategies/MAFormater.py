@@ -1,4 +1,4 @@
-# import find_parent
+import find_parent
 import copy
 from Indicators.getRidofNan import delNan
 from DataIntegrityCheck import DataIntegrityCheck

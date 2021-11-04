@@ -1,34 +1,35 @@
 from MAFormater import IndicatorsToFormate
+from SortinIndicatorMINMAX import SortMAX_MIN
 
 def SMAtoSMACompare(Indicat0r1raw, Indicator2raw):
-    #Formating the Indicators Correctly
+    #Formating the Indicators Correctly(deleting all NaN Values)
     Indicat0r1 = IndicatorsToFormate(Indicat0r1raw)
     Indicator2 = IndicatorsToFormate(Indicator2raw)
-    
+    indicatorsToCompare = [Indicat0r1, Indicator2]
     # Sort Indicators from Min to Max
-    
+    mAX_mIN_Obj = SortMAX_MIN(indicatorsToCompare)
+    RangeMin = mAX_mIN_Obj['RangeMin']
+    RangeMax = mAX_mIN_Obj['RangeMax']
+    RangeValueMin = mAX_mIN_Obj['MinValue']
+    RangeValueMax = mAX_mIN_Obj['MaxValue']
+    Time = mAX_mIN_Obj['Time']
+    AssetValue = mAX_mIN_Obj['AssetValue']
 
-    #Compare two MA Ranges and filtering the min and max value
-    RangeMin = min(Indicat0r1['range'], Indicator2['range'])
-    RangeMax = max(Indicat0r1['range'], Indicator2['range'])
-
-    MaxRangeValue = []
-    MinRangeValue = []
     # #Dummy Data Set
     # RangeValueMin = [1,2,3,4,5,10,10,10,10,10,10,10,10,10,10,10,10]
     # RangeValueMax =           [10,15,20,9,9,9,11,11,11,9,8,7]
 
     #The Dict we return
     globalReturn = {
-        'time': [],
+        'Time': [],
         'AssetValue': [],
         'MAMin': {
             'Range': RangeMin,
-            'value': []
+            'Value': []
         },
         'MAMax': {
             'Range': RangeMax,
-            'value': []
+            'Value': []
         },
         'MAonTop': []
     }
@@ -50,11 +51,10 @@ def SMAtoSMACompare(Indicat0r1raw, Indicator2raw):
             #Listens to wether a MA Crossing occours
             if (changeWatcher[0] != changeWatcher[1]):
                 #Data needs to be supplied from Indicator function
-                globalReturn['time'].append(RangeValueMin[index + difference])
-                globalReturn['AssetValue'].append(round(RangeValueMin[index + difference]))
-                
-                globalReturn['MAMin']['value'].append(round(RangeValueMin[index + difference]))
-                globalReturn['MAMax']['value'].append(round(RangeValueMax[index]))
+                globalReturn['Time'].append(Time[index])
+                globalReturn['AssetValue'].append(round(AssetValue[index]))
+                globalReturn['MAMin']['Value'].append(round(RangeValueMin[index + difference]))
+                globalReturn['MAMax']['Value'].append(round(RangeValueMax[index]))
                 
                 #Log wich MA element is on top of the other
                 if (RangeValueMin[index + difference] > RangeValueMax[index]):

@@ -16,4 +16,4 @@ def DataIntegrityCheck(Indicat0r):
     elif result == False:
         print("Failed dataIntegrityCheck at ", Indicat0r[3], dataIntegrityCheck)
 
-    # return result
+    return result

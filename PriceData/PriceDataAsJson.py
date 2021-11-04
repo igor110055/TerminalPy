@@ -5,7 +5,7 @@ config = {
     'limit': 1000
 }
 
-response = requests.get('https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=200')
+response = requests.get('https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=700')
 
 json = response.json()
 

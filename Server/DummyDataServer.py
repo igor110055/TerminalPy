@@ -2270,7 +2270,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00110169, 
-          "P/L": 0, 
+          "PnL": 0, 
           "Type": "Asset", 
           "WorthInCash": 10
         }, 
@@ -2280,7 +2280,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 10, 
-          "P/L": 0, 
+          "PnL": 0, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2289,7 +2289,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00111172, 
-          "P/L": 1, 
+          "PnL": 1, 
           "Type": "Asset", 
           "WorthInCash": 10
         }, 
@@ -2299,7 +2299,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 13, 
-          "P/L": 28, 
+          "PnL": 28, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2308,7 +2308,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00114513, 
-          "P/L": 3, 
+          "PnL": 3, 
           "Type": "Asset", 
           "WorthInCash": 13
         }, 
@@ -2318,7 +2318,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 14, 
-          "P/L": 6, 
+          "PnL": 6, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2327,7 +2327,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00121464, 
-          "P/L": 6, 
+          "PnL": 6, 
           "Type": "Asset", 
           "WorthInCash": 14
         }, 
@@ -2337,7 +2337,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 14, 
-          "P/L": 2, 
+          "PnL": 2, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2346,7 +2346,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00139569, 
-          "P/L": 15, 
+          "PnL": 15, 
           "Type": "Asset", 
           "WorthInCash": 14
         }, 
@@ -2356,7 +2356,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 15, 
-          "P/L": 8, 
+          "PnL": 8, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2365,7 +2365,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.0014394, 
-          "P/L": 3, 
+          "PnL": 3, 
           "Type": "Asset", 
           "WorthInCash": 15
         }, 
@@ -2375,7 +2375,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 15, 
-          "P/L": 1, 
+          "PnL": 1, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2384,7 +2384,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00146049, 
-          "P/L": 1, 
+          "PnL": 1, 
           "Type": "Asset", 
           "WorthInCash": 15
         }, 
@@ -2394,7 +2394,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 27, 
-          "P/L": 77, 
+          "PnL": 77, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2403,7 +2403,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.0015729, 
-          "P/L": 8, 
+          "PnL": 8, 
           "Type": "Asset", 
           "WorthInCash": 27
         }, 
@@ -2413,7 +2413,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 30, 
-          "P/L": 8, 
+          "PnL": 8, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2422,7 +2422,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00164532, 
-          "P/L": 5, 
+          "PnL": 5, 
           "Type": "Asset", 
           "WorthInCash": 30
         }, 
@@ -2432,7 +2432,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 64, 
-          "P/L": 114, 
+          "PnL": 114, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2441,7 +2441,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00198101, 
-          "P/L": 20, 
+          "PnL": 20, 
           "Type": "Asset", 
           "WorthInCash": 64
         }, 
@@ -2451,7 +2451,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 112, 
-          "P/L": 77, 
+          "PnL": 77, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2460,7 +2460,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00237433, 
-          "P/L": 20, 
+          "PnL": 20, 
           "Type": "Asset", 
           "WorthInCash": 112
         }, 
@@ -2470,7 +2470,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 136, 
-          "P/L": 21, 
+          "PnL": 21, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2479,7 +2479,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00256641, 
-          "P/L": 8, 
+          "PnL": 8, 
           "Type": "Asset", 
           "WorthInCash": 136
         }, 
@@ -2489,7 +2489,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 149, 
-          "P/L": 9, 
+          "PnL": 9, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2498,7 +2498,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00262028, 
-          "P/L": 2, 
+          "PnL": 2, 
           "Type": "Asset", 
           "WorthInCash": 149
         }, 
@@ -2508,7 +2508,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 165, 
-          "P/L": 11, 
+          "PnL": 11, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2517,7 +2517,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00320186, 
-          "P/L": 22, 
+          "PnL": 22, 
           "Type": "Asset", 
           "WorthInCash": 165
         }, 
@@ -2527,7 +2527,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 186, 
-          "P/L": 13, 
+          "PnL": 13, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2536,7 +2536,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.0050525, 
-          "P/L": 58, 
+          "PnL": 58, 
           "Type": "Asset", 
           "WorthInCash": 186
         }, 
@@ -2546,7 +2546,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 197, 
-          "P/L": 6, 
+          "PnL": 6, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2555,7 +2555,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00546005, 
-          "P/L": 8, 
+          "PnL": 8, 
           "Type": "Asset", 
           "WorthInCash": 197
         }, 
@@ -2565,7 +2565,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 206, 
-          "P/L": 4, 
+          "PnL": 4, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2574,7 +2574,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00585672, 
-          "P/L": 7, 
+          "PnL": 7, 
           "Type": "Asset", 
           "WorthInCash": 206
         }, 
@@ -2584,7 +2584,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 230, 
-          "P/L": 12, 
+          "PnL": 12, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2593,7 +2593,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00691845, 
-          "P/L": 18, 
+          "PnL": 18, 
           "Type": "Asset", 
           "WorthInCash": 230
         }, 
@@ -2603,7 +2603,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 232, 
-          "P/L": 1, 
+          "PnL": 1, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2612,7 +2612,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00766161, 
-          "P/L": 11, 
+          "PnL": 11, 
           "Type": "Asset", 
           "WorthInCash": 232
         }, 
@@ -2622,7 +2622,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 313, 
-          "P/L": 35, 
+          "PnL": 35, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2631,7 +2631,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.0080521, 
-          "P/L": 5, 
+          "PnL": 5, 
           "Type": "Asset", 
           "WorthInCash": 313
         }, 
@@ -2641,7 +2641,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 376, 
-          "P/L": 20, 
+          "PnL": 20, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2650,7 +2650,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00826368, 
-          "P/L": 3, 
+          "PnL": 3, 
           "Type": "Asset", 
           "WorthInCash": 376
         }, 
@@ -2660,7 +2660,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 399, 
-          "P/L": 6, 
+          "PnL": 6, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2669,7 +2669,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00833037, 
-          "P/L": 1, 
+          "PnL": 1, 
           "Type": "Asset", 
           "WorthInCash": 399
         }, 
@@ -2679,7 +2679,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 434, 
-          "P/L": 9, 
+          "PnL": 9, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2688,7 +2688,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.00950746, 
-          "P/L": 14, 
+          "PnL": 14, 
           "Type": "Asset", 
           "WorthInCash": 434
         }, 
@@ -2698,7 +2698,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 451, 
-          "P/L": 4, 
+          "PnL": 4, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2707,7 +2707,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.01082039, 
-          "P/L": 14, 
+          "PnL": 14, 
           "Type": "Asset", 
           "WorthInCash": 451
         }, 
@@ -2717,7 +2717,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 695, 
-          "P/L": 54, 
+          "PnL": 54, 
           "Type": "Cash"
         }, 
         "Direction": "Short", 
@@ -2726,7 +2726,7 @@ dummySimulation = {
       {
         "Collateral": {
           "Amount": 0.01161298, 
-          "P/L": 7, 
+          "PnL": 7, 
           "Type": "Asset", 
           "WorthInCash": 695
         }, 
