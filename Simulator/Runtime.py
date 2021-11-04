@@ -19,7 +19,7 @@ def Simulator(Strategy):
             SimulatorEngine.buy(price)
             
             pnl = PriceDiffPercent(SimulatorEngine.Asset)
-            time = Strategy['time'][index]
+            time = Strategy['Time'][index]
             value = SimulatorEngine.Asset[-1]*price
             historyObj = {
                 'Time': time,
@@ -28,7 +28,7 @@ def Simulator(Strategy):
                     'Type': 'Asset',
                     'Amount': round(SimulatorEngine.Asset[-1], 8),
                     'WorthInCash': round(value),
-                    'P/L': round(pnl[-1], 2)
+                    'PnL': round(pnl[-1], 2)
                 }
             }
 
@@ -37,14 +37,14 @@ def Simulator(Strategy):
             SimulatorEngine.sell(price)
             
             pnl = PriceDiffPercent(SimulatorEngine.Cash)
-            time = Strategy['time'][index]
+            time = Strategy['Time'][index]
             historyObj = {
                 'Time': time,
                 'Direction': 'Short',
                 'Collateral': {
                     'Type': 'Cash',
                     'Amount': round(SimulatorEngine.Cash[-1]),
-                    'P/L': round(pnl[-1], 2)
+                    'PnL': round(pnl[-1], 2)
                 }
             }
 

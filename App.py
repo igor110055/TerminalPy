@@ -5,8 +5,10 @@ import sys
 
 #Import Candledata
 sys.path.insert(1,'/home/hackerboi/Dokumente/python/TerminalPy/PriceData')
-import OHLC_data_CCXT
-CandleSticks = OHLC_data_CCXT.ohlc
+# import OHLC_data_CCXT
+# CandleSticks = OHLC_data_CCXT.ohlc
+import PriceDataAsJson
+CandleSticks = PriceDataAsJson.formated
 
 #Import Formated Price Data
 from AverageWDate import AveragePrice
@@ -16,8 +18,8 @@ PriceData = AveragePrice(CandleSticks)
 sys.path.insert(2,'/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
 import Indicator
 import Visualize_Indicators
-sma5 = Indicator.SMA(PriceData, 5)
-sma10 = Indicator.SMA(PriceData, 5)
+SMA5 = Indicator.SMA(PriceData, 5)
+SMA10 = Indicator.SMA(PriceData, 10)
 
 SMA5_to_Visualize = Visualize_Indicators.visualize_SMA(PriceData, 5) 
 RSI_to_Visualize = Visualize_Indicators.visualize_RSI(PriceData, 14)
@@ -25,8 +27,7 @@ RSI_to_Visualize = Visualize_Indicators.visualize_RSI(PriceData, 14)
 #Import Strategies
 sys.path.insert(3,'/home/hackerboi/Dokumente/python/TerminalPy/Strategies')
 from MACrossings import SMAtoSMACompare
-SMA5vs10 = SMAtoSMACompare()
-
+SMA5vs10 = SMAtoSMACompare(SMA10 , SMA5)
 
 #Import Simulator
 sys.path.insert(4,'/home/hackerboi/Dokumente/python/TerminalPy/Simulator')
@@ -37,4 +38,3 @@ Simulation = Simulator(SMA5vs10)
 sys.path.insert(5,'/home/hackerboi/Dokumente/python/TerminalPy/Server')
 from Api import Server
 Server(CandleSticks, [SMA5_to_Visualize, RSI_to_Visualize], Simulation)
-
