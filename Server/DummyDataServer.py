@@ -2160,222 +2160,578 @@ dummyOHLC =[
     ]
   ]
 dummySimulation = {
-
     "AssetAmount": [
-      0.1,
-      0.19663247,
-      0.27193701,
-      0.50523448,
-      0.57021454,
-      0.72170735,
-      1.10743426,
-      1.13069614,
-      1.22258851,
-      2.07106752
-    ],
+      0.1, 
+      0.00110169, 
+      0.00111172, 
+      0.00114513, 
+      0.00121464, 
+      0.00139569, 
+      0.0014394, 
+      0.00146049, 
+      0.0015729, 
+      0.00164532, 
+      0.00198101, 
+      0.00237433, 
+      0.00256641, 
+      0.00262028, 
+      0.00320186, 
+      0.0050525, 
+      0.00546005, 
+      0.00585672, 
+      0.00691845, 
+      0.00766161, 
+      0.0080521, 
+      0.00826368, 
+      0.00833037, 
+      0.00950746, 
+      0.01082039, 
+      0.01161298
+    ], 
     "AssetPrice": [
-      14948,
-      7602,
-      9046,
-      6541,
-      6616,
-      3561,
-      9995,
-      8856,
-      9385,
-      7415,
-      9862,
-      6427,
-      9284,
-      9093,
-      11575,
-      10705,
-      57984,
-      34229
-    ],
+      9077, 
+      9250, 
+      9166, 
+      11773, 
+      11431, 
+      12108, 
+      11419, 
+      11683, 
+      10167, 
+      11020, 
+      10685, 
+      10760, 
+      10606, 
+      18741, 
+      17401, 
+      18869, 
+      18039, 
+      38675, 
+      32120, 
+      56770, 
+      47365, 
+      57454, 
+      53152, 
+      58168, 
+      56971, 
+      62985, 
+      51545, 
+      58161, 
+      36857, 
+      39052, 
+      36137, 
+      37730, 
+      35175, 
+      39284, 
+      33256, 
+      33491, 
+      30243, 
+      40832, 
+      38852, 
+      46729, 
+      45533, 
+      48259, 
+      47873, 
+      52043, 
+      45600, 
+      47472, 
+      41712, 
+      64209, 
+      59827
+    ], 
     "Cash": [
-      10,
-      1494.8,
-      1778.74,
-      1799.14,
-      5049.82,
-      5351.46,
-      7117.48,
-      10281.42,
-      13087.81,
-      70890.57
-    ],
+      10, 
+      10.19, 
+      13.09, 
+      13.87, 
+      14.19, 
+      15.38, 
+      15.49, 
+      27.37, 
+      29.68, 
+      63.63, 
+      112.46, 
+      136.41, 
+      149.28, 
+      165.04, 
+      186.22, 
+      197.31, 
+      206.01, 
+      230.08, 
+      231.71, 
+      312.84, 
+      376.27, 
+      398.8, 
+      433.54, 
+      451.34, 
+      694.77
+    ], 
     "Trades": [
       {
         "Collateral": {
-          "Amount": 1495,
-          "PnL": 0,
+          "Amount": 0.00110169, 
+          "P/L": 0, 
+          "Type": "Asset", 
+          "WorthInCash": 10
+        }, 
+        "Direction": "Long", 
+        "Time": "2020-07-07T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 10, 
+          "P/L": 0, 
           "Type": "Cash"
-        },
-        "Direction": "Short",
-        "Time": "2018-01-29T11:00:00"
-      },
+        }, 
+        "Direction": "Short", 
+        "Time": "2020-07-15T10:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 0.19663247,
-          "PnL": 0,
-          "Type": "Asset",
-          "WorthInCash": 1495
-        },
-        "Direction": "Long",
-        "Time": "2018-05-07T10:00:00"
-      },
+          "Amount": 0.00111172, 
+          "P/L": 1, 
+          "Type": "Asset", 
+          "WorthInCash": 10
+        }, 
+        "Direction": "Long", 
+        "Time": "2020-07-22T10:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 1779,
-          "PnL": 19,
+          "Amount": 13, 
+          "P/L": 28, 
           "Type": "Cash"
-        },
-        "Direction": "Short",
-        "Time": "2018-06-04T10:00:00"
-      },
+        }, 
+        "Direction": "Short", 
+        "Time": "2020-08-14T10:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 0.27193701,
-          "PnL": 38,
-          "Type": "Asset",
-          "WorthInCash": 1779
-        },
-        "Direction": "Long",
-        "Time": "2018-07-30T10:00:00"
-      },
+          "Amount": 0.00114513, 
+          "P/L": 3, 
+          "Type": "Asset", 
+          "WorthInCash": 13
+        }, 
+        "Direction": "Long", 
+        "Time": "2020-08-16T10:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 1799,
-          "PnL": -70,
+          "Amount": 14, 
+          "P/L": 6, 
           "Type": "Cash"
-        },
-        "Direction": "Short",
-        "Time": "2018-09-03T10:00:00"
-      },
+        }, 
+        "Direction": "Short", 
+        "Time": "2020-08-22T10:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 0.50523448,
-          "PnL": 86,
-          "Type": "Asset",
-          "WorthInCash": 1799
-        },
-        "Direction": "Long",
-        "Time": "2019-03-04T11:00:00"
-      },
+          "Amount": 0.00121464, 
+          "P/L": 6, 
+          "Type": "Asset", 
+          "WorthInCash": 14
+        }, 
+        "Direction": "Long", 
+        "Time": "2020-09-01T10:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 5050,
-          "PnL": 181,
+          "Amount": 14, 
+          "P/L": 2, 
           "Type": "Cash"
-        },
-        "Direction": "Short",
-        "Time": "2019-08-19T10:00:00"
-      },
+        }, 
+        "Direction": "Short", 
+        "Time": "2020-09-04T10:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 0.57021454,
-          "PnL": 13,
-          "Type": "Asset",
-          "WorthInCash": 5050
-        },
-        "Direction": "Long",
-        "Time": "2019-11-18T11:00:00"
-      },
+          "Amount": 0.00139569, 
+          "P/L": 15, 
+          "Type": "Asset", 
+          "WorthInCash": 14
+        }, 
+        "Direction": "Long", 
+        "Time": "2020-09-13T10:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 5351,
-          "PnL": 6,
+          "Amount": 15, 
+          "P/L": 8, 
           "Type": "Cash"
-        },
-        "Direction": "Short",
-        "Time": "2019-11-25T11:00:00"
-      },
+        }, 
+        "Direction": "Short", 
+        "Time": "2020-09-23T10:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 0.72170735,
-          "PnL": 27,
-          "Type": "Asset",
-          "WorthInCash": 5351
-        },
-        "Direction": "Long",
-        "Time": "2020-01-20T11:00:00"
-      },
+          "Amount": 0.0014394, 
+          "P/L": 3, 
+          "Type": "Asset", 
+          "WorthInCash": 15
+        }, 
+        "Direction": "Long", 
+        "Time": "2020-09-29T10:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 7117,
-          "PnL": 33,
+          "Amount": 15, 
+          "P/L": 1, 
           "Type": "Cash"
-        },
-        "Direction": "Short",
-        "Time": "2020-03-16T11:00:00"
-      },
+        }, 
+        "Direction": "Short", 
+        "Time": "2020-10-03T10:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 1.10743426,
-          "PnL": 53,
-          "Type": "Asset",
-          "WorthInCash": 7117
-        },
-        "Direction": "Long",
-        "Time": "2020-04-27T10:00:00"
-      },
+          "Amount": 0.00146049, 
+          "P/L": 1, 
+          "Type": "Asset", 
+          "WorthInCash": 15
+        }, 
+        "Direction": "Long", 
+        "Time": "2020-10-08T11:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 10281,
-          "PnL": 44,
+          "Amount": 27, 
+          "P/L": 77, 
           "Type": "Cash"
-        },
-        "Direction": "Short",
-        "Time": "2020-07-13T10:00:00"
-      },
+        }, 
+        "Direction": "Short", 
+        "Time": "2020-11-28T11:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 1.13069614,
-          "PnL": 2,
-          "Type": "Asset",
-          "WorthInCash": 10281
-        },
-        "Direction": "Long",
-        "Time": "2020-07-27T10:00:00"
-      },
+          "Amount": 0.0015729, 
+          "P/L": 8, 
+          "Type": "Asset", 
+          "WorthInCash": 27
+        }, 
+        "Direction": "Long", 
+        "Time": "2020-12-02T11:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 13088,
-          "PnL": 27,
+          "Amount": 30, 
+          "P/L": 8, 
           "Type": "Cash"
-        },
-        "Direction": "Short",
-        "Time": "2020-09-21T10:00:00"
-      },
+        }, 
+        "Direction": "Short", 
+        "Time": "2020-12-09T11:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 1.22258851,
-          "PnL": 8,
-          "Type": "Asset",
-          "WorthInCash": 13088
-        },
-        "Direction": "Long",
-        "Time": "2020-10-19T11:00:00"
-      },
+          "Amount": 0.00164532, 
+          "P/L": 5, 
+          "Type": "Asset", 
+          "WorthInCash": 30
+        }, 
+        "Direction": "Long", 
+        "Time": "2020-12-15T11:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 70891,
-          "PnL": 442,
+          "Amount": 64, 
+          "P/L": 114, 
           "Type": "Cash"
-        },
-        "Direction": "Short",
-        "Time": "2021-05-10T10:00:00"
-      },
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-01-14T11:00:00"
+      }, 
       {
         "Collateral": {
-          "Amount": 2.07106752,
-          "PnL": 69,
-          "Type": "Asset",
-          "WorthInCash": 20000
-        },
-        "Direction": "Long",
-        "Time": "2021-08-02T10:00:00"
+          "Amount": 0.00198101, 
+          "P/L": 20, 
+          "Type": "Asset", 
+          "WorthInCash": 64
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-01-30T11:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 112, 
+          "P/L": 77, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-02-25T11:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.00237433, 
+          "P/L": 20, 
+          "Type": "Asset", 
+          "WorthInCash": 112
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-03-05T11:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 136, 
+          "P/L": 21, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-03-19T11:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.00256641, 
+          "P/L": 8, 
+          "Type": "Asset", 
+          "WorthInCash": 136
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-03-30T11:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 149, 
+          "P/L": 9, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-04-07T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.00262028, 
+          "P/L": 2, 
+          "Type": "Asset", 
+          "WorthInCash": 149
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-04-12T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 165, 
+          "P/L": 11, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-04-19T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.00320186, 
+          "P/L": 22, 
+          "Type": "Asset", 
+          "WorthInCash": 165
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-04-30T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 186, 
+          "P/L": 13, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-05-13T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.0050525, 
+          "P/L": 58, 
+          "Type": "Asset", 
+          "WorthInCash": 186
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-05-28T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 197, 
+          "P/L": 6, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-05-30T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.00546005, 
+          "P/L": 8, 
+          "Type": "Asset", 
+          "WorthInCash": 197
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-06-04T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 206, 
+          "P/L": 4, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-06-08T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.00585672, 
+          "P/L": 7, 
+          "Type": "Asset", 
+          "WorthInCash": 206
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-06-13T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 230, 
+          "P/L": 12, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-06-20T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.00691845, 
+          "P/L": 18, 
+          "Type": "Asset", 
+          "WorthInCash": 230
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-06-29T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 232, 
+          "P/L": 1, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-07-06T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.00766161, 
+          "P/L": 11, 
+          "Type": "Asset", 
+          "WorthInCash": 232
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-07-24T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 313, 
+          "P/L": 35, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-08-05T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.0080521, 
+          "P/L": 5, 
+          "Type": "Asset", 
+          "WorthInCash": 313
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-08-08T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 376, 
+          "P/L": 20, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-08-19T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.00826368, 
+          "P/L": 3, 
+          "Type": "Asset", 
+          "WorthInCash": 376
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-08-21T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 399, 
+          "P/L": 6, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-08-29T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.00833037, 
+          "P/L": 1, 
+          "Type": "Asset", 
+          "WorthInCash": 399
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-09-03T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 434, 
+          "P/L": 9, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-09-10T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.00950746, 
+          "P/L": 14, 
+          "Type": "Asset", 
+          "WorthInCash": 434
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-09-16T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 451, 
+          "P/L": 4, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-09-21T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.01082039, 
+          "P/L": 14, 
+          "Type": "Asset", 
+          "WorthInCash": 451
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-10-02T10:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 695, 
+          "P/L": 54, 
+          "Type": "Cash"
+        }, 
+        "Direction": "Short", 
+        "Time": "2021-10-25T11:00:00"
+      }, 
+      {
+        "Collateral": {
+          "Amount": 0.01161298, 
+          "P/L": 7, 
+          "Type": "Asset", 
+          "WorthInCash": 695
+        }, 
+        "Direction": "Long", 
+        "Time": "2021-11-01T11:00:00"
       }
     ]
   }

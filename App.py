@@ -29,7 +29,6 @@ sys.path.insert(3,'/home/hackerboi/Dokumente/python/TerminalPy/Strategies')
 from MACrossings import SMAtoSMACompare
 SMA5vs10 = SMAtoSMACompare(SMA10 , SMA5)
 
-
 #Import Simulator
 sys.path.insert(4,'/home/hackerboi/Dokumente/python/TerminalPy/Simulator')
 from Runtime import Simulator
