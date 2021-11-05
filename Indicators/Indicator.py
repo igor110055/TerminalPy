@@ -1,11 +1,6 @@
-import sys
-sys.path.insert(0, '/home/hackerboi/Dokumente/python/TerminalPy/PriceData')
 import talib
 import numpy
-from getRidofNan import delNan
-
-
-
+# from Indicators.getRidofNan import delNan
 
 def Price(Data):
     PriceMaker = numpy.array(Data[1])

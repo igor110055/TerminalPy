@@ -1,5 +1,5 @@
-from MAFormater import IndicatorsToFormate
-from SortinIndicatorMINMAX import SortMAX_MIN
+from Strategies.MAFormater import IndicatorsToFormate
+from Strategies.SortinIndicatorMINMAX import SortMAX_MIN
 
 def SMAtoSMACompare(Indicat0r1raw, Indicator2raw):
     #Formating the Indicators Correctly(deleting all NaN Values)

@@ -1,4 +1,4 @@
-import OHLC_data_CCXT
+import find_parent
 import talib as talib
 import numpy
 from datetime import datetime

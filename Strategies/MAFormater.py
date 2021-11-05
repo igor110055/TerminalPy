@@ -1,7 +1,7 @@
 import find_parent
 import copy
 from Indicators.getRidofNan import delNan
-from DataIntegrityCheck import DataIntegrityCheck
+from Strategies.DataIntegrityCheck import DataIntegrityCheck
 
 
 def IndicatorsToFormate(dataSet):

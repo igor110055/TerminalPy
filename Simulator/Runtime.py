@@ -1,9 +1,5 @@
-import sys
-sys.path.insert(0, '/home/hackerboi/Dokumente/python/TerminalPy/Strategies')
-
-#import modules
-from PriceDiffenrence import PriceDiffPercent
-import SimulatorEngine
+from Simulator.PriceDiffenrence import PriceDiffPercent
+import Simulator.SimulatorEngine as SimulatorEngine
     
 def Simulator(Strategy):
     History = {

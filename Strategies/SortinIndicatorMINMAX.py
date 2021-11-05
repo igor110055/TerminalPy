@@ -1,6 +1,3 @@
-import sys
-sys.path.insert(1,'/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
-
 def SortMAX_MIN(List_of_Indicators):
     #Compare two MA Ranges and filtering the min and max value
     Range_min = min(List_of_Indicators[0]['range'], List_of_Indicators[1]['range'])
