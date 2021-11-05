@@ -1,54 +1,52 @@
-import sys
-sys.path.insert(0, '/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
+from MAFormater import IndicatorsToFormate
+from SortinIndicatorMINMAX import SortMAX_MIN
 
-#from math import log
-#import Indicator
-from getRidofNan import delNan
-#from AppendDatePrice import AppendDatePrice
+def SMAtoSMACompare(Indicat0r1raw, Indicator2raw):
+    #Formating the Indicators Correctly(deleting all NaN Values)
+    Indicat0r1 = IndicatorsToFormate(Indicat0r1raw)
+    Indicator2 = IndicatorsToFormate(Indicator2raw)
+    indicatorsToCompare = [Indicat0r1, Indicator2]
+    # Sort Indicators from Min to Max
+    mAX_mIN_Obj = SortMAX_MIN(indicatorsToCompare)
+    RangeMin = mAX_mIN_Obj['RangeMin']
+    RangeMax = mAX_mIN_Obj['RangeMax']
+    RangeValueMin = mAX_mIN_Obj['MinValue']
+    RangeValueMax = mAX_mIN_Obj['MaxValue']
+    Time = mAX_mIN_Obj['Time']
+    AssetValue = mAX_mIN_Obj['AssetValue']
 
-def SMAtoSMACompare(MARange1, MARange2, Indicat0r, PriceData):
-    #Compare two MA Ranges and filtering the min and max value
-    RangeMin = min(MARange1, MARange2)
-    RangeMax = max(MARange1, MARange2)
+    # Get the Difference between two MA Ranges to match the output offset
+    difference = RangeMax-RangeMin
 
     # #Dummy Data Set
-    # RangeValueMin = [1,2,3,4,5,10,10,10,10,10,10,10,10,10,10,10,10]
-    # RangeValueMax =           [10,15,20,9,9,9,11,11,11,9,8,7]
-
-    #Get historical MA Values 
-    #and deleting all nan values from the data list
-    RangeValueMinWnan = Indicat0r(PriceData,RangeMin)
-    RangeValueMin = delNan(RangeValueMinWnan[0])
-    
-    RangeValueMaxWnan = Indicat0r(PriceData,RangeMax)
-    RangeValueMax = delNan(RangeValueMaxWnan[0])
-    # RangeValueMin = AppendDatePrice( delNan (Indicat0r(RangeMin) ) )
-    # RangeValueMax = AppendDatePrice( delNan (Indicat0r(RangeMax) ) )
+    # RangeValueMin = [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]
+    # RangeValueMax =           [9,15,20,9,9,9,11,11,11,9,9,9]
 
     #The Dict we return
     globalReturn = {
-        'time': [],
+        'Time': [],
         'AssetValue': [],
         'MAMin': {
             'Range': RangeMin,
-            'value': []
+            'Value': []
         },
         'MAMax': {
             'Range': RangeMax,
-            'value': []
+            'Value': []
         },
         'MAonTop': []
     }
 
     changeWatcher = []
     #Get the difference between min and max
-    difference = (max(MARange1, MARange2)-min(MARange1, MARange2))
+    difference = RangeMax - RangeMin
 
     for element in RangeValueMax:
-        ind = RangeValueMax.index(element)
+        index = RangeValueMax.index(element)
         
-        comp = RangeValueMin[ind + difference]>RangeValueMax[ind]
+        comp = RangeValueMin[index + difference]>RangeValueMax[index]
         changeWatcher.append(comp)
+
         #Make sure Changewatcher only has two entries a time
         if (len(changeWatcher) > 2):
             
@@ -57,14 +55,13 @@ def SMAtoSMACompare(MARange1, MARange2, Indicat0r, PriceData):
             #Listens to wether a MA Crossing occours
             if (changeWatcher[0] != changeWatcher[1]):
                 #Data needs to be supplied from Indicator function
-                globalReturn['time'].append(RangeValueMaxWnan[1][ind + difference])
-                globalReturn['AssetValue'].append(round(RangeValueMaxWnan[2][ind + difference]))
-                
-                globalReturn['MAMin']['value'].append(round(RangeValueMin[ind + difference]))
-                globalReturn['MAMax']['value'].append(round(RangeValueMax[ind]))
+                globalReturn['Time'].append(Time[index])
+                globalReturn['AssetValue'].append(round(AssetValue[index]))
+                globalReturn['MAMin']['Value'].append(round(RangeValueMin[index + difference]))
+                globalReturn['MAMax']['Value'].append(round(RangeValueMax[index]))
                 
                 #Log wich MA element is on top of the other
-                if (RangeValueMin[ind + difference] > RangeValueMax[ind]):
+                if (RangeValueMin[index + difference] > RangeValueMax[index]):
                     globalReturn['MAonTop'].append(RangeMin)
                 else:
                     globalReturn['MAonTop'].append(RangeMax)
