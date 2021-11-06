@@ -6,6 +6,7 @@ from PriceDiffenrence import PriceDiffPercent
 import SimulatorEngine
     
 def Simulator(Strategy):
+    # Object thats going to be returned
     History = {
         'AssetPrice': Strategy['AssetValue'],
         'Cash': SimulatorEngine.Cash,
@@ -13,8 +14,10 @@ def Simulator(Strategy):
         'Trades': []
     }
 
+    # Looping through the signals
     for index in range(len(Strategy['MAonTop'])):
-        if Strategy['MAonTop'][index] == 5:
+        # Executing the Buy Condition
+        if Strategy['MAonTop'][index] == Strategy['MAMin']['Range']:
             price = Strategy['AssetValue'][index]
             SimulatorEngine.buy(price)
             
@@ -31,7 +34,8 @@ def Simulator(Strategy):
                 }
             }
 
-        elif Strategy['MAonTop'][index] == 10:
+        # Executing the Sell Condition
+        elif Strategy['MAonTop'][index] == Strategy['MAMax']['Range']:
             price = Strategy['AssetValue'][index]
             SimulatorEngine.sell(price)
             pnl = PriceDiffPercent(SimulatorEngine.Cash)
