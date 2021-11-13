@@ -1,8 +1,6 @@
-import sys
-sys.path.insert(2,'/home/hackerboi/Dokumente/python/TerminalPy/Indicators')
-import Indicator
-sys.path.insert(2,'/home/hackerboi/Dokumente/python/TerminalPy/Strategies')
-from MAFormater import IndicatorsToFormate
+import find_parent
+import Indicators.Indicator as Indicator
+from Strategies.MAFormater import IndicatorsToFormate
 
 def visualize_SMA(PriceData,Timeframe):
     sma = Indicator.SMA(PriceData, Timeframe)

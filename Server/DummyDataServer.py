@@ -3129,8 +3129,5 @@ dummyStrategy = {
         "2021-11-03T08:00:00"]
         }
 
-import sys
-#Import Api-Server
-sys.path.insert(5,'/home/hackerboi/Dokumente/python/TerminalPy/Server')
 from Api import Server
 Server(dummyOHLC, [dummyStrategy,dummySMA], dummySimulation)
