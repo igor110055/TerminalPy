@@ -3133,4 +3133,4 @@ import sys
 #Import Api-Server
 sys.path.insert(5,'/home/hackerboi/Dokumente/python/TerminalPy/Server')
 from Api import Server
-Server(dummyOHLC, [dummySMA, dummyRSI], dummySimulation)
+Server(dummyOHLC, [dummyStrategy,dummySMA], dummySimulation)
