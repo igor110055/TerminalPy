@@ -1,5 +1,5 @@
 Cash = [10]
-Asset = [0.1]
+Asset = []
 
 def sell(price):
     collateral = Asset[-1]

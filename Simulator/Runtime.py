@@ -12,6 +12,7 @@ def Simulator(Strategy):
 
     # Looping through the signals
     for index in range(len(Strategy['MAonTop'])):
+        
         # Executing the Buy Condition
         if Strategy['MAonTop'][index] == Strategy['MAMin']['Range']:
             price = Strategy['AssetValue'][index]
@@ -20,14 +21,20 @@ def Simulator(Strategy):
             pnl = PriceDiffPercent(SimulatorEngine.Asset)
             value = SimulatorEngine.Asset[-1]*price
             historyObj = {
-                'Time': Strategy['Time'][index],
                 'Direction': 'Long',
-                'Collateral': {
-                    'Type': 'Asset',
-                    'Amount': round(SimulatorEngine.Asset[-1], 8),
-                    'WorthInCash': round(value),
-                    'PnL': round(pnl[-1], 2)
-                }
+                'Open': {
+                    'Time': Strategy['Time'][index],
+                    'Collateral': 'First Position'
+                },
+                'Close': {
+                    'Time': 'Position is still Open',
+                    'Collateral': {
+                        'Type': 'Asset',
+                        'Amount': round(SimulatorEngine.Asset[-1], 8),
+                        'WorthInCash': round(value)
+                    }
+                },
+                
             }
 
         # Executing the Sell Condition
@@ -36,13 +43,19 @@ def Simulator(Strategy):
             SimulatorEngine.sell(price)
             pnl = PriceDiffPercent(SimulatorEngine.Cash)
             historyObj = {
-                'Time': Strategy['Time'][index],
                 'Direction': 'Short',
-                'Collateral': {
-                    'Type': 'Cash',
-                    'Amount': round(SimulatorEngine.Cash[-1]),
-                    'PnL': round(pnl[-1], 2)
-                }
+                'Open': {
+                    'Time': Strategy['Time'][index],
+                    'Collateral': 'First Position'
+                },
+                'Close': {
+                    'Time': 'Position is still Open',
+                    'Collateral': {
+                        'Type': 'Cash',
+                        'Amount': round(SimulatorEngine.Cash[-1]),
+                        'PnL': round(pnl[-1], 2)
+                    }
+                },
             }
 
         History['Trades'].append(historyObj)
