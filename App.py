@@ -36,7 +36,7 @@ SMA5vs10 = SMAtoSMACompare(SMA10 , SMA5)
 
 from Simulator.Runtime2 import Simulator2
 Simulation2 = Simulator2(SMA5vs10)
-from Simulator.RuntimeOutputFormater import Formater2
+from Simulator.RuntimeOutputFormater2 import Formater2
 Formater2Test = Formater2(Simulation2)
 
 

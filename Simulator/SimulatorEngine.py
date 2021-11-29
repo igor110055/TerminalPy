@@ -1,5 +1,6 @@
-Cash = [10]
-Asset = []
+# List Cannot be empty, if no Asset or no Cash just insert 0
+Cash = [0]
+Asset = [0.01]
 
 def sell(price):
     collateral = Asset[-1]
