@@ -6,7 +6,7 @@
 # import PriceData.OHLC_data_CCXT
 # CandleSticks = OHLC_data_CCXT.ohlc
 import PriceData.PriceDataAsJson as PriceDataAsJson
-CandleSticks = PriceDataAsJson.formated
+CandleSticks = PriceDataAsJson.PriceDataFetch()
 
 #Import Formated Price Data
 from PriceData.AverageWDate import AveragePrice
@@ -18,8 +18,10 @@ import Indicators.Visualize_Indicators as Visualize_Indicators
 SMA5 = Indicator.SMA(PriceData, 5)
 SMA10 = Indicator.SMA(PriceData, 10)
 
-SMA5_to_Visualize = Visualize_Indicators.visualize_SMA(PriceData, 5) 
-SMA10_to_Visualize = Visualize_Indicators.visualize_SMA(PriceData, 10) 
+# The Visualize SMA is overwriting Values in the MAFormater.py Function and causing Bug in 
+# SMAtoSMA compare, please investigate why
+# SMA5_to_Visualize = Visualize_Indicators.visualize_SMA(PriceData, 5) 
+# SMA10_to_Visualize = Visualize_Indicators.visualize_SMA(PriceData, 10) 
 RSI_to_Visualize = Visualize_Indicators.visualize_RSI(PriceData, 14)
 
 #Import Strategies
@@ -33,4 +35,4 @@ Simulation = Simulator(SMA5vs10)
 
 #Import Api-Server
 from Server.Api import Server
-Server(CandleSticks, [SMA5_to_Visualize, RSI_to_Visualize], Simulation)
+Server(CandleSticks, [RSI_to_Visualize], Simulation)

@@ -12,11 +12,11 @@ def IndicatorsToFormate(dataSet):
     # For Every indicator Dataset we take the firs array and delete the nan Values
     IndicatorDataSetWithoutNaN = delNan(dataSet[0])
     
-    Period = dataSet[3]
+    Period = copy.deepcopy(dataSet[3] - 1)
     #For Every element in the Date List we delete
     TimeCopy = copy.deepcopy(dataSet[1])
     for element in TimeCopy:
-        if TimeCopy.index(element) <= Period:
+        if TimeCopy.index(element) < Period:
             TimeCopy.remove(element)
 
     #For Every element in the AssetValue List we delete
