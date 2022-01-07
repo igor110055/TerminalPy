@@ -3129,5 +3129,5 @@ dummyStrategy = {
         "2021-11-03T08:00:00"]
         }
 
-from Api import Server
+from SimulatorApi import Server
 Server(dummyOHLC, [dummyStrategy,dummySMA], dummySimulation)
