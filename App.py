@@ -30,8 +30,12 @@ from Strategies.MACrossings import SMAtoSMACompare
 SMA5vs10 = SMAtoSMACompare(SMA10 , SMA5)
 
 #Import Simulator
+
 from Simulator.Runtime import Simulator
 Simulation = Simulator(SMA5vs10)
+from Simulator.RuntimeOutputFormater import Formater
+Formater2Test = Formater(Simulation)
+
 
 #Import Api-Server
 from Server.Api import Server

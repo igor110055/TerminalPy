@@ -9,7 +9,7 @@ BinanceConfig = {
         '1Day':'&interval=1d'
     }
 }
-URI = BinanceConfig['BaseUrl']+BinanceConfig['Symbol']['BTCUSDT']+BinanceConfig['Interval']['1Day']
+URI = BinanceConfig['BaseUrl']+BinanceConfig['Symbol']['BTCUSDT']+BinanceConfig['Interval']['1Day']+'&limit=70'
  
 def PriceDataFetch():
     response = requests.get(URI)

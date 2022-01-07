@@ -1,10 +1,11 @@
-from Simulator.PriceDiffenrence import PriceDiffPercent
 import Simulator.SimulatorEngine as SimulatorEngine
     
 def Simulator(Strategy):
+    
     # Object thats going to be returned
     History = {
         'AssetPrice': Strategy['AssetValue'],
+        'Time': Strategy['Time'],
         'Cash': SimulatorEngine.Cash,
         'AssetAmount': SimulatorEngine.Asset,
         'Trades': []
@@ -12,41 +13,35 @@ def Simulator(Strategy):
 
     # Looping through the signals
     for index in range(len(Strategy['MAonTop'])):
+        
         # Executing the Buy Condition
         if Strategy['MAonTop'][index] == Strategy['MAMin']['Range']:
-            price = Strategy['AssetValue'][index]
-            SimulatorEngine.buy(price)
-            
-            pnl = PriceDiffPercent(SimulatorEngine.Asset)
-            value = SimulatorEngine.Asset[-1]*price
-            historyObj = {
-                'Time': Strategy['Time'][index],
+           
+            # execute the Trade by pasing the AssetPrice into the Engine
+            SimulatorEngine.buy( Strategy['AssetValue'][index] )
+
+            # Log all the Metadata
+            History['Trades'].append({
+                'Open': Strategy['Time'][index],
                 'Direction': 'Long',
-                'Collateral': {
-                    'Type': 'Asset',
-                    'Amount': round(SimulatorEngine.Asset[-1], 8),
-                    'WorthInCash': round(value),
-                    'PnL': round(pnl[-1], 2)
-                }
-            }
+                'AssetPrice': Strategy['AssetValue'][index],
+                'From': SimulatorEngine.Cash[-1],
+                'To': SimulatorEngine.Asset[-1]
+            })
 
         # Executing the Sell Condition
         elif Strategy['MAonTop'][index] == Strategy['MAMax']['Range']:
-            price = Strategy['AssetValue'][index]
-            SimulatorEngine.sell(price)
-            pnl = PriceDiffPercent(SimulatorEngine.Cash)
-            historyObj = {
-                'Time': Strategy['Time'][index],
-                'Direction': 'Short',
-                'Collateral': {
-                    'Type': 'Cash',
-                    'Amount': round(SimulatorEngine.Cash[-1]),
-                    'PnL': round(pnl[-1], 2)
-                }
-            }
+            
+            # execute the Trade by pasing the AssetPrice into the Engine
+            SimulatorEngine.sell( Strategy['AssetValue'][index] )
 
-        History['Trades'].append(historyObj)
-    
+            # Log all the Metadata
+            History['Trades'].append({
+                'Open': Strategy['Time'][index],
+                'Direction':'Short',
+                'AssetPrice': Strategy['AssetValue'][index],
+                'From': SimulatorEngine.Asset[-1],
+                'To': SimulatorEngine.Cash[-1]
+            })
+
     return(History)
-
-
