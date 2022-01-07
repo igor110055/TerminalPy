@@ -1,12 +1,12 @@
-import copy
-def Formater(OutputRuntimeSimulator):
-    CopiedOutputRuntimeSimulator = copy.deepcopy(OutputRuntimeSimulator)
-    for element in CopiedOutputRuntimeSimulator['Trades']:
-        index = CopiedOutputRuntimeSimulator['Trades'].index(element)
-        if index > 0:
-            element['Open']['Collateral'] = CopiedOutputRuntimeSimulator['Trades'][index - 1]['Close']['Collateral']
-        
-        if index < 4:
-            element['Close']['Time'] = CopiedOutputRuntimeSimulator['Trades'][index + 1]['Open']['Time']
-    
-    return CopiedOutputRuntimeSimulator
+# Takes the Cash/Asset Ballance from every Position and Calculates the PnL relative to the 
+# Position before it
+
+def Formater(HistoryObjFromRuntime2):
+    for index in range(1, len(HistoryObjFromRuntime2['Trades'])):
+        element1 = HistoryObjFromRuntime2['Trades'][index - 1]['From']     
+        element2 = HistoryObjFromRuntime2['Trades'][index]['To']  
+        changePercentage = ((element2 / element1) - 1) * 100
+        # Adding a PnL key/value pair to each trade
+        HistoryObjFromRuntime2['Trades'][index]['PnL'] =  round(changePercentage, 2)      
+
+    return HistoryObjFromRuntime2

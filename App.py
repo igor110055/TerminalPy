@@ -29,17 +29,12 @@ SMA5vs10 = SMAtoSMACompare(SMA10 , SMA5)
 
 #Import Simulator
 
-# from Simulator.Runtime import Simulator
-# Simulation = Simulator(SMA5vs10)
-# from Simulator.RuntimeOutputFormater import Formater
-# FormatetTest = Formater(Simulation)
-
-from Simulator.Runtime2 import Simulator2
-Simulation2 = Simulator2(SMA5vs10)
-from Simulator.RuntimeOutputFormater2 import Formater2
-Formater2Test = Formater2(Simulation2)
+from Simulator.Runtime import Simulator
+Simulation = Simulator(SMA5vs10)
+from Simulator.RuntimeOutputFormater import Formater
+Formater2Test = Formater(Simulation)
 
 
 #Import Api-Server
-# from Server.Api import Server
-# Server(CandleSticks, [SMA5_to_Visualize, RSI_to_Visualize], Simulation2)
+from Server.Api import Server
+Server(CandleSticks, [SMA5_to_Visualize, RSI_to_Visualize], Simulation)
