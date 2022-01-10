@@ -1,7 +1,7 @@
 # import find_parent
 #Config
 #AssetPair, Timeframe for iteration
-from Config import PriceData
+from Config.Config import PriceData
 
 #Import Indicators (TA-Lib)
 import Indicators.Indicator as Indicator
@@ -22,5 +22,3 @@ Formater2Test = Formater(Simulation)
 #Import Api-Server
 from Server.SimulatorServer import Server as SimServer
 SimServer(Simulation)
-
-

@@ -15,4 +15,4 @@ def Server(CandleSticks, Indicators):
     def OHLC():
         return {'OHLC':CandleSticks}
 
-    app.run(debug=True)
+    app.run(host='localhost',port=5001,debug=True)
