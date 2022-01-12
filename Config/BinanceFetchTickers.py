@@ -4,8 +4,8 @@ def BinanceMetaData():
     json = response.json()
 
     Binance = {
-        'Name':'Binance',
-        'AssetPairs':[],
+        'name':'Binance',
+        'assetPairs':[],
         'CandleSize' : {
             'Minute1' : '1m',
             'Minutes3' : '3m',

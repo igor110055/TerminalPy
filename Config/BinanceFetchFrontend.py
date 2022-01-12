@@ -1,7 +1,7 @@
 import requests
 def PriceDataFetch(Symbol,CandleSize):
-    # URI = 'https://api.binance.com/api/v3/klines?symbol='+Symbol+'&interval='+CandleSize+'&limit=70'
-    URI = 'https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=70'
+    URI = 'https://api.binance.com/api/v3/klines?symbol='+Symbol+'&interval='+CandleSize+'&limit=70'
+    # URI = 'https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=70'
     response = requests.get(URI)
     json = response.json()
     formated = []

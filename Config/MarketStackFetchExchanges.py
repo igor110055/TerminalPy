@@ -13,19 +13,9 @@ def MarketStackData():
     exchanges.append({
       'name':element['name'],
       'mic':element['mic'],
-      'stocks':[]
       })
 
-  # tickers = []
-
-  for element in exchanges:
-    tickersRaw = requests.get('http://api.marketstack.com/v1/exchanges/'+element['mic']+'/tickers', params)
-    tickersJson = tickersRaw.json()
-    for stock in tickersJson['data']['tickers']:
-      element['stocks'].append({
-        'name':stock['name'],
-        'ticker':stock['symbol']
-      })
+  
 
   MarketStack = {
     'Exchanges': exchanges,

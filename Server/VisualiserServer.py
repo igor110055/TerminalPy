@@ -26,8 +26,8 @@ def Server(DataSources,CandleSticks, Indicators):
     @app.route('/Posten',methods = ['POST'])
     def Postn():
         data = request.get_json()
-        test = data['Test']
-        print(test)
+        selectedDataSource = data['DataSource']
+        print(selectedDataSource)
         return 'Moin'
 
     app.run(host='localhost',port=5001,debug=True)
