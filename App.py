@@ -1,6 +1,4 @@
-# import find_parent
 #Config
-#AssetPair, Timeframe for iteration
 from Config.Config import PriceData
 
 #Import Indicators (TA-Lib)
@@ -16,9 +14,6 @@ SMA5vs10 = SMAtoSMACompare(SMA10 , SMA5)
 from Simulator.Runtime import Simulator
 Simulation = Simulator(SMA5vs10)
 from Simulator.RuntimeOutputFormater import Formater
-Formater2Test = Formater(Simulation)
+FormatedSimulation = Formater(Simulation)
 
-
-#Import Api-Server
-from Server.SimulatorServer import Server as SimServer
-SimServer(Simulation)
+print(FormatedSimulation)
