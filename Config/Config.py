@@ -7,10 +7,3 @@ CandleSticks = BinanceFetch.PriceDataFetch()
 #Import Formated Price Data
 from PriceData.AverageWDate import AveragePrice
 PriceData = AveragePrice(CandleSticks)
-
-#Metadata for Frontend
-VisMetadata = {
-    'Server':'Backtesting',
-    # 'AssetPair':,
-    # 'CandleSize':
-} 

@@ -16,7 +16,7 @@ def MarketStackData():
       'stocks':[]
       })
 
-  tickers = []
+  # tickers = []
 
   for element in exchanges:
     tickersRaw = requests.get('http://api.marketstack.com/v1/exchanges/'+element['mic']+'/tickers', params)
@@ -27,4 +27,19 @@ def MarketStackData():
         'ticker':stock['symbol']
       })
 
-  return tickers
+  MarketStack = {
+    'Exchanges': exchanges,
+    'CandleSize':{
+      'Minute1' : '1min',
+      'Minutes5': '5min',
+      'Minutes10': '10min',
+      'Minutes15' : '15min',
+      'Minutes30' : '30min',
+      '1Hour': '1hour', 
+      '3Hours': '3hour',
+      '6Hours' : '6hour',
+      '12Hours' : '12hour',
+      '1Day': '24hour',
+    }
+  }
+  return MarketStack
