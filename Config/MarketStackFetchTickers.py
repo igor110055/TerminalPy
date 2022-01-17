@@ -4,14 +4,45 @@ def Tickers(exchange):
     params = {
     'access_key': 'ba7ca8e055c2c866659a548df9fdb01a'
     }
-    tickers = []
+    tickers = {
+        'name': exchange['name'],
+        'assetPairs':[],
+        'candleSize' : [
+            '1min',
+            '5min',
+            '10min',
+            '15min',
+            '30min',
+            '1hour', 
+            '3hour',
+            '6hour',
+            '12hour',
+            '24hour'
+        ] 
+    }
 
-# tickersRaw = requests.get('http://api.marketstack.com/v1/exchanges/'+exchange['mic']+'/tickers', params)
-    tickersRaw = requests.get('http://api.marketstack.com/v1/exchanges/XNAS/tickers', params)
+    tickersRaw = requests.get('http://api.marketstack.com/v1/exchanges/'+exchange['mic']+'/tickers', params)
+    # tickersRaw = requests.get('http://api.marketstack.com/v1/exchanges/XNAS/tickers', params)
     tickersJson = tickersRaw.json()
     for stock in tickersJson['data']['tickers']:
-       tickers.append({
-        # 'name': exchange,
-        'assetPairs': stock['name'],
-        'ticker':stock['symbol']
-        }) 
+       tickers['assetPairs'].append(
+        # {'assetPair': stock['name'],
+        # 'ticker':}
+        stock['symbol']
+        ) 
+
+    return tickers
+
+
+     # 'candleSize' :{
+        #     'Minute1' : '1min',
+        #     'Minutes5': '5min',
+        #     'Minutes10': '10min',
+        #     'Minutes15' : '15min',
+        #     'Minutes30' : '30min',
+        #     '1Hour': '1hour', 
+        #     '3Hours': '3hour',
+        #     '6Hours' : '6hour',
+        #     '12Hours' : '12hour',
+        #     '1Day': '24hour'
+        # }

@@ -17,3 +17,4 @@ def AssetPairs(exchange):
         return BinanceMetaData()
     else:
         return Tickers(exchange)
+

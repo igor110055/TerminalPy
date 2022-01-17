@@ -1,24 +1,62 @@
-# import find_parent
-#Config
-#AssetPair, Timeframe for iteration
-from Config.Config import PriceData
+import find_parent
+from flask import Flask, request
+from flask_restful import Resource, Api, reqparse, request
+from flask_cors import CORS
 
-#Import Indicators (TA-Lib)
-import Indicators.Indicator as Indicator
-SMA5 = Indicator.SMA(PriceData, 5)
-SMA10 = Indicator.SMA(PriceData, 10)
+app = Flask(__name__)
+CORS(app)
+api = Api(app)
 
-#Import Strategies
-from Strategies.MACrossings import SMAtoSMACompare
-SMA5vs10 = SMAtoSMACompare(SMA10 , SMA5)
+from Config.DataSourceFrontend import DataSources
+@app.route('/DataSources', methods=['GET'])
+def GetDataSources():
+    return{'Metadata':DataSources()}
+    
 
-#Import Simulator
-from Simulator.Runtime import Simulator
-Simulation = Simulator(SMA5vs10)
-from Simulator.RuntimeOutputFormater import Formater
-Formater2Test = Formater(Simulation)
+from Config.AssetPairsFrontend import AssetPairs
+@app.route('/AssetPairs',methods = ['POST'])
+def PostAssetPairs():
+    data = request.get_json()
+    selectedDataSource = data['DataSource']
+    returnAssetPairs = AssetPairs(selectedDataSource)
+    return {'AssetPairs': returnAssetPairs}
+
+GlobalOHLC = []
+
+def GlobalAvergePrice(toAppend):
+    GlobalOHLC.append(toAppend)
+    
+from Config.OHLCDataFrontend import OHLCData
+@app.route('/OHLC', methods=['POST'])
+def OHLC():
+    data = request.get_json()
+    ohlcConfig = data['ohlcConfig']
+    returnOHLCData = OHLCData(ohlcConfig)
+    GlobalAvergePrice({'config':ohlcConfig,'OHLC': returnOHLCData})
+    return {'config':ohlcConfig,'OHLC': returnOHLCData}
+
+from PriceData.AverageWDate import AveragePrice
+from VisualiserApi import IndicatorGenerator
+@app.route('/Indicators', methods=['GET'])
+def Indi():
+    if len(GlobalOHLC)>0:
+        print('GlobalOHLC',GlobalOHLC[-1])
+        PriceData = AveragePrice(GlobalOHLC[-1]['OHLC'])
+        print(PriceData)
+        Indicators = IndicatorGenerator(PriceData)
+        return {'Indicators': Indicators}
 
 
-#Import Api-Server
-from Server.SimulatorServer import Server as SimServer
-SimServer(Simulation)
+from SimulationApi import RunSimulation
+@app.route('/Simulation')
+def Sim():
+    if len(GlobalOHLC)>0:
+        PriceData = AveragePrice(GlobalOHLC[-1]['OHLC'])
+        print(PriceData)
+        Simulation = RunSimulation(PriceData)
+        print(Simulation)
+        return {'Simulation': Simulation}
+    
+    return {'Test': 'len(GlobalOHLC)>0: = false'}
+
+app.run(host='localhost',port=5001,debug=True)

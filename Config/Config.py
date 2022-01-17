@@ -1,5 +1,5 @@
-from Config.DataSourceFrontend import DataSources
-from Config.AssetPairsFrontend import AssetPairs
+from DataSourceFrontend import DataSources
+from AssetPairsFrontend import AssetPairs
 Sources = DataSources()
 # Assets = AssetPairs()
 

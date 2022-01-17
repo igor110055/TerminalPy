@@ -1,17 +1,19 @@
 import requests
-def PriceDataFetch(Symbol,CandleSize):
+def PriceDataFetch(Symbol):
     params = {
     'access_key': 'ba7ca8e055c2c866659a548df9fdb01a'
     }
-    response = requests.get('http://api.marketstack.com/v1/intraday&symbol='+Symbol+'&interval='+CandleSize ,params)
+    # response = requests.get('http://api.marketstack.com/v1/eod?access_key=ba7ca8e055c2c866659a548df9fdb01a&symbols=TEVA.XTAE' ,params)
+    response = requests.get('http://api.marketstack.com/v1/eod?access_key=ba7ca8e055c2c866659a548df9fdb01a&symbols='+Symbol ,params)
     json = response.json()
     formated = []
 
-    # for element in json:
-    #     open = round(float(element[1]), 3)
-    #     high = round(float(element[2]), 3)
-    #     low = round(float(element[3]), 3)
-    #     close = round(float(element[4]), 3)
-    #     formated.append([element[0], open, high, low, close])
+    for element in json['data']:
+        open = round(float(element['open']), 3)
+        high = round(float(element['high']), 3)
+        low = round(float(element['low']), 3)
+        close = round(float(element['close']), 3)
+        formated.append([element['date'],open, high, low, close])
+        
 
-    # return formated
+    return formated
