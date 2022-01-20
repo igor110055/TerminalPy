@@ -7,7 +7,7 @@ def MarketStackData():
 
   exchanges = []
   
-  exchangesRaw = requests.get('http://api.marketstack.com/v1/exchanges', params)
+  exchangesRaw = requests.get('https://api.marketstack.com/v1/exchanges?access_key=ba7ca8e055c2c866659a548df9fdb01a')
   exchangesJson = exchangesRaw.json()
   for element in exchangesJson['data']:
     exchanges.append({
@@ -18,4 +18,8 @@ def MarketStackData():
   MarketStack = {
     'Exchanges': exchanges
     }
+  print(MarketStack)
   return MarketStack
+
+
+# https://api.marketstack.com/v1/exchanges?access_key=ba7ca8e055c2c866659a548df9fdb01a

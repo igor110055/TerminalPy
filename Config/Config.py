@@ -10,5 +10,5 @@ import PriceData.BinanceFetch as BinanceFetch
 CandleSticks = BinanceFetch.PriceDataFetch()
 
 #Import Formated Price Data
-from PriceData.AverageWDate import AveragePrice
+from BinanceAveragePrice import AveragePrice
 PriceData = AveragePrice(CandleSticks)

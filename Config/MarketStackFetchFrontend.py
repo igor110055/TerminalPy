@@ -3,8 +3,10 @@ def PriceDataFetch(Symbol):
     params = {
     'access_key': 'ba7ca8e055c2c866659a548df9fdb01a'
     }
+    Url = 'http://api.marketstack.com/v1/eod?access_key=ba7ca8e055c2c866659a548df9fdb01a&symbols='+Symbol
+    print(Url)
     # response = requests.get('http://api.marketstack.com/v1/eod?access_key=ba7ca8e055c2c866659a548df9fdb01a&symbols=TEVA.XTAE' ,params)
-    response = requests.get('http://api.marketstack.com/v1/eod?access_key=ba7ca8e055c2c866659a548df9fdb01a&symbols='+Symbol ,params)
+    response = requests.get(Url)
     json = response.json()
     formated = []
 
