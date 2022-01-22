@@ -26,9 +26,9 @@ def BinanceMetaData():
     }
 
     for element in json['symbols']:
-        Binance['assetPairs'].append(element['symbol'])
+        Binance['assetPairs'].append({'symbol':element['symbol'],'name':element['symbol']})
 
-    Binance['assetPairs'].sort()
+    # Binance['assetPairs'].sort()
     
     return Binance
 

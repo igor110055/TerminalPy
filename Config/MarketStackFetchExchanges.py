@@ -18,7 +18,7 @@ def MarketStackData():
   MarketStack = {
     'Exchanges': exchanges
     }
-  print(MarketStack)
+
   return MarketStack
 
 

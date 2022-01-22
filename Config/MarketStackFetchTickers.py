@@ -26,7 +26,7 @@ def Tickers(exchange):
     tickersJson = tickersRaw.json()
     for stock in tickersJson['data']['tickers']:
        tickers['assetPairs'].append(
-        stock['symbol']
+        {'symbol':stock['symbol'],'name':stock['name']}
         ) 
 
     return tickers

@@ -7,10 +7,10 @@ def PriceDataFetch(Symbol,CandleSize):
     formated = []
 
     for element in json:
-        open = round(float(element[1]), 3)
-        high = round(float(element[2]), 3)
-        low = round(float(element[3]), 3)
-        close = round(float(element[4]), 3)
+        open = float(element[1])
+        high = float(element[2])
+        low = float(element[3])
+        close = float(element[4])
         formated.append([element[0], open, high, low, close])
     
     return formated

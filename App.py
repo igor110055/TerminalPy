@@ -20,6 +20,7 @@ def PostAssetPairs():
     data = request.get_json()
     selectedDataSource = data['DataSource']
     returnAssetPairs = AssetPairs(selectedDataSource)
+    print('returnAssetPairs',returnAssetPairs)
     return {'AssetPairs': returnAssetPairs}
 
 # Create Global Array in which all PriceData gets fetched
@@ -28,13 +29,14 @@ GlobalPriceData = []
 
 def AppendGlobalPriceData(toAppend):
     PriceData = deepcopy(getAveragePrice(toAppend))
-    print('Average in App.py', PriceData)
+    # print('Average in App.py', PriceData)
     GlobalPriceData.append({
         'config':toAppend['config'],
         'OHLC': toAppend['OHLC'],
         'Average': PriceData
     })
-    
+
+# Price Data ---------------------
 from Config.OHLCDataFrontend import OHLCData
 @app.route('/OHLC', methods=['POST'])
 def OHLC():
@@ -44,6 +46,12 @@ def OHLC():
     AppendGlobalPriceData({'config':ohlcConfig,'OHLC': returnOHLCData})
     return {'config':ohlcConfig,'OHLC': returnOHLCData}
 
+
+# Indicators Data ---------------------
+from Config.ListOfIndicatorsFrontend import IndicatorsToRender
+@app.route('/ListAllIndicators', methods=['GET'])
+def ListIndi():
+    return {'IndicatorsToRender': IndicatorsToRender}
 
 from VisualiserApi import IndicatorGenerator
 @app.route('/Indicators', methods=['GET'])
@@ -55,14 +63,21 @@ def Indi():
         
     return {'Test': 'len(GlobalPriceData)>0: = false'}
 
+# Simulation Data ---------------------
+from Config.ListOfStrategies import Strategies
+@app.route('/ListAllStrategies', methods=['GET'])
+def ListStrat():
+    return {'Strategies': Strategies}
+
 from SimulationApi import RunSimulation
 @app.route('/Simulation')
 def Sim():
     if len(GlobalPriceData)>0:
         PriceData = deepcopy(GlobalPriceData[-1]['Average'])
         Simulation = RunSimulation(PriceData)
-        return {'Simulation': Simulation}
+        return {
+            'Simulation': Simulation,
+        }
     
-    return {'Test': 'len(GlobalPriceData)>0: = false'}
 
 app.run(host='localhost',port=5001,debug=True)
