@@ -12,7 +12,7 @@ def DataSources():
         {'name': 'Bitstamp', 'mic': 'Binance'}
     ]
 
-    for element in MarketStackData()['Exchanges']:
-        Sources.append(element)
+    # for element in MarketStackData()['Exchanges']:
+    #     Sources.append(element)
 
     return Sources

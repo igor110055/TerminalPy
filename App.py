@@ -1,3 +1,5 @@
+from crypt import methods
+from Config.BinanceFetchFrontend import PriceDataFetch
 import find_parent
 from flask import Flask, request
 from flask_restful import Resource, Api, reqparse, request
@@ -20,7 +22,6 @@ def PostAssetPairs():
     data = request.get_json()
     selectedDataSource = data['DataSource']
     returnAssetPairs = AssetPairs(selectedDataSource)
-    print('returnAssetPairs',returnAssetPairs)
     return {'AssetPairs': returnAssetPairs}
 
 # Create Global Array in which all PriceData gets fetched
@@ -53,15 +54,24 @@ from Config.ListOfIndicatorsFrontend import IndicatorsToRender
 def ListIndi():
     return {'IndicatorsToRender': IndicatorsToRender}
 
-from VisualiserApi import IndicatorGenerator
-@app.route('/Indicators', methods=['GET'])
-def Indi():
+
+from Indicators.Rendered_Indicators import InitSelectedIndicator
+from PriceData.BinanceOHLCforIndicators import OHLCformated
+@app.route('/RenderIndicator', methods=['POST'])
+def renderIndi():
+    data = request.get_json()
+    IndicatorConfig = data['config']
     if len(GlobalPriceData)>0:
-        PriceData = deepcopy(GlobalPriceData[-1]['Average'])
-        Indicators = IndicatorGenerator(PriceData)
-        return {'Indicators': Indicators}
-        
-    return {'Test': 'len(GlobalPriceData)>0: = false'}
+        OHLCPrice = deepcopy(OHLCformated(GlobalPriceData[-1]['OHLC']))
+        IndicatorReady = InitSelectedIndicator(
+            IndicatorConfig['selectedIndicator']['symbol'], 
+            OHLCPrice, 
+            int(IndicatorConfig['selectedPeriod'])
+        )
+        return {
+            'Indicator': IndicatorReady,
+            'config': IndicatorConfig
+        }
 
 # Simulation Data ---------------------
 from Config.ListOfStrategies import Strategies
@@ -70,14 +80,19 @@ def ListStrat():
     return {'Strategies': Strategies}
 
 from SimulationApi import RunSimulation
-@app.route('/Simulation')
+# from PriceData.BinanceAveragePrice import AveragePrice
+@app.route('/Simulation', methods=['POST'])
 def Sim():
     if len(GlobalPriceData)>0:
-        PriceData = deepcopy(GlobalPriceData[-1]['Average'])
-        Simulation = RunSimulation(PriceData)
+        data = request.get_json()
+        SimulationConfig = data['config']
+        OHLCPrice = deepcopy(OHLCformated(GlobalPriceData[-1]['OHLC']))
+        Simulation = RunSimulation(OHLCPrice,SimulationConfig)
         return {
             'Simulation': Simulation,
+            'config': SimulationConfig
         }
+      
     
 
 app.run(host='localhost',port=5001,debug=True)

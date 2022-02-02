@@ -1,25 +1,28 @@
-# import find_parent
-#Config
-#AssetPair, Timeframe for iteration
-# from Config.Config import PriceData
-def RunSimulation(PriceData):
-    #Import Indicators (TA-Lib)
-    import Indicators.Indicator as Indicator
-    SMA5 = Indicator.SMA(PriceData, 5)
-    SMA10 = Indicator.SMA(PriceData, 10)
+import find_parent
+from Simulator.SelectIndicator import InitSelectedIndicator
+import Indicators.Indicator as Indicator
+from Strategies.MACrossings import SMAtoSMACompare as Line2LineCompare
+from Simulator.Runtime import Simulator
+from Simulator.RuntimeOutputFormater import Formater
 
-    #Import Strategies
-    from Strategies.MACrossings import SMAtoSMACompare
-    SMA5vs10 = SMAtoSMACompare(SMA10 , SMA5)
+def RunSimulation(PriceData,Config):
+    
+    Indicator1 = InitSelectedIndicator(
+        Config['Indicator1']['symbol'],
+        PriceData,
+        int(Config['Period1'])
+    )
+    
+    Indicator2 = InitSelectedIndicator(
+        Config['Indicator2']['symbol'],
+        PriceData,
+        int(Config['Period2']) 
+    )
 
-    #Import Simulator
-    from Simulator.Runtime import Simulator
-    Simulation = Simulator(SMA5vs10)
-    from Simulator.RuntimeOutputFormater import Formater
+    LineCrossings = Line2LineCompare(Indicator1 , Indicator2)
+    
+    Simulation = Simulator(LineCrossings)
+
     Formater2Test = Formater(Simulation)
 
     return Formater2Test
-
-# #Import Api-Server
-# from Server.SimulatorServer import Server as SimServer
-# SimServer(Simulation)

@@ -1,420 +1,421 @@
 import talib
-import numpy
+# import numpy
 # from Indicators.getRidofNan import delNan
 
-def Price(Data):
-    PriceMaker = numpy.array(Data[1])
-    return PriceMaker
+# def Data):
+#     PriceMaker = numpy.array(Data[1])
+#     return PriceMaker
 
 # Overlap Studies
-
-def BBANDS(PriceDaten,Range):
-    _BBANDS = talib.BBANDS(Price(PriceDaten),Range).tolist()
-    return[_BBANDS,PriceDaten[0],PriceDaten[1],Range]
-
-def DEMA(PriceDaten,Range):
-    _DEMA = talib.DEMA(Price(PriceDaten),Range).tolist()
-    return[_DEMA,PriceDaten[0],PriceDaten[1],Range]
-
-def EMA(PriceDaten,Range):
-    _EMA = talib.EMA(Price(PriceDaten),Range).tolist()
-    return[_EMA,PriceDaten[0],PriceDaten[1],Range]
-
-def HT_TRENDLINE(PriceDaten,Range):
-    _HT_TRENDLINE = talib.HT_TRENDLINE(Price(PriceDaten),Range).tolist()
-    return[_HT_TRENDLINE,PriceDaten[0],PriceDaten[1],Range]
-
-def KAMA(PriceDaten,Range):
-    _KAMA = talib.KAMA(Price(PriceDaten),Range).tolist()
-    return[_KAMA,PriceDaten[0],PriceDaten[1],Range]
-
-def MA(PriceDaten,Range):
-    _MA = talib.MA(Price(PriceDaten),Range).tolist()
-    return[_MA,PriceDaten[0],PriceDaten[1],Range]
-
-def MAMA(PriceDaten,Range):
-    _MAMA = talib.MAMA(Price(PriceDaten),Range).tolist()
-    return[_MAMA,PriceDaten[0],PriceDaten[1],Range]
-
-def MAVP(PriceDaten,Range):
-    _MAVP = talib.MAVP(Price(PriceDaten),Range).tolist()
-    return[_MAVP,PriceDaten[0],PriceDaten[1],Range]
-
-def MIDPOINT(PriceDaten,Range):
-    _MIDPOINT = talib.MIDPOINT(Price(PriceDaten),Range).tolist()
-    return[_MIDPOINT,PriceDaten[0],PriceDaten[1],Range]
-
-def MIDPRICE(PriceDaten,Range):
-    _MIDPRICE= talib.MIDPRICE(Price(PriceDaten),Range).tolist()
-    return[_MIDPRICE,PriceDaten[0],PriceDaten[1],Range]
-
-def SAR(PriceDaten,Range):
-    _SAR = talib.SAR(Price(PriceDaten),Range).tolist()
-    return[_SAR,PriceDaten[0],PriceDaten[1],Range]
-
-def SAREXT(PriceDaten,Range):
-    _SAREXT= talib.SAREXT(Price(PriceDaten),Range).tolist()
-    return[_SAREXT,PriceDaten[0],PriceDaten[1],Range]
-
-def SMA(PriceDaten,Range):
-    _SMA = talib.SMA(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_SMA,PriceDaten[0],PriceDaten[1],Range] 
-
-def T3(PriceDaten,Range):
-    _T3 = talib.T3(Price(PriceDaten),Range).tolist()
-    return[_T3,PriceDaten[0],PriceDaten[1],Range]
-
-def TEMA(PriceDaten,Range):
-    _TEMA = talib.TEMA(Price(PriceDaten),Range).tolist()
-    return[_TEMA,PriceDaten[0],PriceDaten[1],Range]
-
-def TRIMA(PriceDaten,Range):
-    _TRIMA = talib.TRIMA(Price(PriceDaten),Range).tolist()
-    return[_TRIMA,PriceDaten[0],PriceDaten[1],Range]
-
-def WMA(PriceDaten,Range):
-    _WMA = talib.WMA(Price(PriceDaten),Range).tolist()
-    return[_WMA,PriceDaten[0],PriceDaten[1],Range]
+# # Bollinger Bands
+# def BBANDS(PriceData,Range):
+#     _BBANDS = talib.BBANDS(PriceData),Range)
+#     Band1 = _BBANDS[0].tolist()
+#     Band2 = _BBANDS[1].tolist()
+#     Band3 = _BBANDS[2].tolist()
+#     return[[Band1,Band2,Band3],PriceData['date'],PriceData['close'].tolist(),Range]
+# Double Exponential Moving Average
+def DEMA(PriceData,Range):
+    _DEMA = talib.DEMA(PriceData['close'],Range).tolist()
+    return[_DEMA,PriceData['date'],PriceData['close'].tolist(),Range]
+# Exponential Moving Average
+def EMA(PriceData,Range):
+    _EMA = talib.EMA(PriceData['close'],Range).tolist()
+    return[_EMA,PriceData['date'],PriceData['close'].tolist(),Range]
+# # Hilbert Transform - Instantaneous Trendline
+# def HT_TRENDLINE(PriceData):
+#     _HT_TRENDLINE = talib.HT_TRENDLINE(PriceData['close']).tolist()
+#     return[_HT_TRENDLINE,PriceData['date'],PriceData['close'].tolist()]
+# Kaufman Adaptive Moving Average
+def KAMA(PriceData,Range):
+    _KAMA = talib.KAMA(PriceData['close'],Range).tolist()
+    return[_KAMA,PriceData['date'],PriceData['close'].tolist(),Range]
+# Moving average
+def MA(PriceData,Range):
+    _MA = talib.MA(PriceData['close'],Range).tolist()
+    return[_MA,PriceData['date'],PriceData['close'].tolist(),Range]
+# # MESA Adaptive Moving Average
+# def MAMA(PriceData):
+#     _MAMA = talib.MAMA(PriceData))
+#     Trace1 = _MAMA[0].tolist()
+#     Trace2 = _MAMA[1].tolist()
+#     return[[Trace1,Trace2],PriceData['date'],PriceData['close'].tolist()]
+# # Moving average with variable period
+# def MAVP(PriceData,Range):
+#     _MAVP = talib.MAVP(PriceData['close'],Range).tolist()
+#     return[_MAVP,PriceData['date'],PriceData['close'].tolist(),Range]
+# MidPoint over period
+def MIDPOINT(PriceData,Range):
+    _MIDPOINT = talib.MIDPOINT(PriceData['close'],Range).tolist()
+    return[_MIDPOINT,PriceData['date'],PriceData['close'].tolist(),Range]
+# Midpoint over period
+def MIDPRICE(PriceData,Range):
+    _MIDPRICE= talib.MIDPRICE(PriceData['high'],PriceData['low'],Range).tolist()
+    return[_MIDPRICE,PriceData['date'],PriceData['close'].tolist(),Range]
+# Parabolic SAR
+def SAR(PriceData,Range):
+    _SAR = talib.SAR(PriceData['high'],PriceData['low'],Range).tolist()
+    return[_SAR,PriceData['date'],PriceData['close'].tolist(),Range]
+# Parabolic SAR - Extended
+def SAREXT(PriceData,Range):
+    # Requires OHLC Data (high, low, Range)
+    _SAREXT= talib.SAREXT(PriceData['high'],PriceData['low'],Range).tolist()
+    return[_SAREXT,PriceData['date'],PriceData['close'].tolist(),Range]
+# Simple Moving Average
+def SMA(PriceData,Range):
+    _SMA = talib.SMA(PriceData['close'],Range).tolist()
+    #return Indicator Value, Date, the AssetPrice, and the Range
+    return [_SMA,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Triple Exponential Moving Average (T3)
+def T3(PriceData,Range):
+    _T3 = talib.T3(PriceData['close'],Range).tolist()
+    return[_T3,PriceData['date'],PriceData['close'].tolist(),Range]
+# Triple Exponential Moving Average
+def TEMA(PriceData,Range):
+    _TEMA = talib.TEMA(PriceData['close'],Range).tolist()
+    return[_TEMA,PriceData['date'],PriceData['close'].tolist(),Range]
+# Triangular Moving Average
+def TRIMA(PriceData,Range):
+    _TRIMA = talib.TRIMA(PriceData['close'],Range).tolist()
+    return[_TRIMA,PriceData['date'],PriceData['close'].tolist(),Range]
+# Weighted Moving Average
+def WMA(PriceData,Range):
+    _WMA = talib.WMA(PriceData['close'],Range).tolist()
+    return[_WMA,PriceData['date'],PriceData['close'].tolist(),Range]
 
 
     
 #Momentum Indicators
+# Average Directional Movement Index
+def ADX(PriceData,Range):
+    _ADX = talib.ADX(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_ADX,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Average Directional Movement Index Rating
+def ADXR(PriceData,Range):
+    _ADXR = talib.ADXR(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_ADXR,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Absolute Price Oscillator 
+# def APO(PriceData,Range):
+#     _APO = talib.APO(PriceData['close'],Range).tolist()
+#     ##return Indicator Value, Date, the AssetPrice, and the Range
+#     return [_APO,PriceData['date'],PriceData['close'].tolist(),Range] 
+#  Aroon
+def AROON(PriceData,Range):
+    _AROON = talib.AROON(PriceData['high'],PriceData['low'],Range)
+    aroondown = _AROON[0].tolist()
+    aroonup = _AROON[1].tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [[aroondown,aroonup],PriceData['date'],PriceData['close'].tolist(),Range]
+# Aroon Oscillator
+def AROONOSC(PriceData,Range):
+    _AROONOSC = talib.AROONOSC(PriceData['high'],PriceData['low'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_AROONOSC,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Balance Of Power
+def BOP(PriceData):
+    _BOP = talib.BOP(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_BOP,PriceData['date'],PriceData['close'].tolist()] 
+# Commodity Channel Index
+def CCI(PriceData,Range):
+    _CCI = talib.CCI(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_CCI,PriceData['date'],PriceData['close'].tolist(),Range] 
+#  Chande Momentum Oscillator
+def CMO(PriceData,Range):
+    _CMO = talib.CMO(PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_CMO,PriceData['date'],PriceData['close'].tolist(),Range] 
+#  Directional Movement Index
+def DX(PriceData,Range):
+    _DX = talib.DX(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_DX,PriceData['date'],PriceData['close'].tolist(),Range] 
+# # Moving Average Convergence/Divergence
+# def MACD(PriceData,Range):
+#     _MACD = talib.MACD(PriceData['close'],Range).tolist()
+#     ##return Indicator Value, Date, the AssetPrice, and the Range
+#     return [_MACD,PriceData['date'],PriceData['close'].tolist(),Range] 
+# # MACD with controllable MA type
+# def MACDEXT(PriceData,Range):
+#     _MACDEXT = talib.MACDEXT(PriceData['close'],Range).tolist()
+#     ##return Indicator Value, Date, the AssetPrice, and the Range
+#     return [_MACDEXT,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Moving Average Convergence/Divergence Fix 12/26
+# def MACDFIX(PriceData,Range):
+#     _MACDFIX = talib.MACDFIX(PriceData['close'],Range).tolist()
+#     ##return Indicator Value, Date, the AssetPrice, and the Range
+#     return [_MACDFIX,PriceData['date'],PriceData['close'].tolist(),Range] 
+# # Money Flow Index 
+# def MFI(PriceData,Range):
+#     # Indicator requires Volume
+#     _MFI = talib.MFI(PriceData['close'],Range).tolist()
+#     ##return Indicator Value, Date, the AssetPrice, and the Range
+#     return [_MFI,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Minus Directional Indicator
+def MINUS_DI(PriceData,Range):
+    _MINUS_DI = talib.MINUS_DI(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_MINUS_DI,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Minus Directional Movement
+def MINUS_DM(PriceData,Range):
+    _MINUS_DM = talib.MINUS_DM(PriceData['high'],PriceData['low'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_MINUS_DM,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Momentum
+def MOM(PriceData,Range):
+    _MOM = talib.MOM(PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_MOM,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Plus Directional Indicator
+def PLUS_DI(PriceData,Range):
+    _PLUS_DI = talib.PLUS_DI(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_PLUS_DI,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Plus Directional Movement
+def PLUS_DM(PriceData,Range):
+    _PLUS_DM = talib.PLUS_DM(PriceData['high'],PriceData['low'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_PLUS_DM,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Percentage Price Oscillator
+def PPO(PriceData,Range):
+    _PPO = talib.PPO(PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_PPO,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Rate of change : ((price/prevPrice)-1)*100
+def ROC(PriceData,Range):
+    _ROC = talib.ROC(PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_ROC,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Rate of change Percentage: (price-prevPrice)/prevPrice
+def ROCP(PriceData,Range):
+    _ROCP = talib.ROCP(PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_ROCP,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Rate of change ratio: (price/prevPrice)
+def ROCR(PriceData,Range):
+    _ROCR = talib.ROCR(PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_ROCR,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Rate of change ratio 100 scale: (price/prevPrice)*100
+def ROCR100(PriceData,Range):
+    _ROCR100 = talib.ROCR100(PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_ROCR100,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Relative Strength Index
+def RSI(PriceData,Range):
+    _RSI = talib.RSI(PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_RSI,PriceData['date'],PriceData['close'].tolist(),Range] 
+# # Stochastic
+# def STOCH(PriceData,Range):
+#     _STOCH = talib.STOCH(PriceData['close'],Range).tolist()
+#     ##return Indicator Value, Date, the AssetPrice, and the Range
+#     return [_STOCH,PriceData['date'],PriceData['close'].tolist(),Range] 
+# # Stochastic Fast
+# def STOCHF(PriceData,Range):
+#     _STOCHF = talib.STOCHF(PriceData['close'],Range).tolist()
+#     ##return Indicator Value, Date, the AssetPrice, and the Range
+#     return [_STOCHF,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Stochastic Relative Strength Index
+# def STOCHRSI(PriceData,Range):
+#     _STOCHRSI = talib.STOCHRSI(PriceData['close'],Range).tolist()
+#     ##return Indicator Value, Date, the AssetPrice, and the Range
+#     return [_STOCHRSI,PriceData['date'],PriceData['close'].tolist(),Range] 
+#  1-day Rate-Of-Change (ROC) of a Triple Smooth EMA
+def TRIX(PriceData,Range):
+    _TRIX = talib.TRIX(PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_TRIX,PriceData['date'],PriceData['close'].tolist(),Range] 
+# # Ultimate Oscillator
+# def ULTOSC(PriceData,Range):
+#     # Indicator requires 3 Ranges
+#     _ULTOSC = talib.ULTOSC(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+#     ##return Indicator Value, Date, the AssetPrice, and the Range
+#     return [_ULTOSC,PriceData['date'],PriceData['close'].tolist(),Range] 
+ 
+def WILLR(PriceData,Range):
+    _WILLR = talib.WILLR(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ##return Indicator Value, Date, the AssetPrice, and the Range
+    return [_WILLR,PriceData['date'],PriceData['close'].tolist(),Range] 
 
-def ADX(PriceDaten,Range):
-    _ADX = talib.ADX(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ADX,PriceDaten[0],PriceDaten[1],Range] 
- 
-def ADXR(PriceDaten,Range):
-    _ADXR = talib.ADXR(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ADXR,PriceDaten[0],PriceDaten[1],Range] 
- 
-def APO(PriceDaten,Range):
-    _APO = talib.APO(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_APO,PriceDaten[0],PriceDaten[1],Range] 
- 
-def AROON(PriceDaten,Range):
-    _AROON = talib.AROON(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_AROON,PriceDaten[0],PriceDaten[1],Range]
- 
-def AROONOSC(PriceDaten,Range):
-    _AROONOSC = talib.AROONOSC(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_AROONOSC,PriceDaten[0],PriceDaten[1],Range] 
- 
-def BOP(PriceDaten,Range):
-    _BOP = talib.BOP(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_BOP,PriceDaten[0],PriceDaten[1],Range] 
- 
-def CCI(PriceDaten,Range):
-    _CCI = talib.CCI(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_CCI,PriceDaten[0],PriceDaten[1],Range] 
- 
-def CMO(PriceDaten,Range):
-    _CMO = talib.CMO(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_CMO,PriceDaten[0],PriceDaten[1],Range] 
- 
-def DX(PriceDaten,Range):
-    _DX = talib.DX(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_DX,PriceDaten[0],PriceDaten[1],Range] 
-
-def MACD(PriceDaten,Range):
-    _MACD = talib.MACD(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_MACD,PriceDaten[0],PriceDaten[1],Range] 
- 
-def MACDEXT(PriceDaten,Range):
-    _MACDEXT = talib.MACDEXT(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_MACDEXT,PriceDaten[0],PriceDaten[1],Range] 
- 
-def MACDFIX(PriceDaten,Range):
-    _MACDFIX = talib.MACDFIX(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_MACDFIX,PriceDaten[0],PriceDaten[1],Range] 
- 
-def MFI(PriceDaten,Range):
-    _MFI = talib.MFI(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_MFI,PriceDaten[0],PriceDaten[1],Range] 
- 
-def MINUS_DI(PriceDaten,Range):
-    _MINUS_DI = talib.MINUS_DI(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_MINUS_DI,PriceDaten[0],PriceDaten[1],Range] 
- 
-def MINUS_DM(PriceDaten,Range):
-    _MINUS_DM = talib.MINUS_DM(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_MINUS_DM,PriceDaten[0],PriceDaten[1],Range] 
- 
-def MOM(PriceDaten,Range):
-    _MOM = talib.MOM(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_MOM,PriceDaten[0],PriceDaten[1],Range] 
- 
-def PLUS_DI(PriceDaten,Range):
-    _PLUS_DI = talib.PLUS_DI(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_PLUS_DI,PriceDaten[0],PriceDaten[1],Range] 
- 
-def PLUS_DM(PriceDaten,Range):
-    _PLUS_DM = talib.PLUS_DM(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_PLUS_DM,PriceDaten[0],PriceDaten[1],Range] 
- 
-def PPO(PriceDaten,Range):
-    _PPO = talib.PPO(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_PPO,PriceDaten[0],PriceDaten[1],Range] 
- 
-def ROC(PriceDaten,Range):
-    _ROC = talib.ROC(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ROC,PriceDaten[0],PriceDaten[1],Range] 
- 
-def ROCP(PriceDaten,Range):
-    _ROCP = talib.ROCP(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ROCP,PriceDaten[0],PriceDaten[1],Range] 
- 
-def ROCR(PriceDaten,Range):
-    _ROCR = talib.ROCR(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ROCR,PriceDaten[0],PriceDaten[1],Range] 
- 
-def ROCR100(PriceDaten,Range):
-    _ROCR100 = talib.ROCR100(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ROCR100,PriceDaten[0],PriceDaten[1],Range] 
-
-def RSI(PriceDaten,Range):
-    _RSI = talib.RSI(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_RSI,PriceDaten[0],PriceDaten[1],Range] 
- 
-def STOCH(PriceDaten,Range):
-    _STOCH = talib.STOCH(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_STOCH,PriceDaten[0],PriceDaten[1],Range] 
- 
-def STOCHF(PriceDaten,Range):
-    _STOCHF = talib.STOCHF(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_STOCHF,PriceDaten[0],PriceDaten[1],Range] 
- 
-def STOCHRSI(PriceDaten,Range):
-    _STOCHRSI = talib.STOCHRSI(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_STOCHRSI,PriceDaten[0],PriceDaten[1],Range] 
- 
-def TRIX(PriceDaten,Range):
-    _TRIX = talib.TRIX(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_TRIX,PriceDaten[0],PriceDaten[1],Range] 
- 
-def ULTOSC(PriceDaten,Range):
-    _ULTOSC = talib.ULTOSC(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ULTOSC,PriceDaten[0],PriceDaten[1],Range] 
- 
-def WILLR(PriceDaten,Range):
-    _WILLR = talib.WILLR(Price(PriceDaten),Range).tolist()
-    ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_WILLR,PriceDaten[0],PriceDaten[1],Range] 
 
 
+# # Volume Indicators
+# # They Obv need Volume
 
-# Volume Indicators
+# def AD(PriceData):
+#     _AD = talib.AD(PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return[_AD,PriceData['date'],PriceData['close'].tolist()]
 
-def AD(PriceDaten,Range):
-    _AD = talib.AD(Price(PriceDaten),Range).tolist()
-    return[_AD,PriceDaten[0],PriceDaten[1],Range]
+# def ADOSC(PriceData):
+#     _ADOSC = talib.ADOSC(PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return[_ADOSC,PriceData['date'],PriceData['close'].tolist()]
 
-def ADOSC(PriceDaten,Range):
-    _ADOSC = talib.ADOSC(Price(PriceDaten),Range).tolist()
-    return[_ADOSC,PriceDaten[0],PriceDaten[1],Range]
-
-def OBV(PriceDaten,Range):
-    _OBV = talib.OBV(Price(PriceDaten),Range).tolist()
-    return[_OBV,PriceDaten[0],PriceDaten[1],Range]
+# def OBV(PriceData):
+#     _OBV = talib.OBV(PriceData['close']).tolist()
+#     return[_OBV,PriceData['date'],PriceData['close'].tolist()]
 
 
 
 # Cycle Indicators
-
-def HT_DCPERIOD(PriceDaten,Range):
-    _HT_DCPERIOD = talib.HT_DCPERIOD(Price(PriceDaten),Range).tolist()
-    return[_HT_DCPERIOD,PriceDaten[0],PriceDaten[1],Range]
-
-def HT_DCPHASE(PriceDaten,Range):
-    _HT_DCPHASE = talib.HT_DCPHASE(Price(PriceDaten),Range).tolist()
-    return[_HT_DCPHASE,PriceDaten[0],PriceDaten[1],Range]
-
-def HT_PHASOR(PriceDaten,Range):
-    _HT_PHASOR = talib.HT_PHASOR(Price(PriceDaten),Range).tolist()
-    return[_HT_PHASOR,PriceDaten[0],PriceDaten[1],Range]
-
-def HT_SINE(PriceDaten,Range):
-    _HT_SINE = talib.HT_SINE(Price(PriceDaten),Range).tolist()
-    return[_HT_SINE,PriceDaten[0],PriceDaten[1],Range]
-
-def HT_TRENDMODE(PriceDaten,Range):
-    _HT_TRENDMODE = talib.HT_TRENDMODE(Price(PriceDaten),Range).tolist()
-    return[_HT_TRENDMODE,PriceDaten[0],PriceDaten[1],Range]
+# Hilbert Transform - Dominant Cycle Period
+def HT_DCPERIOD(PriceData):
+    _HT_DCPERIOD = talib.HT_DCPERIOD(PriceData['close']).tolist()
+    return[_HT_DCPERIOD,PriceData['date'],PriceData['close'].tolist()]
+# Hilbert Transform - Dominant Cycle Phase
+def HT_DCPHASE(PriceData):
+    _HT_DCPHASE = talib.HT_DCPHASE(PriceData['close']).tolist()
+    return[_HT_DCPHASE,PriceData['date'],PriceData['close'].tolist()]
+# Hilbert Transform - Phasor Components
+def HT_PHASOR(PriceData):
+    _HT_PHASOR = talib.HT_PHASOR(PriceData['close']).tolist()
+    return[_HT_PHASOR,PriceData['date'],PriceData['close'].tolist()]
+# Hilbert Transform - SineWave
+def HT_SINE(PriceData):
+    _HT_SINE = talib.HT_SINE(PriceData['close']).tolist()
+    return[_HT_SINE,PriceData['date'],PriceData['close'].tolist()]
+# Hilbert Transform - Trend vs Cycle Mode
+def HT_TRENDMODE(PriceData):
+    _HT_TRENDMODE = talib.HT_TRENDMODE(PriceData['close']).tolist()
+    return[_HT_TRENDMODE,PriceData['date'],PriceData['close'].tolist()]
 
 
 #Volatility Indicators
-
-def ATR(PriceDaten,Range):
-    _ATR = talib.ATR(Price(PriceDaten),Range).tolist()  
+# Average True Range
+def ATR(PriceData,Range):
+    _ATR = talib.ATR(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()  
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ATR,PriceDaten[0],PriceDaten[1],Range] 
-
-def NATR(PriceDaten,Range):
-    _NATR = talib.NATR(Price(PriceDaten),Range).tolist()
+    return [_ATR,PriceData['date'],PriceData['close'].tolist(),Range] 
+# Normalized Average True Range
+def NATR(PriceData,Range):
+    _NATR = talib.NATR(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_NATR,PriceDaten[0],PriceDaten[1],Range] 
-
-def TRANGE(PriceDaten,Range):
-    _TRANGE = talib.TRANGE(Price(PriceDaten),Range).tolist()
+    return [_NATR,PriceData['date'],PriceData['close'].tolist(),Range] 
+# True Range
+def TRANGE(PriceData,Range):
+    _TRANGE = talib.TRANGE(PriceData['high'],PriceData['low'],PriceData['close']).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_TRANGE,PriceDaten[0],PriceDaten[1],Range]         
+    return [_TRANGE,PriceData['date'],PriceData['close'].tolist()]         
 
 
 
-# Statistic Functions(PriceDaten,Range):
-
-def BETA(PriceDaten,Range):
-    _BETA = talib.BETA(Price(PriceDaten),Range).tolist()
-    return [_BETA,PriceDaten[0],PriceDaten[1],Range]
-
+# Statistic Functions(PriceData,Range):
 # Beta
-def CORREL(PriceDaten,Range):
-    _CORREL = talib.CORREL(Price(PriceDaten),Range).tolist()
-    return [_CORREL,PriceDaten[0],PriceDaten[1],Range]
-
+def BETA(PriceData,Range):
+    _BETA = talib.BETA(PriceData['high'],PriceData['low'],Range).tolist()
+    return [_BETA,PriceData['date'],PriceData['close'].tolist(),Range]
 # Pearson's Correlation Coefficient (r)
-def LINEARREG(PriceDaten,Range):
-    _LINEARREG = talib.LINEARREG(Price(PriceDaten),Range).tolist()
-    return [_LINEARREG,PriceDaten[0],PriceDaten[1],Range]
-
+def CORREL(PriceData,Range):
+    _CORREL = talib.CORREL(PriceData['high'],PriceData['low'],Range).tolist()
+    return [_CORREL,PriceData['date'],PriceData['close'].tolist(),Range]
 # Linear Regression
-def LINEARREG_ANGLE(PriceDaten,Range):
-    _LINEARREG_ANGLE = talib.LINEARREG_ANGLE(Price(PriceDaten),Range).tolist()
-    return [_LINEARREG_ANGLE,PriceDaten[0],PriceDaten[1],Range]
-
+def LINEARREG(PriceData,Range):
+    _LINEARREG = talib.LINEARREG(PriceData['close'],Range).tolist()
+    return [_LINEARREG,PriceData['date'],PriceData['close'].tolist(),Range]
 # Linear Regression Angle
-def LINEARREG_INTERCEPT(PriceDaten,Range):
-    _LINEARREG_INTERCEPT = talib.LINEARREG_INTERCEPT(Price(PriceDaten),Range).tolist()
-    return [_LINEARREG_INTERCEPT,PriceDaten[0],PriceDaten[1],Range]
-
+def LINEARREG_ANGLE(PriceData,Range):
+    _LINEARREG_ANGLE = talib.LINEARREG_ANGLE(PriceData['close'],Range).tolist()
+    return [_LINEARREG_ANGLE,PriceData['date'],PriceData['close'].tolist(),Range]
 # Linear Regression Intercept
-def LINEARREG_SLOPE(PriceDaten,Range):
-    _LINEARREG_SLOPE = talib.LINEARREG_SLOPE(Price(PriceDaten),Range).tolist()
-    return [_LINEARREG_SLOPE,PriceDaten[0],PriceDaten[1],Range]
-
+def LINEARREG_INTERCEPT(PriceData,Range):
+    _LINEARREG_INTERCEPT = talib.LINEARREG_INTERCEPT(PriceData['close'],Range).tolist()
+    return [_LINEARREG_INTERCEPT,PriceData['date'],PriceData['close'].tolist(),Range]
 # Linear Regression Slope
-def STDDEV(PriceDaten,Range):
-    _STDDEV = talib.STDDEV(Price(PriceDaten),Range).tolist()
-    return [_STDDEV,PriceDaten[0],PriceDaten[1],Range]
-
+def LINEARREG_SLOPE(PriceData,Range):
+    _LINEARREG_SLOPE = talib.LINEARREG_SLOPE(PriceData['close'],Range).tolist()
+    return [_LINEARREG_SLOPE,PriceData['date'],PriceData['close'].tolist(),Range]
 # Standard Deviation
-def TSF(PriceDaten,Range):
-    _TSF = talib.TSF(Price(PriceDaten),Range).tolist()
-    return [_TSF,PriceDaten[0],PriceDaten[1],Range]
-
+def STDDEV(PriceData,Range):
+    _STDDEV = talib.STDDEV(PriceData['close'],Range).tolist()
+    return [_STDDEV,PriceData['date'],PriceData['close'].tolist(),Range]
 # Time Series Forecast
-def VAR(PriceDaten,Range):
-    _VAR= talib.VAR(Price(PriceDaten),Range).tolist()
-    return [_VAR,PriceDaten[0],PriceDaten[1],Range]  
-
+def TSF(PriceData,Range):
+    _TSF = talib.TSF(PriceData['close'],Range).tolist()
+    return [_TSF,PriceData['date'],PriceData['close'].tolist(),Range]
 # Variance
+def VAR(PriceData,Range):
+    _VAR= talib.VAR(PriceData['close'],Range).tolist()
+    return [_VAR,PriceData['date'],PriceData['close'].tolist(),Range]  
 
 
 # Math Transform
 
-def ACOS(PriceDaten,Range):
-    _ACOS = talib.ACOS(Price(PriceDaten),Range).tolist()
-    return [_ACOS,PriceDaten[0],PriceDaten[1],Range]
+def ACOS(PriceData):
+    _ACOS = talib.ACOS(PriceData['close']).tolist()
+    return [_ACOS,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Trigonometric ACos
-def ASIN(PriceDaten,Range):
-    _ASIN = talib.ASIN(Price(PriceDaten),Range).tolist()
-    return [_ASIN,PriceDaten[0],PriceDaten[1],Range]
+def ASIN(PriceData):
+    _ASIN = talib.ASIN(PriceData['close']).tolist()
+    return [_ASIN,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Trigonometric ASin
-def ATAN(PriceDaten,Range):
-    _ATAN = talib.ATAN(Price(PriceDaten),Range).tolist()
-    return [_ATAN,PriceDaten[0],PriceDaten[1],Range]
+def ATAN(PriceData):
+    _ATAN = talib.ATAN(PriceData['close']).tolist()
+    return [_ATAN,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Trigonometric ATan
-def CEIL(PriceDaten,Range):
-    _CEIL = talib.CEIL(Price(PriceDaten),Range).tolist()
-    return [_CEIL,PriceDaten[0],PriceDaten[1],Range]
+def CEIL(PriceData):
+    _CEIL = talib.CEIL(PriceData['close']).tolist()
+    return [_CEIL,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Ceil
-def COS(PriceDaten,Range):
-    _COS = talib.COS(Price(PriceDaten),Range).tolist()
-    return [_COS,PriceDaten[0],PriceDaten[1],Range]
+def COS(PriceData):
+    _COS = talib.COS(PriceData['close']).tolist()
+    return [_COS,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Trigonometric Cos
-def COSH(PriceDaten,Range):
-    _COSH = talib.COSH(Price(PriceDaten),Range).tolist()
-    return [_COSH,PriceDaten[0],PriceDaten[1],Range]
+def COSH(PriceData):
+    _COSH = talib.COSH(PriceData['close']).tolist()
+    return [_COSH,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Trigonometric Cosh
-def EXP(PriceDaten,Range):
-    _EXP = talib.EXP(Price(PriceDaten),Range).tolist()
-    return [_EXP,PriceDaten[0],PriceDaten[1],Range]
+def EXP(PriceData):
+    _EXP = talib.EXP(PriceData['close']).tolist()
+    return [_EXP,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Arithmetic Exp
-def FLOOR(PriceDaten,Range):
-    _FLOOR = talib.FLOOR(Price(PriceDaten),Range).tolist()
-    return [_FLOOR,PriceDaten[0],PriceDaten[1],Range]
+def FLOOR(PriceData):
+    _FLOOR = talib.FLOOR(PriceData['close']).tolist()
+    return [_FLOOR,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Floor
-def LN(PriceDaten,Range):
-    _LN = talib.LN(Price(PriceDaten),Range).tolist()
-    return [_LN,PriceDaten[0],PriceDaten[1],Range]
+def LN(PriceData):
+    _LN = talib.LN(PriceData['close']).tolist()
+    return [_LN,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Log Natural
-def LOG10(PriceDaten,Range):
-    _LOG10 = talib.LOG10(Price(PriceDaten),Range).tolist()
-    return [_LOG10,PriceDaten[0],PriceDaten[1],Range]
+def LOG10(PriceData):
+    _LOG10 = talib.LOG10(PriceData['close']).tolist()
+    return [_LOG10,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Log10
-def SIN(PriceDaten,Range):
-    _SIN = talib.SIN(Price(PriceDaten),Range).tolist()
-    return [_SIN,PriceDaten[0],PriceDaten[1],Range]
+def SIN(PriceData):
+    _SIN = talib.SIN(PriceData['close']).tolist()
+    return [_SIN,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Trigonometric Sin
-def SINH(PriceDaten,Range):
-    _SINH = talib.SINH(Price(PriceDaten),Range).tolist()
-    return [_SINH,PriceDaten[0],PriceDaten[1],Range]
+def SINH(PriceData):
+    _SINH = talib.SINH(PriceData['close']).tolist()
+    return [_SINH,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Trigonometric Sinh
-def SQRT(PriceDaten,Range):
-    _SQRT = talib.SQRT(Price(PriceDaten),Range).tolist()
-    return [_SQRT,PriceDaten[0],PriceDaten[1],Range]
+def SQRT(PriceData):
+    _SQRT = talib.SQRT(PriceData['close']).tolist()
+    return [_SQRT,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Square Root
-def TAN(PriceDaten,Range):
-    _TAN = talib.TAN(Price(PriceDaten),Range).tolist()
-    return [_TAN,PriceDaten[0],PriceDaten[1],Range]
+def TAN(PriceData):
+    _TAN = talib.TAN(PriceData['close']).tolist()
+    return [_TAN,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Trigonometric Tan
-def TANH(PriceDaten,Range):
-    _TANH = talib.TANH(Price(PriceDaten),Range).tolist()
-    return [_TANH,PriceDaten[0],PriceDaten[1],Range]
+def TANH(PriceData):
+    _TANH = talib.TANH(PriceData['close']).tolist()
+    return [_TANH,PriceData['date'],PriceData['close'].tolist()]
 
 # Vector Trigonometric Tanh
 
@@ -422,47 +423,47 @@ def TANH(PriceDaten,Range):
 
 # Math Operators
 
-def ADD(PriceDaten,Range):
-    _ADD = talib.ADD(Price(PriceDaten),Range).tolist()
-    return [_ADD,PriceDaten[0],PriceDaten[1],Range]
+def ADD(PriceData):
+    _ADD = talib.ADD(PriceData['high'],PriceData['low']).tolist()
+    return [_ADD,PriceData['date'],PriceData['close'].tolist()]
 # Vector Arithmetic Add
-def DIV(PriceDaten,Range):
-    _DIV = talib.DIV(Price(PriceDaten),Range).tolist()
-    return [_DIV,PriceDaten[0],PriceDaten[1],Range]
+def DIV(PriceData):
+    _DIV = talib.DIV(PriceData['high'],PriceData['low']).tolist()
+    return [_DIV,PriceData['date'],PriceData['close'].tolist()]
 # Vector Arithmetic Div
-def MAX(PriceDaten,Range):
-    _MAX = talib.MAX(Price(PriceDaten),Range).tolist()
-    return [_MAX,PriceDaten[0],PriceDaten[1],Range]
+def MAX(PriceData,Range):
+    _MAX = talib.MAX(PriceData['close'],Range).tolist()
+    return [_MAX,PriceData['date'],PriceData['close'].tolist(),Range]
 # Highest value over a specified period
-def MAXINDEX(PriceDaten,Range):
-    _MAXINDEX = talib.MAXINDEX(Price(PriceDaten),Range).tolist()
-    return [_MAXINDEX,PriceDaten[0],PriceDaten[1],Range]
+def MAXINDEX(PriceData,Range):
+    _MAXINDEX = talib.MAXINDEX(PriceData['close'],Range).tolist()
+    return [_MAXINDEX,PriceData['date'],PriceData['close'].tolist(),Range]
 # Index of highest value over a specified period
-def MIN(PriceDaten,Range):
-    _MIN = talib.MIN(Price(PriceDaten),Range).tolist()
-    return [_MIN,PriceDaten[0],PriceDaten[1],Range]
+def MIN(PriceData,Range):
+    _MIN = talib.MIN(PriceData['close'],Range).tolist()
+    return [_MIN,PriceData['date'],PriceData['close'].tolist(),Range]
 # Lowest value over a specified period
-def MININDEX(PriceDaten,Range):
-    _MININDEX = talib.MININDEX(Price(PriceDaten),Range).tolist()
-    return [_MININDEX,PriceDaten[0],PriceDaten[1],Range]
+def MININDEX(PriceData,Range):
+    _MININDEX = talib.MININDEX(PriceData['close'],Range).tolist()
+    return [_MININDEX,PriceData['date'],PriceData['close'].tolist(),Range]
 # Index of lowest value over a specified period
-def MINMAX(PriceDaten,Range):
-    _MINMAX = talib.MINMAX(Price(PriceDaten),Range).tolist()
-    return [_MINMAX,PriceDaten[0],PriceDaten[1],Range]
+def MINMAX(PriceData,Range):
+    _MINMAX = talib.MINMAX(PriceData['close'],Range).tolist()
+    return [_MINMAX,PriceData['date'],PriceData['close'].tolist(),Range]
 # Lowest and highest values over a specified period
-def MINMAXINDEX(PriceDaten,Range):
-    _MINMAXINDEX = talib.MINMAXINDEX(Price(PriceDaten),Range).tolist()
-    return [_MINMAXINDEX,PriceDaten[0],PriceDaten[1],Range]
+def MINMAXINDEX(PriceData,Range):
+    _MINMAXINDEX = talib.MINMAXINDEX(PriceData['close'],Range).tolist()
+    return [_MINMAXINDEX,PriceData['date'],PriceData['close'].tolist(),Range]
 # Indexes of lowest and highest values over a specified period
-def MULT(PriceDaten,Range):
-    _MULT = talib.MULT(Price(PriceDaten),Range).tolist()
-    return [_MULT,PriceDaten[0],PriceDaten[1],Range]
+def MULT(PriceData):
+    _MULT = talib.MULT(PriceData['high'],PriceData['low']).tolist()
+    return [_MULT,PriceData['date'],PriceData['close'].tolist()]
 # Vector Arithmetic Mult
-def SUB(PriceDaten,Range):
-    _SUB = talib.SUB(Price(PriceDaten),Range).tolist()
-    return [_SUB,PriceDaten[0],PriceDaten[1],Range]
+def SUB(PriceData):
+    _SUB = talib.SUB(PriceData['high'],PriceData['low']).tolist()
+    return [_SUB,PriceData['date'],PriceData['close'].tolist()]
 # Vector Arithmetic Substraction
-def SUM(PriceDaten,Range):
-    _SUM = talib.SUM(Price(PriceDaten),Range).tolist()
-    return [_SUM,PriceDaten[0],PriceDaten[1],Range]                  
+def SUM(PriceData,Range):
+    _SUM = talib.SUM(PriceData['close'],Range).tolist()
+    return [_SUM,PriceData['date'],PriceData['close'].tolist(),Range]                  
 # Summation
