@@ -307,11 +307,7 @@ def CDLXSIDEGAP3METHODS(OHLC):
     
 
 
-# for i in candlePatterns:
-#     f = getattr(talib, i)
-#     result = f(op,hi,lo,cl)
-#     print(i)
-#     print(result[result != 0])
+
     
 
 
