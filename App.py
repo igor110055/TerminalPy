@@ -22,6 +22,7 @@ def PostAssetPairs():
     data = request.get_json()
     selectedDataSource = data['DataSource']
     returnAssetPairs = AssetPairs(selectedDataSource)
+
     return {'AssetPairs': returnAssetPairs}
 
 # Create Global Array in which all PriceData gets fetched

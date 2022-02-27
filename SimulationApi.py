@@ -22,7 +22,7 @@ def RunSimulation(PriceData,Config):
     LineCrossings = Line2LineCompare(Indicator1 , Indicator2)
     
     Simulation = Simulator(LineCrossings)
-
+    print(Simulation)
     Formater2Test = Formater(Simulation)
 
     return Formater2Test

@@ -60,8 +60,7 @@ def AveragePrice(CandleData):
 
     # Pushing Data into the Average List
     for element in CandleData:
-        readable = datetime.fromtimestamp(element[0]/1000).isoformat()
-        Average[0].append(str(readable))
+        Average[0].append(str(element[0]))
 
     # Calculating Average Price
     for element in talib.AVGPRICE(open, high, low, close).tolist():
