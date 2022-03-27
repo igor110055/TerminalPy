@@ -44,6 +44,7 @@ from Config.OHLCDataFrontend import OHLCData
 def OHLC():
     data = request.get_json()
     ohlcConfig = data['ohlcConfig']
+    print(ohlcConfig)
     returnOHLCData = OHLCData(ohlcConfig)
     AppendGlobalPriceData({'config':ohlcConfig,'OHLC': returnOHLCData})
     return {'config':ohlcConfig,'OHLC': returnOHLCData}
@@ -74,6 +75,35 @@ def renderIndi():
             'config': IndicatorConfig
         }
 
+# Statistics Data ---------------------
+from Models.AllModelsFrontend import AllModels 
+@app.route('/AllModels', methods=['GET'])
+def GetAllModels():
+    return{'Metadata':AllModels()}
+
+StatisticsPriceData = []
+
+def AppendStatisticsPriceData(toAppend):
+    PriceData = deepcopy(getAveragePrice(toAppend))
+    # print('Average in App.py', PriceData)
+    StatisticsPriceData.append({
+        'config':toAppend['config'],
+        'OHLC': toAppend['OHLC'],
+        'Average': PriceData
+    })
+
+from Models.PriceData2DataFrame import Test , Creator
+@app.route('/Statistics', methods=['POST'])
+def Statistics():
+    data = request.get_json()
+    ohlcConfig = data['ohlcConfig']
+    returnOHLCData = OHLCData(ohlcConfig)
+    AppendStatisticsPriceData({'config':ohlcConfig,'OHLC': returnOHLCData})
+    return {'StatisticsPriceData':StatisticsPriceData}
+
+
+
+
 # Simulation Data ---------------------
 from Config.ListOfStrategies import Strategies
 @app.route('/ListAllStrategies', methods=['GET'])
@@ -95,5 +125,5 @@ def Sim():
         }
       
     
-
-app.run(host='0.0.0.0',port=5001,debug=True)
+# host='0.0.0.0'
+app.run(host='localhost',port=5001,debug=True)
