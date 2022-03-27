@@ -1,25 +1,38 @@
 #Config
-from Config.Config import PriceData
-
-#Import Indicators (TA-Lib)
-import Indicators.Indicator as Indicator
-# Declaring 2 Indicators with our Bitcoin PriceData from Config
-SMA5 = Indicator.SMA(PriceData, 5)
-SMA10 = Indicator.SMA(PriceData, 10)
-
-#Import Strategies
+#  config reformatted in OO_Overhaul
+# from Config.Config import PriceData
+# import Indicators.Indicator as Indicator
 from Strategies.MACrossings import SMAtoSMACompare
+from Simulator.Runtime import Simulator
+from Simulator.RuntimeOutputFormater import Formater
+from OO_Overhaul.data_handling import ImportData, AveragePrice
+from OO_Overhaul.indicator import Indicator
+# Load datasource
+data_source = ImportData()
+# bitcoin data auto loaded on init, to connect a different url call:
+# data_source.connect_data(url="[optional alternate data url]")
+if not data_source.format_data():
+    print("Error in data format!")
+    exit(1)
+data_averaging = AveragePrice(data_source.get_format_data())
+price_data = data_averaging.get_average()
+
+
+# Declaring 2 Indicators with our Bitcoin PriceData
+indicated_prices = Indicator(price_data)
+SMA5 = indicated_prices.get_sma(5)
+SMA10 = indicated_prices.get_sma(10)
+
+
 # This is a module which compares 2 Moving Averages to each other
 # with this output the Simulator module will be able to detect 
 # when the Moving Average lines cross each other
-SMA5vs10 = SMAtoSMACompare(SMA10 , SMA5)
+SMA5vs10 = SMAtoSMACompare(SMA10, SMA5)
 
-#Import Simulator
-from Simulator.Runtime import Simulator
+
 Simulation = Simulator(SMA5vs10)
 # The Output from the Simulater Module needs to be analyzed to 
 # tell us if we would have gained or losst money executing that Strategy
-from Simulator.RuntimeOutputFormater import Formater
 FormatedSimulation = Formater(Simulation)
 
 print(FormatedSimulation)
