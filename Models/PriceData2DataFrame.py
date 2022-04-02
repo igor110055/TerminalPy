@@ -1,5 +1,4 @@
 import pandas as pd
-# from Fetcher import priceDataSets
 
 class BinanceDataFrame():
     def __init__(self,arrayListe,name) -> None:
@@ -46,15 +45,3 @@ class Creator():
         Frame = MergeDataFrames(self.Frames2Merge)
         self.PriceData = Frame.merged
         
-
-
-def Test(priceDataSets):
-    Frames2Merge = []
-    for element in priceDataSets:
-        temp = BinanceDataFrame(element['OHLC'],element['config']['assetPair'])
-        temp.PriceDataFrame.set_index("TimeStamp", inplace = True)
-        Frames2Merge.append(temp.PriceDataFrame)
-    Frame = MergeDataFrames(Frames2Merge)
-    PriceData = Frame.merged
-    PriceData.info()
-    return PriceData

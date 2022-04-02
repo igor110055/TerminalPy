@@ -1,129 +1,159 @@
-from crypt import methods
-from Config.BinanceFetchFrontend import PriceDataFetch
-import find_parent
-from flask import Flask, request
-from flask_restful import Resource, Api, reqparse, request
-from flask_cors import CORS
+"""Module for final execusion"""
+
+# from crypt import methods
+# from Config.BinanceFetchFrontend import PriceDataFetch
+# from flask_restful import Api Resource, reqparse, request
+
 from copy import deepcopy
+from flask import Flask, request
+from flask_restful import Api
+from flask_cors import CORS
+
+from Config.DataSourceFrontend import DataSources
+from Config.AssetPairsFrontend import AssetPairs
+from Config.OHLCDataFrontend import OHLCData
+from Config.ListOfIndicatorsFrontend import IndicatorsToRender
+from Config.ListOfStrategies import Strategies
+from PriceData.AveragePrices import getAveragePrice
+from PriceData.BinanceOHLCforIndicators import OHLCformated
+from Indicators.Rendered_Indicators import InitSelectedIndicator
+from Models.AllModelsFrontend import AllModels
+from Models.Models import Modelz
+from Models.SelectModels import ModelData
+from SimulationApi import RunSimulation
+
+import find_parent
 
 app = Flask(__name__)
 CORS(app)
 api = Api(app)
 
-from Config.DataSourceFrontend import DataSources
+
 @app.route('/DataSources', methods=['GET'])
-def GetDataSources():
+def get_data_sources():
+    """Return an ex-parrot."""
     return{'Metadata':DataSources()}
-    
 
-from Config.AssetPairsFrontend import AssetPairs
+
+
 @app.route('/AssetPairs',methods = ['POST'])
-def PostAssetPairs():
+def post_asset_pairs():
+    """Return an ex-parrot."""
     data = request.get_json()
-    selectedDataSource = data['DataSource']
-    returnAssetPairs = AssetPairs(selectedDataSource)
-
-    return {'AssetPairs': returnAssetPairs}
+    selected_data_source = data['DataSource']
+    return_asset_pairs = AssetPairs(selected_data_source)
+    return {'AssetPairs': return_asset_pairs}
 
 # Create Global Array in which all PriceData gets fetched
-from PriceData.AveragePrices import getAveragePrice
+
 GlobalPriceData = []
 
-def AppendGlobalPriceData(toAppend):
-    PriceData = deepcopy(getAveragePrice(toAppend))
+def append_global_pricedata(toAppend):
+    """Return an ex-parrot."""
+    price_data = deepcopy(getAveragePrice(toAppend))
     # print('Average in App.py', PriceData)
     GlobalPriceData.append({
         'config':toAppend['config'],
         'OHLC': toAppend['OHLC'],
-        'Average': PriceData
+        'Average': price_data
     })
 
 # Price Data ---------------------
-from Config.OHLCDataFrontend import OHLCData
+
 @app.route('/OHLC', methods=['POST'])
-def OHLC():
+def ohlc():
+    """Return an ex-parrot."""
     data = request.get_json()
-    ohlcConfig = data['ohlcConfig']
-    print(ohlcConfig)
-    returnOHLCData = OHLCData(ohlcConfig)
-    AppendGlobalPriceData({'config':ohlcConfig,'OHLC': returnOHLCData})
-    return {'config':ohlcConfig,'OHLC': returnOHLCData}
+    ohlc_config = data['ohlcConfig']
+    print(ohlc_config)
+    return_ohlc_data = OHLCData(ohlc_config)
+    append_global_pricedata({'config':ohlc_config,'OHLC': return_ohlc_data})
+    return {'config':ohlc_config,'OHLC': return_ohlc_data}
 
 
 # Indicators Data ---------------------
-from Config.ListOfIndicatorsFrontend import IndicatorsToRender
+
 @app.route('/ListAllIndicators', methods=['GET'])
-def ListIndi():
+def list_indi():
+    """Return an ex-parrot."""
     return {'IndicatorsToRender': IndicatorsToRender}
 
 
-from Indicators.Rendered_Indicators import InitSelectedIndicator
-from PriceData.BinanceOHLCforIndicators import OHLCformated
+
 @app.route('/RenderIndicator', methods=['POST'])
-def renderIndi():
+def render_indi():
+    """Return an ex-parrot."""
     data = request.get_json()
-    IndicatorConfig = data['config']
+    indicator_config = data['config']
     if len(GlobalPriceData)>0:
-        OHLCPrice = deepcopy(OHLCformated(GlobalPriceData[-1]['OHLC']))
-        IndicatorReady = InitSelectedIndicator(
-            IndicatorConfig['selectedIndicator']['symbol'], 
-            OHLCPrice, 
-            int(IndicatorConfig['selectedPeriod'])
+        ohlc_price = deepcopy(OHLCformated(GlobalPriceData[-1]['OHLC']))
+        indicator_ready = InitSelectedIndicator(
+            indicator_config['selectedIndicator']['symbol'],
+            ohlc_price,
+            int(indicator_config['selectedPeriod'])
         )
         return {
-            'Indicator': IndicatorReady,
-            'config': IndicatorConfig
+            'Indicator': indicator_ready,
+            'config': indicator_config
         }
 
 # Statistics Data ---------------------
-from Models.AllModelsFrontend import AllModels 
+
 @app.route('/AllModels', methods=['GET'])
-def GetAllModels():
+def get_all_models():
+    """Return an ex-parrot."""
     return{'Metadata':AllModels()}
 
 StatisticsPriceData = []
 
-def AppendStatisticsPriceData(toAppend):
-    PriceData = deepcopy(getAveragePrice(toAppend))
-    # print('Average in App.py', PriceData)
+def append_statistics_price_data(toAppend):
+    """Return an ex-parrot."""
+    price_data = deepcopy(getAveragePrice(toAppend))
     StatisticsPriceData.append({
         'config':toAppend['config'],
         'OHLC': toAppend['OHLC'],
-        'Average': PriceData
+        'Average': price_data
     })
 
-from Models.PriceData2DataFrame import Test , Creator
-@app.route('/Statistics', methods=['POST'])
-def Statistics():
-    data = request.get_json()
-    ohlcConfig = data['ohlcConfig']
-    returnOHLCData = OHLCData(ohlcConfig)
-    AppendStatisticsPriceData({'config':ohlcConfig,'OHLC': returnOHLCData})
-    return {'StatisticsPriceData':StatisticsPriceData}
 
+
+@app.route('/Statistics', methods=['POST'])
+def statistics():
+    """Return an ex-parrot."""
+    data = request.get_json()
+    ohlc_config = data['OHLC_config']
+    model_config = data['ModelConfig']
+    for config_set in ohlc_config:
+        return_ohlc_data = OHLCData(config_set)
+        append_statistics_price_data({'config':config_set,'OHLC': return_ohlc_data})
+
+    frame = Modelz(StatisticsPriceData)
+    rendered_model = ModelData(model_config,frame)
+    return {'Config': model_config, 'StatisticsModel': rendered_model}
 
 
 
 # Simulation Data ---------------------
-from Config.ListOfStrategies import Strategies
+
 @app.route('/ListAllStrategies', methods=['GET'])
-def ListStrat():
+def list_strat():
+    """Return an ex-parrot."""
     return {'Strategies': Strategies}
 
-from SimulationApi import RunSimulation
+
 # from PriceData.BinanceAveragePrice import AveragePrice
 @app.route('/Simulation', methods=['POST'])
-def Sim():
+def sim():
+    """Return an ex-parrot."""
     if len(GlobalPriceData)>0:
         data = request.get_json()
-        SimulationConfig = data['config']
-        OHLCPrice = deepcopy(OHLCformated(GlobalPriceData[-1]['OHLC']))
-        Simulation = RunSimulation(OHLCPrice,SimulationConfig)
+        simulation_config = data['config']
+        ohlc_price = deepcopy(OHLCformated(GlobalPriceData[-1]['OHLC']))
+        simulation = RunSimulation(ohlc_price,simulation_config)
         return {
-            'Simulation': Simulation,
-            'config': SimulationConfig
+            'Simulation': simulation,
+            'config': simulation_config
         }
-      
-    
+
 # host='0.0.0.0'
 app.run(host='localhost',port=5001,debug=True)

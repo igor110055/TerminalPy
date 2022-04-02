@@ -2,7 +2,8 @@ import requests
 from datetime import datetime
 import copy
 def PriceDataFetch(Symbol,CandleSize):
-    URI = 'https://api.binance.com/api/v3/klines?symbol='+Symbol+'&interval='+CandleSize+'&limit=10'
+    URI = 'https://api.binance.com/api/v3/klines?symbol='+Symbol+'&interval='+CandleSize
+    # +'&limit=10'
 
     response = requests.get(URI)
     json = response.json()
