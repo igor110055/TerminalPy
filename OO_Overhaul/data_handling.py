@@ -1,26 +1,29 @@
 """
 This is the object oriented version of the "Price data" folder
-One benefit of using these class calls can be seen in app.py wherein the binUrl can be inserted later on
+One benefit of using these class calls can be seen in app.py
+wherein the bin_url can be inserted later on
 This allows for any data source to be used at runtime.
 """
+from datetime import datetime
 import requests
 import numpy
-from datetime import datetime
 import talib
 
 
 class ImportData:
+    """Class"""
     def __init__(self):
-        self.binUrl = 'https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=70'
+        self.bin_url = 'https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=70'
         self.formatted = []
         self.json = None
         self.connect_data()
         self.is_formatted = False
 
     def connect_data(self, url=None):
+        """if we want to load data other than the url specified in __init__"""
         if url is not None:
-            self.binUrl = url
-        response = requests.get(self.binUrl)
+            self.bin_url = url
+        response = requests.get(self.bin_url)
         self.json = response.json()
         # new data has been loaded, thus not formatted
         self.is_formatted = False
@@ -28,8 +31,8 @@ class ImportData:
     def format_data(self):
         """
         It can be advantageous to determine whether data has been formatted already
-        This has the benefit of code readability wherein "format_data" is always called, but the system doesn't have to
-        re-run the format if not required
+        This has the benefit of code readability wherein "format_data" is always called,
+        but the system doesn't have to re-run the format if not required
         """
         if self.is_formatted:
             return True
@@ -44,26 +47,31 @@ class ImportData:
         return True
 
     def get_format_data(self):
+        """Method"""
         if len(self.formatted) < 1:
             self.format_data()
         return self.formatted
 
     def reset_format_data(self):
+        """Method"""
         self.formatted = []
 
 
 class AveragePrice:
+    """Takes OHLC, returns average Price"""
     def __init__(self, candle_data):
         self.data = candle_data
         self.average = [[], []]
 
     def calc_average(self):
+        """Method"""
         op = []
         hi = []
         lo = []
         cl = []
         for data in self.data:
-            self.average[0].append(f"{datetime.fromtimestamp(data[0] / 1000).isoformat}")
+            # f"{datetime.fromtimestamp(data[0] / 1000).isoformat}"
+            self.average[0].append(f"{datetime.fromtimestamp(data[0] / 1000).isoformat()}")
             op.append(data[1])
             hi.append(data[2])
             lo.append(data[3])
@@ -80,6 +88,7 @@ class AveragePrice:
             self.average[1].append(averaged_price)
 
     def get_average(self):
+        """Method"""
         if len(self.average[0]) == 0 or len(self.average[1]) == 0:
             self.calc_average()
         return self.average

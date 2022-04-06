@@ -1,7 +1,6 @@
 import talib
 import numpy
 
-
 class Indicator:
     def __init__(self, price_data):
         self.price_raw = price_data

@@ -33,7 +33,7 @@ def Simulator(Strategy):
         elif Strategy['MAonTop'][index] == Strategy['MAMax']['Range']:
             
             # execute the Trade by pasing the AssetPrice into the Engine
-            SimulatorEngine.sell( Strategy['AssetValue'][index] )
+            SimulatorEngine.sell( Strategy['AssetValue'][index])
 
             # Log all the Metadata
             History['Trades'].append({
