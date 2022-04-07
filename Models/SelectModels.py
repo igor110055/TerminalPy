@@ -1,13 +1,13 @@
 def ModelData(config, DataFrame):
-    print(config['Selected_Model'])
+    
     if config['Selected_Model'] == 'Rates of Simple Volatility':
-        return DataFrame.Rates_of_Simple_Volatility()
+        return DataFrame.rates_of_simple_volatility()
     elif config['Selected_Model'] == 'Rates of Logarithmic Volatility':
-        return DataFrame.Rates_of_Logarithmic_Volatility()
+        return DataFrame.rates_of_logarithmic_volatility()
     elif config['Selected_Model'] == 'Rates of Return':
-        return DataFrame.Rates_of_Return()
+        return DataFrame.rates_of_return()
     elif config['Selected_Model'] == 'Rates of Deviation':
-        return DataFrame.Rates_of_Deviation()
+        return DataFrame.rates_of_deviation()
     elif config['Selected_Model'] == 'Rates of Deviation':
         return
    

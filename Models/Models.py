@@ -13,40 +13,57 @@ class Modelz():
 
     def rates_of_logarithmic_volatility(self):
         """Method"""
+        index_list = list(self.Dataframe.index.values)
+        renedered_model = []
         for rowName, rowData in self.Dataframe.iteritems():
             self.Dataframe[rowName] = np.log(self.Dataframe[rowName] / self.Dataframe[rowName].shift(1))
-        print(self.Dataframe.values.tolist())
-        return self.Dataframe.values.tolist()
+            list_column = self.Dataframe[rowName].values.tolist()
+            renedered_model.append({'Asset': rowName, 'Value': list_column, 'Time': index_list })
+        return renedered_model
 
     def rates_of_simple_volatility(self):
         """Method"""
+        index_list = list(self.Dataframe.index.values)
+        renedered_model = []
         for rowName, rowData in self.Dataframe.iteritems():
             self.Dataframe[rowName] = (self.Dataframe[rowName] / self.Dataframe[rowName].shift(1)) - 1
-        print(self.Dataframe.values.tolist())
-        return self.Dataframe.values.tolist()
-
-        # for rowName, rowData in self.Dataframe.iteritems():
-        #     self.Dataframe['Simple Return'] = (self.Dataframe[rowName] / self.Dataframe[rowName].shift(1)) - 1
-        #     self.Dataframe['Logarithmic Return'] = np.log(self.Dataframe[rowName] / self.Dataframe[rowName].shift(1))
-        #     self.Jochen = self.Dataframe.values.tolist()
-        #     self.dictToReturn.append(self.Jochen)
-        #     print('Jochen', self.Jochen)
-            # print(rowName+' Simple Return raw: ',self.Dataframe['Simple Return'])
-            # print(rowName+' Logarithmic Return raw: ',self.Dataframe['Logarithmic Return'])
-
+            list_column = self.Dataframe[rowName].values.tolist()
+            renedered_model.append({'Asset': rowName, 'Value': list_column, 'Time': index_list })
+        return renedered_model
 
     def rates_of_return(self):
         """Method"""
         normalized_list = (self.Dataframe / self.Dataframe.iloc[0] * 100)
-        print(normalized_list.values.tolist())
-        return normalized_list.values.tolist()
+        index_list = list(normalized_list.index.values)
+        renedered_model = []
+        for column in normalized_list:
+            lamana = normalized_list[column].tolist()
+            renedered_model.append({'Asset': column, 'Value': lamana, 'Time': index_list })
+
+        return renedered_model
 
 
     def rates_of_deviation(self):
         """Method"""
+        index_list = list(self.Dataframe.index.values)
+        renedered_model = []
         for rowName, rowData in self.Dataframe.iteritems():
-            print(rowName)
-            print(np.log(self.Dataframe[rowName] / self.Dataframe[rowName].shift(1)))
+            self.Dataframe[rowName] = np.log(self.Dataframe[rowName] / self.Dataframe[rowName].shift(1))
+            list_column = self.Dataframe[rowName].values.tolist()
+            renedered_model.append({'Asset': rowName, 'Value': list_column, 'Time': index_list })
+        return renedered_model
+
 
     # def Rates_of_Corelation(self):
     #     pass
+
+
+        # for rowName, rowData in self.Dataframe.iteritems():
+    #     self.Dataframe['Simple Return'] = (self.Dataframe[rowName] / self.Dataframe[rowName].shift(1)) - 1
+    #     self.Dataframe['Logarithmic Return'] = np.log(self.Dataframe[rowName] / self.Dataframe[rowName].shift(1))
+    #     self.Jochen = self.Dataframe.values.tolist()
+    #     self.dictToReturn.append(self.Jochen)
+    #     print('Jochen', self.Jochen)
+        # print(rowName+' Simple Return raw: ',self.Dataframe['Simple Return'])
+        # print(rowName+' Logarithmic Return raw: ',self.Dataframe['Logarithmic Return'])
+

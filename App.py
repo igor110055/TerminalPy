@@ -78,8 +78,6 @@ def list_indi():
     """Return an ex-parrot."""
     return {'IndicatorsToRender': IndicatorsToRender}
 
-
-
 @app.route('/RenderIndicator', methods=['POST'])
 def render_indi():
     """Return an ex-parrot."""
@@ -104,34 +102,25 @@ def get_all_models():
     """Return an ex-parrot."""
     return{'Metadata':AllModels()}
 
-StatisticsPriceData = []
-
-def append_statistics_price_data(toAppend):
-    """Return an ex-parrot."""
-    price_data = deepcopy(getAveragePrice(toAppend))
-    StatisticsPriceData.append({
-        'config':toAppend['config'],
-        'OHLC': toAppend['OHLC'],
-        'Average': price_data
-    })
-
-
-
 @app.route('/Statistics', methods=['POST'])
 def statistics():
     """Return an ex-parrot."""
     data = request.get_json()
-    ohlc_config = data['OHLC_config']
+    ohlc_config = data['OHLCConfig']
     model_config = data['ModelConfig']
+    StatisticsPriceData = []
     for config_set in ohlc_config:
         return_ohlc_data = OHLCData(config_set)
-        append_statistics_price_data({'config':config_set,'OHLC': return_ohlc_data})
-
+        price_data = deepcopy(getAveragePrice({'config':config_set,'OHLC': return_ohlc_data}))
+        StatisticsPriceData.append({
+            'config':config_set,
+            'OHLC': return_ohlc_data,
+            'Average': price_data
+        })
+        
     frame = Modelz(StatisticsPriceData)
     rendered_model = ModelData(model_config,frame)
     return {'Config': model_config, 'StatisticsModel': rendered_model}
-
-
 
 # Simulation Data ---------------------
 
