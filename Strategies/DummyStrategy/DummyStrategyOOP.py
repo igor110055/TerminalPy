@@ -42,7 +42,7 @@ class DummyStrategy:
                     globalReturn['AssetValue'].append(self.price_raw[1][index_])
                     globalReturn['Time'].append(self.price_raw[0][index_])
             
-        print(globalReturn)
+        # print(globalReturn)
         return globalReturn
 
 
@@ -79,5 +79,5 @@ class DummyStrategy2:
                 globalReturn['AssetValue'].append(self.price_raw[1][index_])
                 globalReturn['Time'].append(self.price_raw[0][index_])
         
-        print(globalReturn)
+        # print(globalReturn)
         return globalReturn

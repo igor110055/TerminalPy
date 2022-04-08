@@ -51,4 +51,4 @@ history = simulation_instance.return_history()
 # tell us if we would have gained or losst money executing that Strategy
 FormatedSimulation = Formater(history)
 
-print(FormatedSimulation)
+# print(FormatedSimulation)

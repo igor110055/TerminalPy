@@ -51,5 +51,5 @@ class SimulatorOOP:
                 })
 
     def return_history(self):
-        print('self.history: ',self.history)
+        # print('self.history: ',self.history)
         return self.history
