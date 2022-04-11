@@ -1,105 +1,119 @@
 import talib
-# import numpy
-# from Indicators.getRidofNan import delNan
+from copy import deepcopy
 
+from PriceData.BinanceOHLCforIndicators import OHLCformated
 
-# def Data):
-#     PriceMaker = numpy.array(Data[1])
-#     return PriceMaker
 
 # Overlap Studies
 
 # # Bollinger Bands
 # def BBANDS(PriceData,Range):
-#     _BBANDS = talib.BBANDS(PriceData),Range)
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _BBANDS = talib.BBANDS(PriceData),Range)
 #     Band1 = _BBANDS[0].tolist()
 #     Band2 = _BBANDS[1].tolist()
 #     Band3 = _BBANDS[2].tolist()
-#     return[[Band1,Band2,Band3],PriceData['date'],PriceData['close'].tolist(),Range]
+#     return[[Band1,Band2,Band3],ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Double Exponential Moving Average
 def DEMA(PriceData,Range):
-    _DEMA = talib.DEMA(PriceData['close'],Range).tolist()
-    return[_DEMA,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _DEMA = talib.DEMA(ohlc_price['close'],Range).tolist()
+    return[_DEMA,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Exponential Moving Average
 def EMA(PriceData,Range):
-    _EMA = talib.EMA(PriceData['close'],Range).tolist()
-    return[_EMA,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _EMA = talib.EMA(ohlc_price['close'],Range).tolist()
+    return[_EMA,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 # 
 # # Hilbert Transform - Instantaneous Trendline
 # def HT_TRENDLINE(PriceData):
-#     _HT_TRENDLINE = talib.HT_TRENDLINE(PriceData['close']).tolist()
-#     return[_HT_TRENDLINE,PriceData['date'],PriceData['close'].tolist()]
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _HT_TRENDLINE = talib.HT_TRENDLINE(ohlc_price['close']).tolist()
+#     return[_HT_TRENDLINE,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Kaufman Adaptive Moving Average
 def KAMA(PriceData,Range):
-    _KAMA = talib.KAMA(PriceData['close'],Range).tolist()
-    return[_KAMA,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _KAMA = talib.KAMA(ohlc_price['close'],Range).tolist()
+    return[_KAMA,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Moving average
 def MA(PriceData,Range):
-    _MA = talib.MA(PriceData['close'],Range).tolist()
-    return[_MA,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _MA = talib.MA(ohlc_price['close'],Range).tolist()
+    return[_MA,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 # 
 # # MESA Adaptive Moving Average
 # def MAMA(PriceData):
-#     _MAMA = talib.MAMA(PriceData))
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _MAMA = talib.MAMA(PriceData))
 #     Trace1 = _MAMA[0].tolist()
 #     Trace2 = _MAMA[1].tolist()
-#     return[[Trace1,Trace2],PriceData['date'],PriceData['close'].tolist()]
+#     return[[Trace1,Trace2],ohlc_price['date'],ohlc_price['close'].tolist()]
 # 
 # # Moving average with variable period
 # def MAVP(PriceData,Range):
-#     _MAVP = talib.MAVP(PriceData['close'],Range).tolist()
-#     return[_MAVP,PriceData['date'],PriceData['close'].tolist(),Range]
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _MAVP = talib.MAVP(ohlc_price['close'],Range).tolist()
+#     return[_MAVP,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # MidPoint over period
 def MIDPOINT(PriceData,Range):
-    _MIDPOINT = talib.MIDPOINT(PriceData['close'],Range).tolist()
-    return[_MIDPOINT,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _MIDPOINT = talib.MIDPOINT(ohlc_price['close'],Range).tolist()
+    return[_MIDPOINT,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Midpoint over period
 def MIDPRICE(PriceData,Range):
+    ohlc_price = deepcopy(OHLCformated(PriceData))
     _MIDPRICE= talib.MIDPRICE(PriceData['high'],PriceData['low'],Range).tolist()
-    return[_MIDPRICE,PriceData['date'],PriceData['close'].tolist(),Range]
+    return[_MIDPRICE,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Parabolic SAR
 def SAR(PriceData,Range):
+    ohlc_price = deepcopy(OHLCformated(PriceData))
     _SAR = talib.SAR(PriceData['high'],PriceData['low'],Range).tolist()
-    return[_SAR,PriceData['date'],PriceData['close'].tolist(),Range]
+    return[_SAR,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Parabolic SAR - Extended
 def SAREXT(PriceData,Range):
+    ohlc_price = deepcopy(OHLCformated(PriceData))
     # Requires OHLC Data (high, low, Range)
     _SAREXT= talib.SAREXT(PriceData['high'],PriceData['low'],Range).tolist()
-    return[_SAREXT,PriceData['date'],PriceData['close'].tolist(),Range]
+    return[_SAREXT,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Simple Moving Average
 def SMA(PriceData,Range):
-    _SMA = talib.SMA(PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _SMA = talib.SMA(ohlc_price['close'],Range).tolist()
     #return Indicator Value, Date, the AssetPrice, and the Range
-    return [_SMA,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_SMA,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Triple Exponential Moving Average (T3)
 def T3(PriceData,Range):
-    _T3 = talib.T3(PriceData['close'],Range).tolist()
-    return[_T3,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _T3 = talib.T3(ohlc_price['close'],Range).tolist()
+    return[_T3,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Triple Exponential Moving Average
 def TEMA(PriceData,Range):
-    _TEMA = talib.TEMA(PriceData['close'],Range).tolist()
-    return[_TEMA,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _TEMA = talib.TEMA(ohlc_price['close'],Range).tolist()
+    return[_TEMA,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Triangular Moving Average
 def TRIMA(PriceData,Range):
-    _TRIMA = talib.TRIMA(PriceData['close'],Range).tolist()
-    return[_TRIMA,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _TRIMA = talib.TRIMA(ohlc_price['close'],Range).tolist()
+    return[_TRIMA,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Weighted Moving Average
 def WMA(PriceData,Range):
-    _WMA = talib.WMA(PriceData['close'],Range).tolist()
-    return[_WMA,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _WMA = talib.WMA(ohlc_price['close'],Range).tolist()
+    return[_WMA,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 
     
@@ -107,187 +121,217 @@ def WMA(PriceData,Range):
 
 # Average Directional Movement Index
 def ADX(PriceData,Range):
-    _ADX = talib.ADX(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _ADX = talib.ADX(PriceData['high'],PriceData['low'],ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ADX,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_ADX,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Average Directional Movement Index Rating
 def ADXR(PriceData,Range):
-    _ADXR = talib.ADXR(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _ADXR = talib.ADXR(PriceData['high'],PriceData['low'],ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ADXR,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_ADXR,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 # 
 # Absolute Price Oscillator 
 # def APO(PriceData,Range):
-#     _APO = talib.APO(PriceData['close'],Range).tolist()
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _APO = talib.APO(ohlc_price['close'],Range).tolist()
 #     ##return Indicator Value, Date, the AssetPrice, and the Range
-#     return [_APO,PriceData['date'],PriceData['close'].tolist(),Range] 
+#     return [_APO,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 # 
 #  Aroon
 # def AROON(PriceData,Range):
-#     _AROON = talib.AROON(PriceData['high'],PriceData['low'],Range)
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _AROON = talib.AROON(PriceData['high'],PriceData['low'],Range)
 #     aroondown = _AROON[0].tolist()
 #     aroonup = _AROON[1].tolist()
 #     ##return Indicator Value, Date, the AssetPrice, and the Range
-#     return [[aroondown,aroonup],PriceData['date'],PriceData['close'].tolist(),Range]
+#     return [[aroondown,aroonup],ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Aroon Oscillator
 def AROONOSC(PriceData,Range):
+    ohlc_price = deepcopy(OHLCformated(PriceData))
     _AROONOSC = talib.AROONOSC(PriceData['high'],PriceData['low'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_AROONOSC,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_AROONOSC,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Balance Of Power
 def BOP(PriceData):
-    _BOP = talib.BOP(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _BOP = talib.BOP(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_BOP,PriceData['date'],PriceData['close'].tolist()] 
+    return [_BOP,ohlc_price['date'],ohlc_price['close'].tolist()] 
 
 # Commodity Channel Index
 def CCI(PriceData,Range):
-    _CCI = talib.CCI(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _CCI = talib.CCI(PriceData['high'],PriceData['low'],ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_CCI,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_CCI,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 #  Chande Momentum Oscillator
 def CMO(PriceData,Range):
-    _CMO = talib.CMO(PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _CMO = talib.CMO(ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_CMO,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_CMO,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 #  Directional Movement Index
 def DX(PriceData,Range):
-    _DX = talib.DX(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _DX = talib.DX(PriceData['high'],PriceData['low'],ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_DX,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_DX,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 # 
 # # Moving Average Convergence/Divergence
 # def MACD(PriceData,Range):
-#     _MACD = talib.MACD(PriceData['close'],Range).tolist()
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _MACD = talib.MACD(ohlc_price['close'],Range).tolist()
 #     ##return Indicator Value, Date, the AssetPrice, and the Range
-#     return [_MACD,PriceData['date'],PriceData['close'].tolist(),Range] 
+#     return [_MACD,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 # 
 # # MACD with controllable MA type
 # def MACDEXT(PriceData,Range):
-#     _MACDEXT = talib.MACDEXT(PriceData['close'],Range).tolist()
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _MACDEXT = talib.MACDEXT(ohlc_price['close'],Range).tolist()
 #     ##return Indicator Value, Date, the AssetPrice, and the Range
-#     return [_MACDEXT,PriceData['date'],PriceData['close'].tolist(),Range] 
+#     return [_MACDEXT,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 # 
 # Moving Average Convergence/Divergence Fix 12/26
 # def MACDFIX(PriceData,Range):
-#     _MACDFIX = talib.MACDFIX(PriceData['close'],Range).tolist()
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _MACDFIX = talib.MACDFIX(ohlc_price['close'],Range).tolist()
 #     ##return Indicator Value, Date, the AssetPrice, and the Range
-#     return [_MACDFIX,PriceData['date'],PriceData['close'].tolist(),Range] 
+#     return [_MACDFIX,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 # 
 # # Money Flow Index 
 # def MFI(PriceData,Range):
-#     # Indicator requires Volume
-#     _MFI = talib.MFI(PriceData['close'],Range).tolist()
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# # Indicator requires Volume
+#     _MFI = talib.MFI(ohlc_price['close'],Range).tolist()
 #     ##return Indicator Value, Date, the AssetPrice, and the Range
-#     return [_MFI,PriceData['date'],PriceData['close'].tolist(),Range] 
+#     return [_MFI,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Minus Directional Indicator
 def MINUS_DI(PriceData,Range):
-    _MINUS_DI = talib.MINUS_DI(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _MINUS_DI = talib.MINUS_DI(PriceData['high'],PriceData['low'],ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_MINUS_DI,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_MINUS_DI,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Minus Directional Movement
 def MINUS_DM(PriceData,Range):
+    ohlc_price = deepcopy(OHLCformated(PriceData))
     _MINUS_DM = talib.MINUS_DM(PriceData['high'],PriceData['low'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_MINUS_DM,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_MINUS_DM,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Momentum
 def MOM(PriceData,Range):
-    _MOM = talib.MOM(PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _MOM = talib.MOM(ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_MOM,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_MOM,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Plus Directional Indicator
 def PLUS_DI(PriceData,Range):
-    _PLUS_DI = talib.PLUS_DI(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _PLUS_DI = talib.PLUS_DI(PriceData['high'],PriceData['low'],ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_PLUS_DI,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_PLUS_DI,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Plus Directional Movement
 def PLUS_DM(PriceData,Range):
+    ohlc_price = deepcopy(OHLCformated(PriceData))
     _PLUS_DM = talib.PLUS_DM(PriceData['high'],PriceData['low'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_PLUS_DM,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_PLUS_DM,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Percentage Price Oscillator
 def PPO(PriceData,Range):
-    _PPO = talib.PPO(PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _PPO = talib.PPO(ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_PPO,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_PPO,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Rate of change : ((price/prevPrice)-1)*100
 def ROC(PriceData,Range):
-    _ROC = talib.ROC(PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _ROC = talib.ROC(ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ROC,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_ROC,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Rate of change Percentage: (price-prevPrice)/prevPrice
 def ROCP(PriceData,Range):
-    _ROCP = talib.ROCP(PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _ROCP = talib.ROCP(ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ROCP,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_ROCP,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Rate of change ratio: (price/prevPrice)
 def ROCR(PriceData,Range):
-    _ROCR = talib.ROCR(PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _ROCR = talib.ROCR(ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ROCR,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_ROCR,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Rate of change ratio 100 scale: (price/prevPrice)*100
 def ROCR100(PriceData,Range):
-    _ROCR100 = talib.ROCR100(PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _ROCR100 = talib.ROCR100(ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ROCR100,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_ROCR100,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Relative Strength Index
 def RSI(PriceData,Range):
-    _RSI = talib.RSI(PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _RSI = talib.RSI(ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_RSI,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_RSI,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 # 
 # # Stochastic
 # def STOCH(PriceData,Range):
-#     _STOCH = talib.STOCH(PriceData['close'],Range).tolist()
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _STOCH = talib.STOCH(ohlc_price['close'],Range).tolist()
 #     ##return Indicator Value, Date, the AssetPrice, and the Range
-#     return [_STOCH,PriceData['date'],PriceData['close'].tolist(),Range] 
+#     return [_STOCH,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 # 
 # # Stochastic Fast
 # def STOCHF(PriceData,Range):
-#     _STOCHF = talib.STOCHF(PriceData['close'],Range).tolist()
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _STOCHF = talib.STOCHF(ohlc_price['close'],Range).tolist()
 #     ##return Indicator Value, Date, the AssetPrice, and the Range
-#     return [_STOCHF,PriceData['date'],PriceData['close'].tolist(),Range] 
+#     return [_STOCHF,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 # 
 # Stochastic Relative Strength Index
 # def STOCHRSI(PriceData,Range):
-#     _STOCHRSI = talib.STOCHRSI(PriceData['close'],Range).tolist()
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _STOCHRSI = talib.STOCHRSI(ohlc_price['close'],Range).tolist()
 #     ##return Indicator Value, Date, the AssetPrice, and the Range
-#     return [_STOCHRSI,PriceData['date'],PriceData['close'].tolist(),Range] 
+#     return [_STOCHRSI,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 #  1-day Rate-Of-Change (ROC) of a Triple Smooth EMA
 def TRIX(PriceData,Range):
-    _TRIX = talib.TRIX(PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _TRIX = talib.TRIX(ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_TRIX,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_TRIX,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 # 
 # # Ultimate Oscillator
 # def ULTOSC(PriceData,Range):
-#     # Indicator requires 3 Ranges
-#     _ULTOSC = talib.ULTOSC(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# # Indicator requires 3 Ranges
+#     _ULTOSC = talib.ULTOSC(PriceData['high'],PriceData['low'],ohlc_price['close'],Range).tolist()
 #     ##return Indicator Value, Date, the AssetPrice, and the Range
-#     return [_ULTOSC,PriceData['date'],PriceData['close'].tolist(),Range] 
+#     return [_ULTOSC,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 
 def WILLR(PriceData,Range):
-    _WILLR = talib.WILLR(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _WILLR = talib.WILLR(PriceData['high'],PriceData['low'],ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_WILLR,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_WILLR,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
  
                  
@@ -295,18 +339,21 @@ def WILLR(PriceData,Range):
 
 # Chaikin A/D Line
 # def AD(PriceData):
-#     _AD = talib.AD(PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return[_AD,PriceData['date'],PriceData['close'].tolist()]
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _AD = talib.AD(PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return[_AD,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Chaikin A/D Oscillator
 # def ADOSC(PriceData):
-#     _ADOSC = talib.ADOSC(PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return[_ADOSC,PriceData['date'],PriceData['close'].tolist()]
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _ADOSC = talib.ADOSC(PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return[_ADOSC,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # On Balance Volume
 # def OBV(PriceData):
-#     _OBV = talib.OBV(PriceData['close']).tolist()
-#     return[_OBV,PriceData['date'],PriceData['close'].tolist()]
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _OBV = talib.OBV(ohlc_price['close']).tolist()
+#     return[_OBV,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 
 
@@ -314,49 +361,57 @@ def WILLR(PriceData,Range):
 
 # Average True Range
 def ATR(PriceData,Range):
-    _ATR = talib.ATR(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()  
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _ATR = talib.ATR(PriceData['high'],PriceData['low'],ohlc_price['close'],Range).tolist()  
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_ATR,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_ATR,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # Normalized Average True Range
 def NATR(PriceData,Range):
-    _NATR = talib.NATR(PriceData['high'],PriceData['low'],PriceData['close'],Range).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _NATR = talib.NATR(PriceData['high'],PriceData['low'],ohlc_price['close'],Range).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_NATR,PriceData['date'],PriceData['close'].tolist(),Range] 
+    return [_NATR,ohlc_price['date'],ohlc_price['close'].tolist(),Range] 
 
 # True Range
 def TRANGE(PriceData,Range):
-    _TRANGE = talib.TRANGE(PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _TRANGE = talib.TRANGE(PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
     ##return Indicator Value, Date, the AssetPrice, and the Range
-    return [_TRANGE,PriceData['date'],PriceData['close'].tolist()]         
+    return [_TRANGE,ohlc_price['date'],ohlc_price['close'].tolist()]         
 
 
 # Cycle Indicators
 
 # Hilbert Transform - Dominant Cycle Period
 def HT_DCPERIOD(PriceData):
-    _HT_DCPERIOD = talib.HT_DCPERIOD(PriceData['close']).tolist()
-    return[_HT_DCPERIOD,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _HT_DCPERIOD = talib.HT_DCPERIOD(ohlc_price['close']).tolist()
+    return[_HT_DCPERIOD,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Hilbert Transform - Dominant Cycle Phase
 def HT_DCPHASE(PriceData):
-    _HT_DCPHASE = talib.HT_DCPHASE(PriceData['close']).tolist()
-    return[_HT_DCPHASE,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _HT_DCPHASE = talib.HT_DCPHASE(ohlc_price['close']).tolist()
+    return[_HT_DCPHASE,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Hilbert Transform - Phasor Components
 def HT_PHASOR(PriceData):
-    _HT_PHASOR = talib.HT_PHASOR(PriceData['close']).tolist()
-    return[_HT_PHASOR,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _HT_PHASOR = talib.HT_PHASOR(ohlc_price['close']).tolist()
+    return[_HT_PHASOR,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Hilbert Transform - SineWave
 def HT_SINE(PriceData):
-    _HT_SINE = talib.HT_SINE(PriceData['close']).tolist()
-    return[_HT_SINE,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _HT_SINE = talib.HT_SINE(ohlc_price['close']).tolist()
+    return[_HT_SINE,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Hilbert Transform - Trend vs Cycle Mode
 def HT_TRENDMODE(PriceData):
-    _HT_TRENDMODE = talib.HT_TRENDMODE(PriceData['close']).tolist()
-    return[_HT_TRENDMODE,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _HT_TRENDMODE = talib.HT_TRENDMODE(ohlc_price['close']).tolist()
+    return[_HT_TRENDMODE,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 
 
@@ -364,128 +419,152 @@ def HT_TRENDMODE(PriceData):
 
 # Beta
 def BETA(PriceData,Range):
+    ohlc_price = deepcopy(OHLCformated(PriceData))
     _BETA = talib.BETA(PriceData['high'],PriceData['low'],Range).tolist()
-    return [_BETA,PriceData['date'],PriceData['close'].tolist(),Range]
+    return [_BETA,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Pearson's Correlation Coefficient (r)
 def CORREL(PriceData,Range):
+    ohlc_price = deepcopy(OHLCformated(PriceData))
     _CORREL = talib.CORREL(PriceData['high'],PriceData['low'],Range).tolist()
-    return [_CORREL,PriceData['date'],PriceData['close'].tolist(),Range]
+    return [_CORREL,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Linear Regression
 def LINEARREG(PriceData,Range):
-    _LINEARREG = talib.LINEARREG(PriceData['close'],Range).tolist()
-    return [_LINEARREG,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _LINEARREG = talib.LINEARREG(ohlc_price['close'],Range).tolist()
+    return [_LINEARREG,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Linear Regression Angle
 def LINEARREG_ANGLE(PriceData,Range):
-    _LINEARREG_ANGLE = talib.LINEARREG_ANGLE(PriceData['close'],Range).tolist()
-    return [_LINEARREG_ANGLE,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _LINEARREG_ANGLE = talib.LINEARREG_ANGLE(ohlc_price['close'],Range).tolist()
+    return [_LINEARREG_ANGLE,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Linear Regression Intercept
 def LINEARREG_INTERCEPT(PriceData,Range):
-    _LINEARREG_INTERCEPT = talib.LINEARREG_INTERCEPT(PriceData['close'],Range).tolist()
-    return [_LINEARREG_INTERCEPT,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _LINEARREG_INTERCEPT = talib.LINEARREG_INTERCEPT(ohlc_price['close'],Range).tolist()
+    return [_LINEARREG_INTERCEPT,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Linear Regression Slope
 def LINEARREG_SLOPE(PriceData,Range):
-    _LINEARREG_SLOPE = talib.LINEARREG_SLOPE(PriceData['close'],Range).tolist()
-    return [_LINEARREG_SLOPE,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _LINEARREG_SLOPE = talib.LINEARREG_SLOPE(ohlc_price['close'],Range).tolist()
+    return [_LINEARREG_SLOPE,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Standard Deviation
 def STDDEV(PriceData,Range):
-    _STDDEV = talib.STDDEV(PriceData['close'],Range).tolist()
-    return [_STDDEV,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _STDDEV = talib.STDDEV(ohlc_price['close'],Range).tolist()
+    return [_STDDEV,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Time Series Forecast
 def TSF(PriceData,Range):
-    _TSF = talib.TSF(PriceData['close'],Range).tolist()
-    return [_TSF,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _TSF = talib.TSF(ohlc_price['close'],Range).tolist()
+    return [_TSF,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Variance
 def VAR(PriceData,Range):
-    _VAR= talib.VAR(PriceData['close'],Range).tolist()
-    return [_VAR,PriceData['date'],PriceData['close'].tolist(),Range]  
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _VAR= talib.VAR(ohlc_price['close'],Range).tolist()
+    return [_VAR,ohlc_price['date'],ohlc_price['close'].tolist(),Range]  
 
 
 # Math Transform
 
 def ACOS(PriceData):
-    _ACOS = talib.ACOS(PriceData['close']).tolist()
-    return [_ACOS,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _ACOS = talib.ACOS(ohlc_price['close']).tolist()
+    return [_ACOS,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Trigonometric ACos
 def ASIN(PriceData):
-    _ASIN = talib.ASIN(PriceData['close']).tolist()
-    return [_ASIN,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _ASIN = talib.ASIN(ohlc_price['close']).tolist()
+    return [_ASIN,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Trigonometric ASin
 def ATAN(PriceData):
-    _ATAN = talib.ATAN(PriceData['close']).tolist()
-    return [_ATAN,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _ATAN = talib.ATAN(ohlc_price['close']).tolist()
+    return [_ATAN,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Trigonometric ATan
 def CEIL(PriceData):
-    _CEIL = talib.CEIL(PriceData['close']).tolist()
-    return [_CEIL,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _CEIL = talib.CEIL(ohlc_price['close']).tolist()
+    return [_CEIL,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Ceil
 def COS(PriceData):
-    _COS = talib.COS(PriceData['close']).tolist()
-    return [_COS,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _COS = talib.COS(ohlc_price['close']).tolist()
+    return [_COS,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Trigonometric Cos
 def COSH(PriceData):
-    _COSH = talib.COSH(PriceData['close']).tolist()
-    return [_COSH,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _COSH = talib.COSH(ohlc_price['close']).tolist()
+    return [_COSH,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Trigonometric Cosh
 def EXP(PriceData):
-    _EXP = talib.EXP(PriceData['close']).tolist()
-    return [_EXP,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _EXP = talib.EXP(ohlc_price['close']).tolist()
+    return [_EXP,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Arithmetic Exp
 def FLOOR(PriceData):
-    _FLOOR = talib.FLOOR(PriceData['close']).tolist()
-    return [_FLOOR,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _FLOOR = talib.FLOOR(ohlc_price['close']).tolist()
+    return [_FLOOR,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Floor
 def LN(PriceData):
-    _LN = talib.LN(PriceData['close']).tolist()
-    return [_LN,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _LN = talib.LN(ohlc_price['close']).tolist()
+    return [_LN,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Log Natural
 def LOG10(PriceData):
-    _LOG10 = talib.LOG10(PriceData['close']).tolist()
-    return [_LOG10,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _LOG10 = talib.LOG10(ohlc_price['close']).tolist()
+    return [_LOG10,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Log10
 def SIN(PriceData):
-    _SIN = talib.SIN(PriceData['close']).tolist()
-    return [_SIN,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _SIN = talib.SIN(ohlc_price['close']).tolist()
+    return [_SIN,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Trigonometric Sin
 def SINH(PriceData):
-    _SINH = talib.SINH(PriceData['close']).tolist()
-    return [_SINH,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _SINH = talib.SINH(ohlc_price['close']).tolist()
+    return [_SINH,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 
 # Vector Trigonometric Sinh
 def SQRT(PriceData):
-    _SQRT = talib.SQRT(PriceData['close']).tolist()
-    return [_SQRT,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _SQRT = talib.SQRT(ohlc_price['close']).tolist()
+    return [_SQRT,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 
 # Vector Square Root
 def TAN(PriceData):
-    _TAN = talib.TAN(PriceData['close']).tolist()
-    return [_TAN,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _TAN = talib.TAN(ohlc_price['close']).tolist()
+    return [_TAN,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 
 # Vector Trigonometric Tan
 def TANH(PriceData):
-    _TANH = talib.TANH(PriceData['close']).tolist()
-    return [_TANH,PriceData['date'],PriceData['close'].tolist()]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _TANH = talib.TANH(ohlc_price['close']).tolist()
+    return [_TANH,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Trigonometric Tanh
 
@@ -495,306 +574,379 @@ def TANH(PriceData):
 
 
 def ADD(PriceData):
+    ohlc_price = deepcopy(OHLCformated(PriceData))
     _ADD = talib.ADD(PriceData['high'],PriceData['low']).tolist()
-    return [_ADD,PriceData['date'],PriceData['close'].tolist()]
+    return [_ADD,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Arithmetic Add
 def DIV(PriceData):
+    ohlc_price = deepcopy(OHLCformated(PriceData))
     _DIV = talib.DIV(PriceData['high'],PriceData['low']).tolist()
-    return [_DIV,PriceData['date'],PriceData['close'].tolist()]
+    return [_DIV,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Arithmetic Div
 def MAX(PriceData,Range):
-    _MAX = talib.MAX(PriceData['close'],Range).tolist()
-    return [_MAX,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _MAX = talib.MAX(ohlc_price['close'],Range).tolist()
+    return [_MAX,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Highest value over a specified period
 def MAXINDEX(PriceData,Range):
-    _MAXINDEX = talib.MAXINDEX(PriceData['close'],Range).tolist()
-    return [_MAXINDEX,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _MAXINDEX = talib.MAXINDEX(ohlc_price['close'],Range).tolist()
+    return [_MAXINDEX,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Index of highest value over a specified period
 def MIN(PriceData,Range):
-    _MIN = talib.MIN(PriceData['close'],Range).tolist()
-    return [_MIN,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _MIN = talib.MIN(ohlc_price['close'],Range).tolist()
+    return [_MIN,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Lowest value over a specified period
 def MININDEX(PriceData,Range):
-    _MININDEX = talib.MININDEX(PriceData['close'],Range).tolist()
-    return [_MININDEX,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _MININDEX = talib.MININDEX(ohlc_price['close'],Range).tolist()
+    return [_MININDEX,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Index of lowest value over a specified period
 def MINMAX(PriceData,Range):
-    _MINMAX = talib.MINMAX(PriceData['close'],Range).tolist()
-    return [_MINMAX,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _MINMAX = talib.MINMAX(ohlc_price['close'],Range).tolist()
+    return [_MINMAX,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Lowest and highest values over a specified period
 def MINMAXINDEX(PriceData,Range):
-    _MINMAXINDEX = talib.MINMAXINDEX(PriceData['close'],Range).tolist()
-    return [_MINMAXINDEX,PriceData['date'],PriceData['close'].tolist(),Range]
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _MINMAXINDEX = talib.MINMAXINDEX(ohlc_price['close'],Range).tolist()
+    return [_MINMAXINDEX,ohlc_price['date'],ohlc_price['close'].tolist(),Range]
 
 # Indexes of lowest and highest values over a specified period
 def MULT(PriceData):
+    ohlc_price = deepcopy(OHLCformated(PriceData))
     _MULT = talib.MULT(PriceData['high'],PriceData['low']).tolist()
-    return [_MULT,PriceData['date'],PriceData['close'].tolist()]
+    return [_MULT,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Arithmetic Mult
 def SUB(PriceData):
+    ohlc_price = deepcopy(OHLCformated(PriceData))
     _SUB = talib.SUB(PriceData['high'],PriceData['low']).tolist()
-    return [_SUB,PriceData['date'],PriceData['close'].tolist()]
+    return [_SUB,ohlc_price['date'],ohlc_price['close'].tolist()]
 
 # Vector Arithmetic Substraction
 def SUM(PriceData,Range):
-    _SUM = talib.SUM(PriceData['close'],Range).tolist()
-    return [_SUM,PriceData['date'],PriceData['close'].tolist(),Range]                  
+    ohlc_price = deepcopy(OHLCformated(PriceData))
+    _SUM = talib.SUM(ohlc_price['close'],Range).tolist()
+    return [_SUM,ohlc_price['date'],ohlc_price['close'].tolist(),Range]                  
 # Summation
 
 from Patterns.ExecutePatterns import all_candle_patterns
 # Candlestick Patterns
 def CDLALL(PriceData):
+    ohlc_price = deepcopy(PriceData)
     _CDLALL = all_candle_patterns(PriceData)
-    return [_CDLALL,PriceData['date']]
+    return [_CDLALL]
     
 # def CDL2CROWS(PriceData):
-#     _CDL2CROWS  = talib.CDL2CROWS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDL2CROWS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDL2CROWS  = talib.CDL2CROWS(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDL2CROWS,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDL3BLACKCROWS(PriceData):
-#     _CDL3BLACKCROWS = talib.CDL3BLACKCROWS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDL3BLACKCROWS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDL3BLACKCROWS = talib.CDL3BLACKCROWS(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDL3BLACKCROWS,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDL3INSIDE(PriceData):
-#     _CDL3INSIDE = talib.CDL3INSIDE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDL3INSIDE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDL3INSIDE = talib.CDL3INSIDE(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDL3INSIDE,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDL3LINESTRIKE(PriceData):
-#     _CDL3LINESTRIKE = talib.CDL3LINESTRIKE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDL3LINESTRIKE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDL3LINESTRIKE = talib.CDL3LINESTRIKE(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDL3LINESTRIKE,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDL3OUTSIDE(PriceData):
-#     _CDL3OUTSIDE= talib.CDL3OUTSIDE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDL3OUTSIDE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDL3OUTSIDE= talib.CDL3OUTSIDE(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDL3OUTSIDE,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDL3STARSINSOUTH(PriceData):
-#     _CDL3STARSINSOUTH = talib.CDL3STARSINSOUTH(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDL3STARSINSOUTH,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDL3STARSINSOUTH = talib.CDL3STARSINSOUTH(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDL3STARSINSOUTH,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDL3WHITESOLDIERS (PriceData):
-#     _CDL3WHITESOLDIERS= talib.CDL3WHITESOLDIERS (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDL3WHITESOLDIERS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDL3WHITESOLDIERS= talib.CDL3WHITESOLDIERS (PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDL3WHITESOLDIERS,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLABANDONEDBABY(PriceData):
-#     _CDLABANDONEDBABY = talib.CDLABANDONEDBABY(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLABANDONEDBABY,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLABANDONEDBABY = talib.CDLABANDONEDBABY(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLABANDONEDBABY,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLADVANCEBLOCK(PriceData):
-#     _CDLADVANCEBLOCK= talib.CDLADVANCEBLOCK(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLADVANCEBLOCK,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLADVANCEBLOCK= talib.CDLADVANCEBLOCK(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLADVANCEBLOCK,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLBELTHOLD(PriceData):
-#     _CDLBELTHOLD= talib.CDLBELTHOLD(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLBELTHOLD,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLBELTHOLD= talib.CDLBELTHOLD(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLBELTHOLD,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLBREAKAWAY (PriceData):
-#     _CDLBREAKAWAY   = talib.CDLBREAKAWAY (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLBREAKAWAY,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLBREAKAWAY   = talib.CDLBREAKAWAY (PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLBREAKAWAY,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLCLOSINGMARUBOZU(PriceData):
-#     _CDLCLOSINGMARUBOZU= talib.CDLCLOSINGMARUBOZU(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLCLOSINGMARUBOZU,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLCLOSINGMARUBOZU= talib.CDLCLOSINGMARUBOZU(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLCLOSINGMARUBOZU,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLCONCEALBABYSWALL(PriceData):
-#     _CDLCONCEALBABYSWALL = talib.CDLCONCEALBABYSWALL(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLCONCEALBABYSWALL,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLCONCEALBABYSWALL = talib.CDLCONCEALBABYSWALL(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLCONCEALBABYSWALL,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLCOUNTERATTACK(PriceData):
-#     _CDLCOUNTERATTACK = talib.CDLCOUNTERATTACK(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLCOUNTERATTACK,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLCOUNTERATTACK = talib.CDLCOUNTERATTACK(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLCOUNTERATTACK,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLDARKCLOUDCOVER (PriceData):
-#     _CDLDARKCLOUDCOVER= talib.CDLDARKCLOUDCOVER (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLDARKCLOUDCOVER,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLDARKCLOUDCOVER= talib.CDLDARKCLOUDCOVER (PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLDARKCLOUDCOVER,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                          
 # def CDLDOJI(PriceData):
-#     _CDLDOJI    = talib.CDLDOJI(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLDOJI,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLDOJI    = talib.CDLDOJI(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLDOJI,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLDOJISTAR(PriceData):
-#     _CDLDOJISTAR= talib.CDLDOJISTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLDOJISTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLDOJISTAR= talib.CDLDOJISTAR(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLDOJISTAR,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLDRAGONFLYDOJI(PriceData):
-#     _CDLDRAGONFLYDOJI = talib.CDLDRAGONFLYDOJI(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLDRAGONFLYDOJI,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLDRAGONFLYDOJI = talib.CDLDRAGONFLYDOJI(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLDRAGONFLYDOJI,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLENGULFING (PriceData):
-#     _CDLENGULFING   = talib.CDLENGULFING (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLENGULFING,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLENGULFING   = talib.CDLENGULFING (PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLENGULFING,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLEVENINGDOJISTAR(PriceData):
-#     _CDLEVENINGDOJISTAR= talib.CDLEVENINGDOJISTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLEVENINGDOJISTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLEVENINGDOJISTAR= talib.CDLEVENINGDOJISTAR(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLEVENINGDOJISTAR,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLEVENINGSTAR(PriceData):
-#     _CDLEVENINGSTAR = talib.CDLEVENINGSTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLEVENINGSTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLEVENINGSTAR = talib.CDLEVENINGSTAR(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLEVENINGSTAR,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLGAPSIDESIDEWHITE(PriceData):
-#     _CDLGAPSIDESIDEWHITE = talib.CDLGAPSIDESIDEWHITE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLGAPSIDESIDEWHITE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLGAPSIDESIDEWHITE = talib.CDLGAPSIDESIDEWHITE(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLGAPSIDESIDEWHITE,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLGRAVESTONEDOJI (PriceData):
-#     _CDLGRAVESTONEDOJI= talib.CDLGRAVESTONEDOJI (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLGRAVESTONEDOJI,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLGRAVESTONEDOJI= talib.CDLGRAVESTONEDOJI (PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLGRAVESTONEDOJI,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLHAMMER(PriceData):
-#     _CDLHAMMER  = talib.CDLHAMMER(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLHAMMER,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLHAMMER  = talib.CDLHAMMER(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLHAMMER,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLHANGINGMAN(PriceData):
-#     _CDLHANGINGMAN  = talib.CDLHANGINGMAN(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLHANGINGMAN,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLHANGINGMAN  = talib.CDLHANGINGMAN(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLHANGINGMAN,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLHARAMI(PriceData):
-#     _CDLHARAMI  = talib.CDLHARAMI(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLHARAMI,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLHARAMI  = talib.CDLHARAMI(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLHARAMI,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLHARAMICROSS(PriceData):
-#     _CDLHARAMICROSS = talib.CDLHARAMICROSS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLHARAMICROSS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLHARAMICROSS = talib.CDLHARAMICROSS(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLHARAMICROSS,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLHIGHWAVE(PriceData):
-#     _CDLHIGHWAVE= talib.CDLHIGHWAVE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLHIGHWAVE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLHIGHWAVE= talib.CDLHIGHWAVE(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLHIGHWAVE,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLHIKKAKE(PriceData):
-#     _CDLHIKKAKE = talib.CDLHIKKAKE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLHIKKAKE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLHIKKAKE = talib.CDLHIKKAKE(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLHIKKAKE,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLHIKKAKEMOD(PriceData):
-#     _CDLHIKKAKEMOD  = talib.CDLHIKKAKEMOD(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLHIKKAKEMOD,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLHIKKAKEMOD  = talib.CDLHIKKAKEMOD(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLHIKKAKEMOD,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLHOMINGPIGEON(PriceData):
-#     _CDLHOMINGPIGEON= talib.CDLHOMINGPIGEON(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLHOMINGPIGEON,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLHOMINGPIGEON= talib.CDLHOMINGPIGEON(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLHOMINGPIGEON,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLIDENTICAL3CROWS(PriceData):
-#     _CDLIDENTICAL3CROWS= talib.CDLIDENTICAL3CROWS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLIDENTICAL3CROWS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLIDENTICAL3CROWS= talib.CDLIDENTICAL3CROWS(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLIDENTICAL3CROWS,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLINNECK(PriceData):
-#     _CDLINNECK  = talib.CDLINNECK(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLINNECK,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLINNECK  = talib.CDLINNECK(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLINNECK,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLINVERTEDHAMMER (PriceData):
-#     _CDLINVERTEDHAMMER= talib.CDLINVERTEDHAMMER (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLINVERTEDHAMMER,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLINVERTEDHAMMER= talib.CDLINVERTEDHAMMER (PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLINVERTEDHAMMER,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLKICKING(PriceData):
-#     _CDLKICKING = talib.CDLKICKING(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLKICKING,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLKICKING = talib.CDLKICKING(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLKICKING,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLKICKINGBYLENGTH(PriceData):
-#     _CDLKICKINGBYLENGTH= talib.CDLKICKINGBYLENGTH(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLKICKINGBYLENGTH,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLKICKINGBYLENGTH= talib.CDLKICKINGBYLENGTH(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLKICKINGBYLENGTH,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLLADDERBOTTOM(PriceData):
-#     _CDLLADDERBOTTOM= talib.CDLLADDERBOTTOM(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLLADDERBOTTOM,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLLADDERBOTTOM= talib.CDLLADDERBOTTOM(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLLADDERBOTTOM,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLLONGLEGGEDDOJI (PriceData):
-#     _CDLLONGLEGGEDDOJI= talib.CDLLONGLEGGEDDOJI (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLLONGLEGGEDDOJI,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLLONGLEGGEDDOJI= talib.CDLLONGLEGGEDDOJI (PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLLONGLEGGEDDOJI,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLLONGLINE(PriceData):
-#     _CDLLONGLINE= talib.CDLLONGLINE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLLONGLINE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLLONGLINE= talib.CDLLONGLINE(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLLONGLINE,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLMARUBOZU(PriceData):
-#     _CDLMARUBOZU= talib.CDLMARUBOZU(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLMARUBOZU,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLMARUBOZU= talib.CDLMARUBOZU(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLMARUBOZU,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLMATCHINGLOW(PriceData):
-#     _CDLMATCHINGLOW = talib.CDLMATCHINGLOW(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLMATCHINGLOW,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLMATCHINGLOW = talib.CDLMATCHINGLOW(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLMATCHINGLOW,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLMATHOLD(PriceData):
-#     _CDLMATHOLD = talib.CDLMATHOLD(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLMATHOLD,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLMATHOLD = talib.CDLMATHOLD(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLMATHOLD,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLMORNINGDOJISTAR(PriceData):
-#     _CDLMORNINGDOJISTAR= talib.CDLMORNINGDOJISTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLMORNINGDOJISTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLMORNINGDOJISTAR= talib.CDLMORNINGDOJISTAR(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLMORNINGDOJISTAR,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLMORNINGSTAR(PriceData):
-#     _CDLMORNINGSTAR = talib.CDLMORNINGSTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLMORNINGSTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLMORNINGSTAR = talib.CDLMORNINGSTAR(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLMORNINGSTAR,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLONNECK(PriceData):
-#     _CDLONNECK  = talib.CDLONNECK(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLONNECK,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLONNECK  = talib.CDLONNECK(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLONNECK,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLPIERCING(PriceData):
-#     _CDLPIERCING= talib.CDLPIERCING(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLPIERCING,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLPIERCING= talib.CDLPIERCING(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLPIERCING,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLRICKSHAWMAN(PriceData):
-#     _CDLRICKSHAWMAN = talib.CDLRICKSHAWMAN(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLRICKSHAWMAN,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLRICKSHAWMAN = talib.CDLRICKSHAWMAN(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLRICKSHAWMAN,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLRISEFALL3METHODS(PriceData):
-#     _CDLRISEFALL3METHODS = talib.CDLRISEFALL3METHODS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLRISEFALL3METHODS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLRISEFALL3METHODS = talib.CDLRISEFALL3METHODS(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLRISEFALL3METHODS,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLSEPARATINGLINES(PriceData):
-#     _CDLSEPARATINGLINES= talib.CDLSEPARATINGLINES(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLSEPARATINGLINES,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLSEPARATINGLINES= talib.CDLSEPARATINGLINES(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLSEPARATINGLINES,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLSHOOTINGSTAR(PriceData):
-#     _CDLSHOOTINGSTAR= talib.CDLSHOOTINGSTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLSHOOTINGSTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLSHOOTINGSTAR= talib.CDLSHOOTINGSTAR(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLSHOOTINGSTAR,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLSHORTLINE (PriceData):
-#     _CDLSHORTLINE   = talib.CDLSHORTLINE (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLSHORTLINE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLSHORTLINE   = talib.CDLSHORTLINE (PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLSHORTLINE,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLSPINNINGTOP(PriceData):
-#     _CDLSPINNINGTOP = talib.CDLSPINNINGTOP(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLSPINNINGTOP,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLSPINNINGTOP = talib.CDLSPINNINGTOP(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLSPINNINGTOP,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLSTALLEDPATTERN (PriceData):
-#     _CDLSTALLEDPATTERN= talib.CDLSTALLEDPATTERN (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLSTALLEDPATTERN,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLSTALLEDPATTERN= talib.CDLSTALLEDPATTERN (PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLSTALLEDPATTERN,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLSTICKSANDWICH(PriceData):
-#     _CDLSTICKSANDWICH = talib.CDLSTICKSANDWICH(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLSTICKSANDWICH,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLSTICKSANDWICH = talib.CDLSTICKSANDWICH(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLSTICKSANDWICH,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLTAKURI(PriceData):
-#     _CDLTAKURI  = talib.CDLTAKURI(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLTAKURI,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLTAKURI  = talib.CDLTAKURI(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLTAKURI,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLTASUKIGAP (PriceData):
-#     _CDLTASUKIGAP   = talib.CDLTASUKIGAP (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLTASUKIGAP,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLTASUKIGAP   = talib.CDLTASUKIGAP (PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLTASUKIGAP,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLTHRUSTING (PriceData):
-#     _CDLTHRUSTING   = talib.CDLTHRUSTING (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLTHRUSTING,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLTHRUSTING   = talib.CDLTHRUSTING (PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLTHRUSTING,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                              
 # def CDLTRISTAR(PriceData):
-#     _CDLTRISTAR = talib.CDLTRISTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLTRISTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLTRISTAR = talib.CDLTRISTAR(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLTRISTAR,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                  
 # def CDLUNIQUE3RIVER(PriceData):
-#     _CDLUNIQUE3RIVER= talib.CDLUNIQUE3RIVER(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLUNIQUE3RIVER,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLUNIQUE3RIVER= talib.CDLUNIQUE3RIVER(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLUNIQUE3RIVER,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLUPSIDEGAP2CROWS(PriceData):
-#     _CDLUPSIDEGAP2CROWS= talib.CDLUPSIDEGAP2CROWS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLUPSIDEGAP2CROWS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLUPSIDEGAP2CROWS= talib.CDLUPSIDEGAP2CROWS(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLUPSIDEGAP2CROWS,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 
                                      
 # def CDLXSIDEGAP3METHODS(PriceData):
-#     _CDLXSIDEGAP3METHODS = talib.CDLXSIDEGAP3METHODS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
-#     return [_CDLXSIDEGAP3METHODS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+#   ohlc_price = deepcopy(OHLCformated(PriceData))    
+# _CDLXSIDEGAP3METHODS = talib.CDLXSIDEGAP3METHODS(PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close']).tolist()
+#     return [_CDLXSIDEGAP3METHODS,ohlc_price['date'],PriceData['open'],PriceData['high'],PriceData['low'],ohlc_price['close'].tolist()] 

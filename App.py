@@ -84,8 +84,8 @@ def render_indi():
     indicator_config = data['config']
     if len(GlobalPriceData)>0:
         # Ze Übeltäter
-        ohlc_price = deepcopy(OHLCformated(GlobalPriceData[-1]['OHLC']))
-        # ohlc_price = deepcopy(GlobalPriceData[-1]['OHLC'])
+        # ohlc_price = deepcopy(OHLCformated(GlobalPriceData[-1]['OHLC']))
+        ohlc_price = deepcopy(GlobalPriceData[-1]['OHLC'])
         indicator_ready = InitSelectedIndicator(
             indicator_config['selectedIndicator']['symbol'],
             ohlc_price,

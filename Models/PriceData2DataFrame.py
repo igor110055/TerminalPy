@@ -31,7 +31,7 @@ class BinanceDataFrame():
         self.PriceDataFrame.rename(columns = {'Close':name}, inplace = True) 
 
     def ohlc(self):
-        self.PriceDataFrame['TimeStamp']= pd.to_datetime(self.PriceDataFrame['TimeStamp'], unit='ms')
+        # self.PriceDataFrame['TimeStamp']= pd.to_datetime(self.PriceDataFrame['TimeStamp'], unit='ms')
         self.PriceDataFrame.set_index("TimeStamp", inplace = True)
     
         self.PriceDataFrame['Open'] = pd.to_numeric(self.PriceDataFrame['Open'])
