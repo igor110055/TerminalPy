@@ -41,12 +41,12 @@ class BinanceDataFrame():
         
 
 class MergeDataFrames():
-    def __init__(self, MergeDataFramesArray) -> None:
+    def __init__(self, MergeDataFramesArray):
        self.merged = pd.concat(MergeDataFramesArray,axis=1, join='inner')
 
 
 class Creator():
-    def __init__(self, priceDataSets) -> None:
+    def __init__(self, priceDataSets):
         self.Frames2Merge = []
         for element in priceDataSets:
             temp = BinanceDataFrame(element['OHLC'])

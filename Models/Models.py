@@ -18,6 +18,9 @@ class Modelz():
         for rowName, rowData in self.Dataframe.iteritems():
             self.Dataframe[rowName] = np.log(self.Dataframe[rowName] / self.Dataframe[rowName].shift(1))
             list_column = self.Dataframe[rowName].values.tolist()
+            # delete Nan Values (first element of list)
+            del list_column[0]
+            del index_list[0]
             renedered_model.append({'Asset': rowName, 'Value': list_column, 'Time': index_list })
         return renedered_model
 
@@ -28,6 +31,9 @@ class Modelz():
         for rowName, rowData in self.Dataframe.iteritems():
             self.Dataframe[rowName] = (self.Dataframe[rowName] / self.Dataframe[rowName].shift(1)) - 1
             list_column = self.Dataframe[rowName].values.tolist()
+            # delete Nan Values (first element of list)
+            del list_column[0]
+            del index_list[0]
             renedered_model.append({'Asset': rowName, 'Value': list_column, 'Time': index_list })
         return renedered_model
 
@@ -50,6 +56,9 @@ class Modelz():
         for rowName, rowData in self.Dataframe.iteritems():
             self.Dataframe[rowName] = np.log(self.Dataframe[rowName] / self.Dataframe[rowName].shift(1))
             list_column = self.Dataframe[rowName].values.tolist()
+            # delete Nan Values (first element of list)
+            del list_column[0]
+            del index_list[0]
             renedered_model.append({'Asset': rowName, 'Value': list_column, 'Time': index_list })
         return renedered_model
 
