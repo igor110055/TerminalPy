@@ -65,7 +65,6 @@ def ohlc():
     """Return an ex-parrot."""
     data = request.get_json()
     ohlc_config = data['ohlcConfig']
-    print(ohlc_config)
     return_ohlc_data = OHLCData(ohlc_config)
     append_global_pricedata({'config':ohlc_config,'OHLC': return_ohlc_data})
     return {'config':ohlc_config,'OHLC': return_ohlc_data}
@@ -84,7 +83,9 @@ def render_indi():
     data = request.get_json()
     indicator_config = data['config']
     if len(GlobalPriceData)>0:
+        # Ze Übeltäter
         ohlc_price = deepcopy(OHLCformated(GlobalPriceData[-1]['OHLC']))
+        # ohlc_price = deepcopy(GlobalPriceData[-1]['OHLC'])
         indicator_ready = InitSelectedIndicator(
             indicator_config['selectedIndicator']['symbol'],
             ohlc_price,
@@ -145,4 +146,4 @@ def sim():
         }
 
 # host='0.0.0.0'
-app.run(host='localhost',port=5001,debug=True)
+# app.run(host='localhost',port=5001,debug=True)

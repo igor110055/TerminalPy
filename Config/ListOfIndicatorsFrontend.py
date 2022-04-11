@@ -11,8 +11,7 @@ IndicatorCategories = [
     'Math Operators'
 ]
 
-IndicatorsToRender = [  
-
+IndicatorsToRender =  [
         # {'Overlap Studies':[
         # ]},
             # {'name':'Bollinger Bands','symbol':'BBANDS'}, Output is an Array instead of Single Variable      
@@ -135,9 +134,70 @@ IndicatorsToRender = [
             {'name':'Indexes of lowest and highest values over a specified period','symbol':'MINMAXINDEX '},
             {'name':'Vector Arithmetic Mult ','symbol':'MULT'},         
             {'name':'Vector Arithmetic Substraction','symbol':'SUB'}, 
-            {'name':'Summation','symbol':'SUM'}
+            {'name':'Summation','symbol':'SUM'},
 
-
-  ]
- 
- 
+        # {'Pattern Recognition':[
+        # ]},
+            {'name':'Two Crows','symbol':'CDL2CROWS '},
+            {'name':'Three Black Crows','symbol':'CDL3BLACKCROWS '},
+            {'name':'Three Inside Up/Down','symbol':'CDL3INSIDE'},
+            {'name':'Three-Line Strike','symbol':'CDL3LINESTRIKE '},
+            {'name':'Three Outside Up/Down','symbol':'CDL3OUTSIDE '},
+            {'name':'Three Stars In The South','symbol':'CDL3STARSINSOUTH'},
+            {'name':'Three Advancing White Soldiers','symbol':'CDL3WHITESOLDIERS'},
+            {'name':'Abandoned Baby','symbol':'CDLABANDONEDBABY'},
+            {'name':'Advance Block','symbol':'CDLADVANCEBLOCK'},
+            {'name':'Belt-hold','symbol':'CDLBELTHOLD '},
+            {'name':'Breakaway','symbol':'CDLBREAKAWAY'},
+            {'name':'Closing Marubozu','symbol':'CDLCLOSINGMARUBOZU '},
+            {'name':'Concealing Baby Swallow','symbol':'CDLCONCEALBABYSWALL'},
+            {'name':'Counterattack','symbol':'CDLCOUNTERATTACK'},
+            {'name':'Dark Cloud Cover','symbol':'CDLDARKCLOUDCOVER'},
+            {'name':'Doji','symbol':'CDLDOJI   '},
+            {'name':'Doji Star','symbol':'CDLDOJISTAR '},
+            {'name':'Dragonfly Doji','symbol':'CDLDRAGONFLYDOJI'},
+            {'name':'Engulfing Pattern','symbol':'CDLENGULFING'},
+            {'name':'Evening Doji Star','symbol':'CDLEVENINGDOJISTAR '},
+            {'name':'Evening Star','symbol':'CDLEVENINGSTAR '},
+            {'name':'Up/Down-gap side-by-side white lines','symbol':'CDLGAPSIDESIDEWHITE'},
+            {'name':'Gravestone Doji','symbol':'CDLGRAVESTONEDOJI'},
+            {'name':'Hammer','symbol':'CDLHAMMER '},
+            {'name':'Hanging Man','symbol':'CDLHANGINGMAN'},
+            {'name':'Harami Pattern','symbol':'CDLHARAMI '},
+            {'name':'Harami Cross Pattern','symbol':'CDLHARAMICROSS '},
+            {'name':'High-Wave Candle','symbol':'CDLHIGHWAVE '},
+            {'name':'Hikkake Pattern','symbol':'CDLHIKKAKE'},
+            {'name':'Modified Hikkake Pattern','symbol':'CDLHIKKAKEMOD'},
+            {'name':'Homing Pigeon','symbol':'CDLHOMINGPIGEON'},
+            {'name':'Identical Three Crows','symbol':'CDLIDENTICAL3CROWS '},
+            {'name':'In-Neck Pattern','symbol':'CDLINNECK '},
+            {'name':'Inverted Hammer','symbol':'CDLINVERTEDHAMMER'},
+            {'name':'Kicking','symbol':'CDLKICKING'},
+            {'name':'Kicking - bull/bear determined by the longer marubozu','symbol':'CDLKICKINGBYLENGTH '}, 
+            {'name':'Ladder Bottom','symbol':'CDLLADDERBOTTOM'},
+            {'name':'Long Legged Doji','symbol':'CDLLONGLEGGEDDOJI'},
+            {'name':'Long Line Candle','symbol':'CDLLONGLINE '},
+            {'name':'Marubozu','symbol':'CDLMARUBOZU '},
+            {'name':'Matching Low','symbol':'CDLMATCHINGLOW '},
+            {'name':'Mat Hold','symbol':'CDLMATHOLD'},
+            {'name':'Morning Doji Star','symbol':'CDLMORNINGDOJISTAR '},
+            {'name':'Morning Star','symbol':'CDLMORNINGSTAR '},
+            {'name':'On-Neck Pattern','symbol':'CDLONNECK '},
+            {'name':'Piercing Pattern','symbol':'CDLPIERCING '},
+            {'name':'Rickshaw Man','symbol':'CDLRICKSHAWMAN '},
+            {'name':'Rising/Falling Three Methods','symbol':'CDLRISEFALL3METHODS'},
+            {'name':'Separating Lines','symbol':'CDLSEPARATINGLINES '},
+            {'name':'Shooting Star','symbol':'CDLSHOOTINGSTAR'},
+            {'name':'Short Line Candle','symbol':'CDLSHORTLINE'},
+            {'name':'Spinning Top','symbol':'CDLSPINNINGTOP '},
+            {'name':'Stalled Pattern','symbol':'CDLSTALLEDPATTERN'},
+            {'name':'Stick Sandwich','symbol':'CDLSTICKSANDWICH'},
+            {'name':'Takuri (Dragonfly Doji with very long lower shadow)','symbol':'CDLTAKURI '},
+            {'name':'Tasuki Gap','symbol':'CDLTASUKIGAP'},
+            {'name':'Thrusting Pattern','symbol':'CDLTHRUSTING'},
+            {'name':'Tristar Pattern','symbol':'CDLTRISTAR'},
+            {'name':'Unique 3 River','symbol':'CDLUNIQUE3RIVER'},
+            {'name':'Upside Gap Two Crows','symbol':'CDLUPSIDEGAP2CROWS '},
+            {'name':'Upside/Downside Gap Three Methods','symbol':'CDLXSIDEGAP3METHODS'},
+            {'name':'Check for all ta-lib Candle Patterns','symbol':'CDLALL'}
+]

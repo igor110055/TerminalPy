@@ -455,7 +455,6 @@ def visualize_MAX(PriceData,Range):
     tovis = IndicatorsToFormate(ind)
     return tovis
     
-
 def visualize_MAXINDEX(PriceData,Range):
     ind = Indicator.MAXINDEX(PriceData, Range)
     tovis = IndicatorsToFormate(ind)
@@ -495,3 +494,315 @@ def visualize_SUM(PriceData,Range):
     ind = Indicator.SUM(PriceData, Range)
     tovis = IndicatorsToFormate(ind)
     return tovis
+
+# Pattern recognition
+
+def visualize_CDLALL(PriceData):
+    ind = Indicator.CDLALL(PriceData)
+    tovis = IndicatorsToFormate(ind)
+    return tovis
+
+# def visualize_CDL2CROWS(PriceData):
+#     ind = Indicator.CDL2CROWS(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDL3BLACKCROWS(PriceData):
+#     ind = Indicator.CDL3BLACKCROWS(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDL3INSIDE(PriceData):
+#     ind = Indicator.CDL3INSIDE(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDL3LINESTRIKE(PriceData):
+#     ind = Indicator.CDL3LINESTRIKE(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDL3OUTSIDE(PriceData):
+#     ind = Indicator.CDL3OUTSIDE(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDL3STARSINSOUTH(PriceData):
+#     ind = Indicator.CDL3STARSINSOUTH(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDL3WHITESOLDIERS(PriceData):
+#     ind = Indicator.CDL3WHITESOLDIERS(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLABANDONEDBABY(PriceData):
+#     ind = Indicator.CDLABANDONEDBABY(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLADVANCEBLOCK(PriceData):
+#     ind = Indicator.CDLADVANCEBLOCK(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLBELTHOLD(PriceData):
+#     ind = Indicator.CDLBELTHOLD(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLBREAKAWAY(PriceData):
+#     ind = Indicator.CDLBREAKAWAY(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLCLOSINGMARUBOZU(PriceData):
+#     ind = Indicator.CDLCLOSINGMARUBOZU(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLCONCEALBABYSWALL(PriceData):
+#     ind = Indicator.CDLCONCEALBABYSWALL(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLCOUNTERATTACK(PriceData):
+#     ind = Indicator.CDLCOUNTERATTACK(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLDARKCLOUDCOVER(PriceData):
+#     ind = Indicator.CDLDARKCLOUDCOVER(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLDOJI(PriceData):
+#     ind = Indicator.CDLDOJI(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLDOJISTAR(PriceData):
+#     ind = Indicator.CDLDOJISTAR(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLDRAGONFLYDOJI(PriceData):
+#     ind = Indicator.CDLDRAGONFLYDOJI(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLENGULFING(PriceData):
+#     ind = Indicator.CDLENGULFING(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLEVENINGDOJISTAR(PriceData):
+#     ind = Indicator.CDLEVENINGDOJISTAR(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLEVENINGSTAR(PriceData):
+#     ind = Indicator.CDLEVENINGSTAR(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLGAPSIDESIDEWHITE(PriceData):
+#     ind = Indicator.CDLGAPSIDESIDEWHITE(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLGRAVESTONEDOJI(PriceData):
+#     ind = Indicator.CDLGRAVESTONEDOJI(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLHAMMER(PriceData):
+#     ind = Indicator.CDLHAMMER(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLHANGINGMAN(PriceData):
+#     ind = Indicator.CDLHANGINGMAN(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLHARAMI(PriceData):
+#     ind = Indicator.CDLHARAMI(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLHARAMICROSS(PriceData):
+#     ind = Indicator.CDLHARAMICROSS(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLHIGHWAVE(PriceData):
+#     ind = Indicator.CDLHIGHWAVE(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLHIKKAKE(PriceData):
+#     ind = Indicator.CDLHIKKAKE(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLHIKKAKEMOD(PriceData):
+#     ind = Indicator.CDLHIKKAKEMOD(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLHOMINGPIGEON(PriceData):
+#     ind = Indicator.CDLHOMINGPIGEON(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLIDENTICAL3CROWS(PriceData):
+#     ind = Indicator.CDLIDENTICAL3CROWS(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLINNECK(PriceData):
+#     ind = Indicator.CDLINNECK(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLINVERTEDHAMMER(PriceData):
+#     ind = Indicator.CDLINVERTEDHAMMER(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLKICKING(PriceData):
+#     ind = Indicator.CDLKICKING(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLKICKINGBYLENGTH(PriceData):
+#     ind = Indicator.CDLKICKINGBYLENGTH(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLLADDERBOTTOM(PriceData):
+#     ind = Indicator.CDLLADDERBOTTOM(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLLONGLEGGEDDOJI(PriceData):
+#     ind = Indicator.CDLLONGLEGGEDDOJI(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLLONGLINE(PriceData):
+#     ind = Indicator.CDLLONGLINE(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLMARUBOZU(PriceData):
+#     ind = Indicator.CDLMARUBOZU(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLMATCHINGLOW(PriceData):
+#     ind = Indicator.CDLMATCHINGLOW(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLMATHOLD(PriceData):
+#     ind = Indicator.CDLMATHOLD(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLMORNINGDOJISTAR(PriceData):
+#     ind = Indicator.CDLMORNINGDOJISTAR(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLMORNINGSTAR(PriceData):
+#     ind = Indicator.CDLMORNINGSTAR(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLONNECK(PriceData):
+#     ind = Indicator.CDLONNECK(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLPIERCING(PriceData):
+#     ind = Indicator.CDLPIERCING(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLRICKSHAWMAN(PriceData):
+#     ind = Indicator.CDLRICKSHAWMAN(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLRISEFALL3METHODS(PriceData):
+#     ind = Indicator.CDLRISEFALL3METHODS(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLSEPARATINGLINES(PriceData):
+#     ind = Indicator.CDLSEPARATINGLINES(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLSHOOTINGSTAR(PriceData):
+#     ind = Indicator.CDLSHOOTINGSTAR(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLSHORTLINE(PriceData):
+#     ind = Indicator.CDLSHORTLINE(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLSPINNINGTOP(PriceData):
+#     ind = Indicator.CDLSPINNINGTOP(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLSTALLEDPATTERN(PriceData):
+#     ind = Indicator.CDLSTALLEDPATTERN(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLSTICKSANDWICH(PriceData):
+#     ind = Indicator.CDLSTICKSANDWICH(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLTAKURI(PriceData):
+#     ind = Indicator.CDLTAKURI(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLTASUKIGAP(PriceData):
+#     ind = Indicator.CDLTASUKIGAP(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLTHRUSTING(PriceData):
+#     ind = Indicator.CDLTHRUSTING(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLTRISTAR(PriceData):
+#     ind = Indicator.CDLTRISTAR(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+
+# def visualize_CDLUNIQUE3RIVER(PriceData):
+#     ind = Indicator.CDLUNIQUE3RIVER(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis
+    
+# def visualize_CDLUPSIDEGAP2CROWS(PriceData):
+#     ind = Indicator.CDLUPSIDEGAP2CROWS(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis                                
+    
+# def visualize_CDLXSIDEGAP3METHODS(PriceData):
+#     ind = Indicator.CDLXSIDEGAP3METHODS(PriceData)
+#     tovis = IndicatorsToFormate(ind)
+#     return tovis

@@ -548,3 +548,253 @@ def SUM(PriceData,Range):
     _SUM = talib.SUM(PriceData['close'],Range).tolist()
     return [_SUM,PriceData['date'],PriceData['close'].tolist(),Range]                  
 # Summation
+
+from Patterns.ExecutePatterns import all_candle_patterns
+# Candlestick Patterns
+def CDLALL(PriceData):
+    _CDLALL = all_candle_patterns(PriceData)
+    return [_CDLALL,PriceData['date']]
+    
+# def CDL2CROWS(PriceData):
+#     _CDL2CROWS  = talib.CDL2CROWS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDL2CROWS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDL3BLACKCROWS(PriceData):
+#     _CDL3BLACKCROWS = talib.CDL3BLACKCROWS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDL3BLACKCROWS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDL3INSIDE(PriceData):
+#     _CDL3INSIDE = talib.CDL3INSIDE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDL3INSIDE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDL3LINESTRIKE(PriceData):
+#     _CDL3LINESTRIKE = talib.CDL3LINESTRIKE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDL3LINESTRIKE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDL3OUTSIDE(PriceData):
+#     _CDL3OUTSIDE= talib.CDL3OUTSIDE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDL3OUTSIDE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDL3STARSINSOUTH(PriceData):
+#     _CDL3STARSINSOUTH = talib.CDL3STARSINSOUTH(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDL3STARSINSOUTH,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDL3WHITESOLDIERS (PriceData):
+#     _CDL3WHITESOLDIERS= talib.CDL3WHITESOLDIERS (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDL3WHITESOLDIERS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLABANDONEDBABY(PriceData):
+#     _CDLABANDONEDBABY = talib.CDLABANDONEDBABY(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLABANDONEDBABY,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLADVANCEBLOCK(PriceData):
+#     _CDLADVANCEBLOCK= talib.CDLADVANCEBLOCK(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLADVANCEBLOCK,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLBELTHOLD(PriceData):
+#     _CDLBELTHOLD= talib.CDLBELTHOLD(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLBELTHOLD,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLBREAKAWAY (PriceData):
+#     _CDLBREAKAWAY   = talib.CDLBREAKAWAY (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLBREAKAWAY,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLCLOSINGMARUBOZU(PriceData):
+#     _CDLCLOSINGMARUBOZU= talib.CDLCLOSINGMARUBOZU(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLCLOSINGMARUBOZU,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLCONCEALBABYSWALL(PriceData):
+#     _CDLCONCEALBABYSWALL = talib.CDLCONCEALBABYSWALL(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLCONCEALBABYSWALL,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLCOUNTERATTACK(PriceData):
+#     _CDLCOUNTERATTACK = talib.CDLCOUNTERATTACK(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLCOUNTERATTACK,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLDARKCLOUDCOVER (PriceData):
+#     _CDLDARKCLOUDCOVER= talib.CDLDARKCLOUDCOVER (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLDARKCLOUDCOVER,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                         
+# def CDLDOJI(PriceData):
+#     _CDLDOJI    = talib.CDLDOJI(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLDOJI,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLDOJISTAR(PriceData):
+#     _CDLDOJISTAR= talib.CDLDOJISTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLDOJISTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLDRAGONFLYDOJI(PriceData):
+#     _CDLDRAGONFLYDOJI = talib.CDLDRAGONFLYDOJI(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLDRAGONFLYDOJI,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLENGULFING (PriceData):
+#     _CDLENGULFING   = talib.CDLENGULFING (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLENGULFING,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLEVENINGDOJISTAR(PriceData):
+#     _CDLEVENINGDOJISTAR= talib.CDLEVENINGDOJISTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLEVENINGDOJISTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLEVENINGSTAR(PriceData):
+#     _CDLEVENINGSTAR = talib.CDLEVENINGSTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLEVENINGSTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLGAPSIDESIDEWHITE(PriceData):
+#     _CDLGAPSIDESIDEWHITE = talib.CDLGAPSIDESIDEWHITE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLGAPSIDESIDEWHITE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLGRAVESTONEDOJI (PriceData):
+#     _CDLGRAVESTONEDOJI= talib.CDLGRAVESTONEDOJI (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLGRAVESTONEDOJI,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLHAMMER(PriceData):
+#     _CDLHAMMER  = talib.CDLHAMMER(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLHAMMER,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLHANGINGMAN(PriceData):
+#     _CDLHANGINGMAN  = talib.CDLHANGINGMAN(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLHANGINGMAN,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLHARAMI(PriceData):
+#     _CDLHARAMI  = talib.CDLHARAMI(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLHARAMI,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLHARAMICROSS(PriceData):
+#     _CDLHARAMICROSS = talib.CDLHARAMICROSS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLHARAMICROSS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLHIGHWAVE(PriceData):
+#     _CDLHIGHWAVE= talib.CDLHIGHWAVE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLHIGHWAVE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLHIKKAKE(PriceData):
+#     _CDLHIKKAKE = talib.CDLHIKKAKE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLHIKKAKE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLHIKKAKEMOD(PriceData):
+#     _CDLHIKKAKEMOD  = talib.CDLHIKKAKEMOD(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLHIKKAKEMOD,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLHOMINGPIGEON(PriceData):
+#     _CDLHOMINGPIGEON= talib.CDLHOMINGPIGEON(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLHOMINGPIGEON,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLIDENTICAL3CROWS(PriceData):
+#     _CDLIDENTICAL3CROWS= talib.CDLIDENTICAL3CROWS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLIDENTICAL3CROWS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLINNECK(PriceData):
+#     _CDLINNECK  = talib.CDLINNECK(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLINNECK,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLINVERTEDHAMMER (PriceData):
+#     _CDLINVERTEDHAMMER= talib.CDLINVERTEDHAMMER (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLINVERTEDHAMMER,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLKICKING(PriceData):
+#     _CDLKICKING = talib.CDLKICKING(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLKICKING,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLKICKINGBYLENGTH(PriceData):
+#     _CDLKICKINGBYLENGTH= talib.CDLKICKINGBYLENGTH(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLKICKINGBYLENGTH,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLLADDERBOTTOM(PriceData):
+#     _CDLLADDERBOTTOM= talib.CDLLADDERBOTTOM(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLLADDERBOTTOM,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLLONGLEGGEDDOJI (PriceData):
+#     _CDLLONGLEGGEDDOJI= talib.CDLLONGLEGGEDDOJI (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLLONGLEGGEDDOJI,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLLONGLINE(PriceData):
+#     _CDLLONGLINE= talib.CDLLONGLINE(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLLONGLINE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLMARUBOZU(PriceData):
+#     _CDLMARUBOZU= talib.CDLMARUBOZU(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLMARUBOZU,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLMATCHINGLOW(PriceData):
+#     _CDLMATCHINGLOW = talib.CDLMATCHINGLOW(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLMATCHINGLOW,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLMATHOLD(PriceData):
+#     _CDLMATHOLD = talib.CDLMATHOLD(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLMATHOLD,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLMORNINGDOJISTAR(PriceData):
+#     _CDLMORNINGDOJISTAR= talib.CDLMORNINGDOJISTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLMORNINGDOJISTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLMORNINGSTAR(PriceData):
+#     _CDLMORNINGSTAR = talib.CDLMORNINGSTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLMORNINGSTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLONNECK(PriceData):
+#     _CDLONNECK  = talib.CDLONNECK(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLONNECK,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLPIERCING(PriceData):
+#     _CDLPIERCING= talib.CDLPIERCING(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLPIERCING,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLRICKSHAWMAN(PriceData):
+#     _CDLRICKSHAWMAN = talib.CDLRICKSHAWMAN(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLRICKSHAWMAN,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLRISEFALL3METHODS(PriceData):
+#     _CDLRISEFALL3METHODS = talib.CDLRISEFALL3METHODS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLRISEFALL3METHODS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLSEPARATINGLINES(PriceData):
+#     _CDLSEPARATINGLINES= talib.CDLSEPARATINGLINES(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLSEPARATINGLINES,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLSHOOTINGSTAR(PriceData):
+#     _CDLSHOOTINGSTAR= talib.CDLSHOOTINGSTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLSHOOTINGSTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLSHORTLINE (PriceData):
+#     _CDLSHORTLINE   = talib.CDLSHORTLINE (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLSHORTLINE,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLSPINNINGTOP(PriceData):
+#     _CDLSPINNINGTOP = talib.CDLSPINNINGTOP(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLSPINNINGTOP,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLSTALLEDPATTERN (PriceData):
+#     _CDLSTALLEDPATTERN= talib.CDLSTALLEDPATTERN (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLSTALLEDPATTERN,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLSTICKSANDWICH(PriceData):
+#     _CDLSTICKSANDWICH = talib.CDLSTICKSANDWICH(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLSTICKSANDWICH,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLTAKURI(PriceData):
+#     _CDLTAKURI  = talib.CDLTAKURI(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLTAKURI,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLTASUKIGAP (PriceData):
+#     _CDLTASUKIGAP   = talib.CDLTASUKIGAP (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLTASUKIGAP,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLTHRUSTING (PriceData):
+#     _CDLTHRUSTING   = talib.CDLTHRUSTING (PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLTHRUSTING,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                             
+# def CDLTRISTAR(PriceData):
+#     _CDLTRISTAR = talib.CDLTRISTAR(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLTRISTAR,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                 
+# def CDLUNIQUE3RIVER(PriceData):
+#     _CDLUNIQUE3RIVER= talib.CDLUNIQUE3RIVER(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLUNIQUE3RIVER,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLUPSIDEGAP2CROWS(PriceData):
+#     _CDLUPSIDEGAP2CROWS= talib.CDLUPSIDEGAP2CROWS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLUPSIDEGAP2CROWS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
+                                     
+# def CDLXSIDEGAP3METHODS(PriceData):
+#     _CDLXSIDEGAP3METHODS = talib.CDLXSIDEGAP3METHODS(PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close']).tolist()
+#     return [_CDLXSIDEGAP3METHODS,PriceData['date'],PriceData['open'],PriceData['high'],PriceData['low'],PriceData['close'].tolist()] 
