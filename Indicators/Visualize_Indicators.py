@@ -499,8 +499,8 @@ def visualize_SUM(PriceData,Range):
 
 def visualize_CDLALL(PriceData):
     ind = Indicator.CDLALL(PriceData)
-    tovis = IndicatorsToFormate(ind)
-    return tovis
+    # tovis = IndicatorsToFormate(ind)
+    return ind
 
 # def visualize_CDL2CROWS(PriceData):
 #     ind = Indicator.CDL2CROWS(PriceData)

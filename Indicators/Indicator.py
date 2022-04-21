@@ -643,8 +643,8 @@ from Patterns.ExecutePatterns import all_candle_patterns
 # Candlestick Patterns
 def CDLALL(PriceData):
     ohlc_price = deepcopy(PriceData)
-    _CDLALL = all_candle_patterns(PriceData)
-    return [_CDLALL]
+    _CDLALL = all_candle_patterns(ohlc_price)
+    return _CDLALL
     
 # def CDL2CROWS(PriceData):
 #   ohlc_price = deepcopy(OHLCformated(PriceData))    
