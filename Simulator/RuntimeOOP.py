@@ -10,8 +10,6 @@ class SimulatorOOP:
         self.history = {
             'AssetPrice': strategy['AssetValue'],
             'Time': strategy['Time'],
-            # 'Cash': self.SimulatorEngine.Cash,
-            # 'AssetAmount': self.SimulatorEngine.Asset,
             'Trades': []
         }
 
@@ -29,7 +27,8 @@ class SimulatorOOP:
                     'Open': self.strategy['Time'][self.index],
                     'Direction': 'Long',
                     'AssetPrice': self.strategy['AssetValue'][self.index],
-                    
+                    'PositionSize': element['positionSize'],
+                    'Leverage': 1 ,
                     'From': self.SimulatorEngine.return_cash()[-1],
                     'To': self.SimulatorEngine.return_asset()[-1]
                 })
@@ -45,7 +44,8 @@ class SimulatorOOP:
                     'Open': self.strategy ['Time'][self.index],
                     'Direction':'Short',
                     'AssetPrice': self.strategy ['AssetValue'][self.index],
-                    
+                    'PositionSize': element['positionSize'],
+                    'Leverage': 1 ,
                     'From': self.SimulatorEngine.return_asset()[-1],
                     'To': self.SimulatorEngine.return_cash()[-1]
                 })

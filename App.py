@@ -6,6 +6,7 @@ from Strategies.MACrossings import SMAtoSMACompare
 from Strategies.DummyStrategy.DummyStrategyOOP import DummyStrategy, DummyStrategy2
 from Simulator.Runtime import Simulator
 from Simulator.RuntimeOutputFormater import Formater
+# , FormaterC
 from OO_Overhaul.data_handling import ImportData, AveragePrice
 from OO_Overhaul.indicator import Indicator
 
@@ -23,6 +24,7 @@ price_data = data_averaging.get_average()
 
 # Declaring 2 Indicators with our Bitcoin PriceData
 indicated_prices = Indicator(price_data)
+# dates are missing
 SMA5 = indicated_prices.get_sma(5)
 SMA10 = indicated_prices.get_sma(10)
 
@@ -39,7 +41,7 @@ test2 = random_output_strategy.execute()
 
 simulation_instance = SimulatorOOP(test2)
 simulation_instance.execute()
-history = simulation_instance.return_history()
+strategy_output = simulation_instance.return_history()
 
 
 
@@ -49,6 +51,6 @@ history = simulation_instance.return_history()
 # Simulation = Simulator(SMA5vs10)
 # The Output from the Simulater Module needs to be analyzed to 
 # tell us if we would have gained or losst money executing that Strategy
-FormatedSimulation = Formater(history)
+FormatedSimulation = Formater(strategy_output)
 
 # print(FormatedSimulation)
