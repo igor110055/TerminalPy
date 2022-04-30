@@ -7,11 +7,11 @@
 
 def Binance(trade, price_data):
     
-    # position_value
-    # portfolio_value
-    # asset_price_position = trade['AssetPrice']
-    # leverage = trade['Leverage']
-    # direction = trade['Direction']
+    position_value_cash_equivalent = trade
+    # portfolio_value_cash_equivalent =
+    asset_price_position = trade['AssetPrice']
+    leverage = trade['Leverage']
+    direction = trade['Direction']
     # calculate knockout price
 
     # # for every following date untill position closed check

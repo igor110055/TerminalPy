@@ -13,7 +13,10 @@ def Formater(HistoryObjFromRuntime2):
 
     return HistoryObjFromRuntime2
 
-class Formater:
+import Simulator.PortfolioValue
+import Simulator.LiquidationPrices
+
+class FormaterC:
     def __init__(self, HistoryObjFromRuntime2 , price_data):
         self.unformated_history = HistoryObjFromRuntime2
         self.price_data = price_data
@@ -22,9 +25,14 @@ class Formater:
         for index in range(1, len(self.unformated_history['Trades'])):
 
             # # Track percentage Change of AssetPrice for each position
-            # asset_price_position = self.unformated_history['Trades'][index]['AssetPrice']
-            # asset_price_prev_position = self.unformated_history['Trades'][index - 1]['AssetPrice']
-            # asset_price_change_percentage = ((asset_price_position / asset_price_prev_position) - 1) * 100
+            trade_position = self.unformated_history['Trades'][index]
+            prev_trade_position = self.unformated_history['Trades'][index - 1]
+
+            # total_cash_ballance = Simulator.PortfolioValue.calc_total_cash_value(trade_position)
+            
+            asset_price_change_percentage = Simulator.PortfolioValue.calc_price_change(trade_position, prev_trade_position)
+            
+            # knock_out = Simulator.LiquidationPrices.Binance(self.price_data, trade_position)
 
             # Calculate knock out price 
             # take date
@@ -36,15 +44,28 @@ class Formater:
             # determine whole portfolio value for each position
             # if Positionsize is only 0.5 then find out how big is rest
             # portfolio_size(self.unformated_history['Trades'][index])                                                                                                                         65RRRRRRRRRRRRR
+            
 
-            element1 = self.unformated_history['Trades'][index - 1]['From']     
-            element2 = self.unformated_history['Trades'][index]['To']  
-            if element1 == 0:
-                continue
+            # if ['Direction'] == 'Long':
+            #     pass
+            # elif ['Direction'] == 'Short':
+            #     pass
+            
+            # element1 = self.unformated_history['Trades'][index - 1]['From']     
+            # element2 = self.unformated_history['Trades'][index]['To']  
+            # if element1 == 0:
+            #     continue
 
-            # Check if this makes sense with both long and short
-            changePercentage = ((element2 / element1) - 1) * 100
-            # Multiply Percentage Change by the Leverage factor
-            change_percentage_w_leverage = changePercentage * leverage
-            # Adding a PnL key/value pair to each trade
-            self.unformated_history['Trades'][index]['PnL'] =  round(changePercentage, 2)
+            # # Check if this makes sense with both long and short
+            # changePercentage = ((element2 / element1) - 1) * 100
+            # # Multiply Percentage Change by the Leverage factor
+            # change_percentage_w_leverage = changePercentage * leverage
+            # # Adding a PnL key/value pair to each trade
+            # self.unformated_history['Trades'][index]['PnL'] = round(changePercentage, 2)
+            if trade_position['Direction'] == 'Long':
+                self.unformated_history['Trades'][index]['PnL'] = round(asset_price_change_percentage, 2)
+            elif trade_position['Direction'] == 'Short':
+                invert_PnL = asset_price_change_percentage
+                self.unformated_history['Trades'][index]['PnL'] = round( invert_PnL, 2)
+            
+            lol = 1
