@@ -2,11 +2,12 @@
 
 class Engine:
     def __init__(self) -> None:
+        # Can be configured
         self.cash_ballance = [0]
         self.asset_ballance = [0.1]
+        # Must stay 0 
         self.prev_position = [0]
         self.position = [0]
-        pass
 
     def buy(self, asset_price, position_size):
         collateral = self.cash_ballance[-1]
@@ -14,7 +15,7 @@ class Engine:
             self.buying_power = collateral * position_size
             self.prev_position.append(self.buying_power)
 
-            new_asset_amount = round(self.buying_power/asset_price, 2)
+            new_asset_amount = self.buying_power/asset_price
             self.position.append(new_asset_amount)
             self.asset_ballance.append(self.asset_ballance[-1] + new_asset_amount) 
             
@@ -31,7 +32,7 @@ class Engine:
             self.selling_power = collateral * position_size
             self.prev_position.append(self.selling_power)
 
-            new_cash_ballance = round(self.selling_power * asset_price, 2)
+            new_cash_ballance = self.selling_power * asset_price
             self.position.append(new_cash_ballance)
             self.cash_ballance.append(self.cash_ballance[-1] + new_cash_ballance)
             
@@ -46,8 +47,6 @@ class Engine:
             # execute that if we would not have Bitcoin in our Account
             # But in our Scenrio thats not going to happen
             print('Cant sell')
-            
-        pass
 
     def return_asset(self):
         return self.asset_ballance

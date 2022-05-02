@@ -14,6 +14,14 @@ def Binance(trade, price_data):
     direction = trade['Direction']
     # calculate knockout price
 
+
+    # Calculate knock out price 
+    # take date
+    # take position size to calculate Margin
+    # take leverage faktor
+    # liquidation_price(self.unformated_history['Trades'][index])
+    # google how knock out price is calculated
+
     # # for every following date untill position closed check
     # date = trade['Open'] index finden in price_data
     # from index till position close(end since positions dont get closed yet)

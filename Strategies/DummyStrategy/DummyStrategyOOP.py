@@ -33,12 +33,12 @@ class DummyStrategy:
                         break
                 if (prime_flag == 0):
                     # print("PrimeNumber: ", index_, 'buy')
-                    globalReturn['Action'].append({'type':'buy','positionSize': 0.5})
+                    globalReturn['Action'].append({'type':'buy','positionSizePercent': 0.5})
                     globalReturn['AssetValue'].append(self.price_raw[1][index_])
                     globalReturn['Time'].append(self.price_raw[0][index_])
                 elif(index_ % 2 == 0):
                     # print("StraightNumber: ", index_, 'sell')
-                    globalReturn['Action'].append({'type':'sell','positionSize': 0.5})
+                    globalReturn['Action'].append({'type':'sell','positionSizePercent': 0.5})
                     globalReturn['AssetValue'].append(self.price_raw[1][index_])
                     globalReturn['Time'].append(self.price_raw[0][index_])
             
@@ -69,13 +69,27 @@ class DummyStrategy2:
             
             n = random.random()
             if (n >= 0.75):
-                print("RandomNumber >= 0.75: ", n, 'buy')
-                globalReturn['Action'].append({'type':'buy','positionSize': 0.5})
+                # print("RandomNumber >= 0.75: ", n, 'buy')
+                position_id = id(element)
+                globalReturn['Action'].append({
+                    'type':'buy',
+                    'positionSizePercent': 0.5,
+                    'leverage/factor': 1,
+                    'id': position_id
+                })
+                
                 globalReturn['AssetValue'].append(self.price_raw[1][index_])
                 globalReturn['Time'].append(self.price_raw[0][index_])
             elif(n <= 0.25):
-                print("RandomNumber <= 0.25: ", n, 'sell')
-                globalReturn['Action'].append({'type':'sell','positionSize': 0.5})
+                # print("RandomNumber <= 0.25: ", n, 'sell')
+                position_id = id(element)
+                globalReturn['Action'].append({
+                    'type':'sell',
+                    'positionSizePercent': 0.5,
+                    'leverage/factor': 1,
+                    'id': position_id
+                })
+
                 globalReturn['AssetValue'].append(self.price_raw[1][index_])
                 globalReturn['Time'].append(self.price_raw[0][index_])
         
