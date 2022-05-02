@@ -1,7 +1,7 @@
 import pandas as pd
 
 class BinanceDataFrame():
-    def __init__(self,arrayListe) -> None:
+    def __init__(self,arrayListe):
         self.PriceDataFrame = pd.DataFrame(
             # arrayListe()
             arrayListe
@@ -31,7 +31,9 @@ class BinanceDataFrame():
         self.PriceDataFrame.rename(columns = {'Close':name}, inplace = True) 
 
     def ohlc(self):
-        self.PriceDataFrame['TimeStamp']= pd.to_datetime(self.PriceDataFrame['TimeStamp'], unit='ms')
+        change_date_from_timestamp = pd.to_datetime(self.PriceDataFrame['TimeStamp'], unit='ms')
+        self.PriceDataFrame['TimeStamp'] = change_date_from_timestamp 
+        # pd.to_datetime(self.PriceDataFrame['TimeStamp'], unit='ms')
         self.PriceDataFrame.set_index("TimeStamp", inplace = True)
     
         self.PriceDataFrame['Open'] = pd.to_numeric(self.PriceDataFrame['Open'])
