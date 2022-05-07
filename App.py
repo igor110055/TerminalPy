@@ -1,5 +1,5 @@
 """Module for final execusion"""
-
+# eat a dick
 # from crypt import methods
 # from Config.BinanceFetchFrontend import PriceDataFetch
 # from flask_restful import Api Resource, reqparse, request
