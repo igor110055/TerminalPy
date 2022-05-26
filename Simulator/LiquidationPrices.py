@@ -4,9 +4,8 @@
 #         pass
 
 # asset_price_position, date, leverage
+def Test(trade):
 
-def Binance(trade, price_data):
-    
     # Calculate knock out price 
     # take date
     # take position size to calculate Margin
@@ -29,14 +28,15 @@ def Binance(trade, price_data):
     asset_price_position_entry = trade['AssetPrice']
     leverage_factor = trade['Leverage']
     direction = trade['Direction']
-    # calculate knockout price
-
-
-
 
     price = 0
-    tradecollateral = 400
-    accountballance = 450
+
+    if direction == 'Long':
+        tradecollateral = trade['From']
+    if direction == 'Short':
+        tradecollateral = trade['To']
+    
+    accountballance = trade['TotalPortfolioValue']
    
     
     schwankungAbsolut = price - asset_price_position_entry
@@ -49,16 +49,20 @@ def Binance(trade, price_data):
     liquidationlevel = 0
 
     if direction == 'Long':
-        profitloss = (leverage / 100) * schwankung
+        # profitloss = (leverage / 100) * schwankung
         liquidationlevel = ((0.8 * tradecollateral) - accountballance) / (leverage / 100)
     elif direction == 'Short':
-        profitloss = (leverage / 100) * (-schwankung)
+        # profitloss = (leverage / 100) * (-schwankung)
         liquidationlevel = (-((0.8 * tradecollateral) - accountballance) / (leverage / 100))
 
 
-    equity = accountballance + profitloss
-    marginlevel = (equity / tradecollateral) * 100
+    # equity = accountballance + profitloss
+    # marginlevel = (equity / tradecollateral) * 100
     liquidationpreis = asset_price_position_entry-((-liquidationlevel * 0.01)*asset_price_position_entry)
+    
+    return liquidationpreis
+
+def Binance(trade):
     pass
 
 def Kraken(self):
