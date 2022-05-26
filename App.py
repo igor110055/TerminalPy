@@ -4,7 +4,7 @@
 # import Indicators.Indicator as Indicator
 from Strategies.MACrossings import SMAtoSMACompare
 from Strategies.DummyStrategy.DummyStrategyOOP import DummyStrategy, DummyStrategy2
-from Simulator.Runtime import Simulator
+# from Simulator.Runtime import Simulator
 from Simulator.RuntimeOutputFormaterOOP import Formater
 from OO_Overhaul.data_handling import ImportData, AveragePrice
 from OO_Overhaul.indicator import Indicator
@@ -52,6 +52,9 @@ strategy_output = simulation_instance.return_history()
 # tell us if we would have gained or losst money executing that Strategy
 
 testFormaterOOP = Formater(strategy_output,price_data)
-formate_w_leverage = testFormaterOOP.formate(6)
+testFormaterOOP.formate(6)
+testFormaterOOP.calculate_knockout_price()
+# testFormaterOOP.check_total_long_short_exposure()
+testFormaterOOP.check_liquidation()
 
 print('FormatedSimulation')
