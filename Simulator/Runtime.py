@@ -1,4 +1,4 @@
-from Simulator.SimEngineOOP import Engine
+from SimulatorEngine import Engine
 
 
 class SimulatorOOP:

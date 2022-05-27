@@ -5,11 +5,11 @@
 from Strategies.MACrossings import SMAtoSMACompare
 from Strategies.DummyStrategy.DummyStrategyOOP import DummyStrategy, DummyStrategy2
 # from Simulator.Runtime import Simulator
-from Simulator.RuntimeOutputFormaterOOP import Formater
+from RuntimeOutputFormater import Formater
 from OO_Overhaul.data_handling import ImportData, AveragePrice
 from OO_Overhaul.indicator import Indicator
 
-from Simulator.RuntimeOOP import SimulatorOOP
+from Runtime import SimulatorOOP
 # Load datasource
 data_source = ImportData()
 # bitcoin data auto loaded on init, to connect a different url call:
