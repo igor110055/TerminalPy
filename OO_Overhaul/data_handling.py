@@ -9,6 +9,7 @@ import requests
 import numpy
 import talib
 
+from Database_SQL.query_assets import return_all_asset_URLs
 
 class ImportData:
     """Class"""
@@ -18,6 +19,11 @@ class ImportData:
         self.json = None
         self.connect_data()
         self.is_formatted = False
+
+    def querry_price_data_URL_from_DB():
+        # querry all URL_links from DB
+        all_URLs = return_all_asset_URLs()
+        pass
 
     def connect_data(self, url=None):
         """if we want to load data other than the url specified in __init__"""
