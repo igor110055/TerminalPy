@@ -1,10 +1,12 @@
 import requests
 def PriceDataFetch():
+    # Fetches Bitcoin PriceData
     URI = 'https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=70'
     response = requests.get(URI)
     json = response.json()
     formated = []
 
+    # Formating Data
     for element in json:
         open = round(float(element[1]), 3)
         high = round(float(element[2]), 3)

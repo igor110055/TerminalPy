@@ -1,47 +1,71 @@
-import Simulator.SimulatorEngine as SimulatorEngine
-    
-def Simulator(Strategy):
-    
-    # Object thats going to be returned
-    History = {
-        'AssetPrice': Strategy['AssetValue'],
-        'Time': Strategy['Time'],
-        'Cash': SimulatorEngine.Cash,
-        'AssetAmount': SimulatorEngine.Asset,
-        'Trades': []
-    }
+from SimulatorEngine import Engine
 
-    # Looping through the signals
-    for index in range(len(Strategy['MAonTop'])):
-        
-        # Executing the Buy Condition
-        if Strategy['MAonTop'][index] == Strategy['MAMin']['Range']:
-           
-            # execute the Trade by pasing the AssetPrice into the Engine
-            SimulatorEngine.buy( Strategy['AssetValue'][index] )
 
-            # Log all the Metadata
-            History['Trades'].append({
-                'Open': Strategy['Time'][index],
-                'Direction': 'Long',
-                'AssetPrice': Strategy['AssetValue'][index],
-                'From': SimulatorEngine.Cash[-1],
-                'To': SimulatorEngine.Asset[-1]
-            })
+class SimulatorOOP:
+    def __init__(self, strategy):
+        """Load Strategy Data"""
+        self.strategy = strategy
+        self.SimulatorEngine = Engine()
+        # Object thats going to be returned
+        self.history = {
+            'AssetPrice': strategy['AssetValue'],
+            'Time': strategy['Time'],
+            'Trades': []
+        }
 
-        # Executing the Sell Condition
-        elif Strategy['MAonTop'][index] == Strategy['MAMax']['Range']:
+    def execute(self):
+        for index in range(len(self.strategy['Action'])):
             
-            # execute the Trade by pasing the AssetPrice into the Engine
-            SimulatorEngine.sell( Strategy['AssetValue'][index] )
+            position = self.strategy['Action'][index]
+            # Executing the Buy Condition
+            
+            if position['type'] == 'buy':
+            
+                # execute the Trade by pasing the AssetPrice into the Engine
+                executed = self.SimulatorEngine.buy( self.strategy['AssetValue'][index],position['positionSizePercent'])
 
-            # Log all the Metadata
-            History['Trades'].append({
-                'Open': Strategy['Time'][index],
-                'Direction':'Short',
-                'AssetPrice': Strategy['AssetValue'][index],
-                'From': SimulatorEngine.Asset[-1],
-                'To': SimulatorEngine.Cash[-1]
-            })
+                if executed == True:
+                    # Log all the Metadata
+                    self.history['Trades'].append({
+                        'Open': self.strategy['Time'][index],
+                        'Direction': 'Long',
+                        'AssetPrice': self.strategy['AssetValue'][index],
+                        'PositionSize': position['positionSizePercent'],
+                        'Leverage': position['leverage/factor'],
+                        'Current_AssetBallance': self.SimulatorEngine.return_asset()[-1],
+                        'Current_CashBallance': self.SimulatorEngine.return_cash()[-1],
+                        'Prev_AssetBallance': self.SimulatorEngine.return_asset()[-2],
+                        'Prev_CashBallance': self.SimulatorEngine.return_cash()[-2],
+                        'From': self.SimulatorEngine.return_prev_position()[-1],
+                        'To': self.SimulatorEngine.return_position()[-1],
+                        'Closed': 0,
+                        'ID': position['id']
+                    })
 
-    return(History)
+            # Executing the Sell Condition
+            elif position['type'] == 'sell':
+                
+                # execute the Trade by pasing the AssetPrice into the Engine
+                executed = self.SimulatorEngine.sell( self.strategy ['AssetValue'][index],position['positionSizePercent'])
+
+                if executed == True:
+                    # Log all the Metadata
+                    self.history['Trades'].append({
+                        'Open': self.strategy ['Time'][index],
+                        'Direction':'Short',
+                        'AssetPrice': self.strategy ['AssetValue'][index],
+                        'PositionSize': position['positionSizePercent'],
+                        'Leverage': position['leverage/factor'],
+                        'Current_AssetBallance': self.SimulatorEngine.return_asset()[-1],
+                        'Current_CashBallance': self.SimulatorEngine.return_cash()[-1],
+                        'Prev_AssetBallance': self.SimulatorEngine.return_asset()[-2],
+                        'Prev_CashBallance': self.SimulatorEngine.return_cash()[-2],
+                        'From': self.SimulatorEngine.return_prev_position()[-1],
+                        'To': self.SimulatorEngine.return_position()[-1],
+                        'Closed': 0,
+                        'ID': position['id']
+                    })
+
+    def return_history(self):
+        # print('self.history: ',self.history)
+        return self.history
